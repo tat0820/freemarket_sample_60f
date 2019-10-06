@@ -62,3 +62,16 @@
 |img|string|null: false|　<!--画像-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 
+## messagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|body|text|null: false|　<!--コメント-->
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
+|product_id|references|null: false, foreign_key: true|　<!--product_id-->
+
+## soldoutsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, foreign_key: true|　<!--product_id-->
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
+|buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--user_id-->
