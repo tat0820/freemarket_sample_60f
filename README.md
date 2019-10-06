@@ -13,12 +13,38 @@
 |prefecture|string|null: false| <!--都道府県-->
 |town|string|null: false| <!--市区町村-->
 |address|integer|null: false| <!--番地-->
-|building name|string|null: false| <!--建物名-->
+|building_name|string|null: false| <!--建物名-->
 |card_number|integer|| <!--クレジットカード番号-->
 |exparation_date|integer|| <!--クレジットカード有効期限-->
 |security_code|integer|| <!--セキュリティコード-->
 |sales_money|string|null: false| <!--売上金-->
 |point|string|null: false| <!--ポイント-->
+### Association
+- has_many :products
+- has_many :comments
+- has_many :messages
+- has_many :soldouts
+- has_many :evaluations
+- has_many :todos
+
+<!--自分がフォローしているユーザーを取ってくる正方向の中間テーブル-->
+- has_many :relationships
+
+<!--擬似的にfollowingsと命名、user.followingsで自分がフォローしているユーザーを全て取ってくる-->
+- has_many :followings, through: :relationships, source: :follow
+
+<!--擬似的にreverse_of_relationshipsと命名、自分をフォローしているユーザーを取ってくる逆方向の中間テーブル-->
+- has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
+
+<!--擬似的にfollowersと命名、user.followersで自分をフォローしているユーザーを全て取ってくる-->
+- has_many :followers, through: :reverse_of_relationships, source: :user
+
+<!--子要素が削除されたらこの要素も削除-->
+- has_many :likes, dependent: :destroy
+
+<!--擬似的にlike_productsと命名、user.like_productsでそのユーザーがいいねした商品全てを全て取ってくる-->
+- has_many :like_products, through: :likes, source: :product
+
 
 ## productsテーブル
 |Column|Type|Options|
