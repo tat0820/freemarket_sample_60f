@@ -49,14 +49,14 @@
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|　<!--商品名-->
+|name|string|null: false, index: true|　<!--商品名-->
 |discription|text||　<!--商品説明-->  
-|condition|string|null: false|　<!--商品の状態-->
-|delivery_charge|string|null: false|　<!--配送料の負担-->
+|condition|string|null: false, index: true|　<!--商品の状態-->
+|delivery_charge|string|null: false, index: true|　<!--配送料の負担-->
 |origin_area|string|null: false|　<!--発送元の地域-->
 |days_left_send|integer|null: false|　<!--発送までの日数-->
-|price|integer|null: false|　<!--値段-->
-|status|string|null: false|　<!--ステータス(出品中か取引中か売却済み)-->
+|price|integer|null: false, index: true|　<!--値段-->
+|status|string|null: false, index: true|　<!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |likes_count|integer||　<!--いいね数のカウンタ-->
 ### Association
@@ -96,11 +96,11 @@
 ## detailsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|large_category|string|null: false|　<!--大項目カテゴリー-->
-|medium_category|string|null: false|　<!--中項目カテゴリー-->
-|small_category|string|null: false|　<!--小項目カテゴリー-->
-|size|string|null: false|　<!--サイズ-->
-|brand|string|null: false|　<!--ブランド-->
+|large_category|string|null: false, index: true|　<!--大項目カテゴリー-->
+|medium_category|string|null: false, index: true|　<!--中項目カテゴリー-->
+|small_category|string|null: false, index: true|　<!--小項目カテゴリー-->
+|size|string|null: false, index: true|　<!--サイズ-->
+|brand|string|null: false, index: true|　<!--ブランド-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 ### Association
 - belongs_to :product
