@@ -55,3 +55,10 @@
 |size|string|null: false|　<!--サイズ-->
 |brand|string|null: false|　<!--ブランド-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+
+## imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|img|string|null: false|　<!--画像-->
+|product_id|references|null: false, foreign_key: true|　<!--product_id-->
+
