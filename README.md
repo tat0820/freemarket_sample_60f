@@ -129,7 +129,9 @@
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--購入者-->
-
+### Association
+- belongs_to :user
+- belongs_to :product
 
 ## evaluationsテーブル
 |Column|Type|Options|
@@ -137,15 +139,22 @@
 |rank|integer|null: false, foreign_key: true|　<!--評価-->
 |body|text||　<!--コメント-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
+### Association
+- belongs_to :user
 
 ## todosテーブル
 |Column|Type|Options|
 |------|----|-------|
 |action|text|null: false|　<!--やること-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
+### Association
+- belongs_to :user
 
 ## relationshipsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|　<!--フォローする人-->
 |follow_id|references|null: false, foreign_key: { to_table: :users }|　<!--フォローされる人-->
+### Association
+- belongs_to :user
+- belongs_to :follow, class_name: 'User' <!--擬似的にfollowと命名-->
