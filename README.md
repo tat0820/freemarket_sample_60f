@@ -60,8 +60,8 @@
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 ### Association
 - belongs_to :user
-- belongs_to :details
-- belongs_to :soldouts
+- belongs_to :detail
+- belongs_to :soldout
 - has_many :images
 - has_many :comments
 - has_many :messages
@@ -79,12 +79,18 @@
 |body|text|null: false|　<!--コメント-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+### Association
+- belongs_to :user
+- belongs_to :product
 
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+### Association
+- belongs_to :user
+- belongs_to :product, counter_cache: :likes_count <!--いいね数のカウンタを用意-->
 
 ## detailsテーブル
 |Column|Type|Options|
