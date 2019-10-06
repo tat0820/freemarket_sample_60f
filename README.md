@@ -74,7 +74,7 @@
 |------|----|-------|
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
-|buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--user_id-->
+|buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--購入者-->
 
 ## evaluationsテーブル
 |Column|Type|Options|
@@ -88,3 +88,9 @@
 |------|----|-------|
 |action|text|null: false|　<!--やること-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
+
+## relationshipsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|　<!--フォローする人-->
+|follow_id|references|null: false, foreign_key: { to_table: :users }|　<!--フォローされる人-->
