@@ -40,3 +40,9 @@
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 
+## likesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
+|product_id|references|null: false, foreign_key: true|　<!--product_id-->
+
