@@ -58,6 +58,20 @@
 |price|integer|null: false|　<!--値段-->
 |status|string|null: false|　<!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
+### Association
+- belongs_to :user
+- belongs_to :details
+- belongs_to :soldouts
+- has_many :images
+- has_many :comments
+- has_many :messages
+
+<!--子要素が削除されたらこの要素も削除-->
+- has_many :likes, dependent: :destroy
+
+<!--擬似的にliking_usersと命名、products.liking_usersでその商品をいいねしたユーザー全てを全て取ってくる-->
+- has_many :liking_users, through: :likes, source: :user
+
 
 ## commentsテーブル
 |Column|Type|Options|
