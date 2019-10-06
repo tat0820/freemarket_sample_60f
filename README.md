@@ -46,3 +46,12 @@
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 
+## detailsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|large_category|string|null: false|　<!--大項目カテゴリー-->
+|medium_category|string|null: false|　<!--中項目カテゴリー-->
+|small_category|string|null: false|　<!--小項目カテゴリー-->
+|size|string|null: false|　<!--サイズ-->
+|brand|string|null: false|　<!--ブランド-->
+|product_id|references|null: false, foreign_key: true|　<!--product_id-->
