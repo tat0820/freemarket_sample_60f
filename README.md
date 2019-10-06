@@ -75,3 +75,16 @@
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--user_id-->
+
+## evaluationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|rank|integer|null: false, foreign_key: true|　<!--評価-->
+|body|text||　<!--コメント-->
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
+
+## todosテーブル
+|Column|Type|Options|
+|------|----|-------|
+|action|text|null: false|　<!--やること-->
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
