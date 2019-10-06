@@ -87,11 +87,13 @@
 ## likesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|　<!--user_id-->
-|product_id|references|null: false, foreign_key: true|　<!--product_id-->
+|user_id|references|null: false, foreign_key: true, index: true|　<!--user_id-->
+|product_id|references|null: false, foreign_key: true, index: true|　<!--product_id-->
 ### Association
 - belongs_to :user
 - belongs_to :product, counter_cache: :likes_count <!--いいね数のカウンタを用意-->
+### Option
+[:user_id, :product_id], unique: true
 
 ## detailsテーブル
 |Column|Type|Options|
@@ -153,8 +155,10 @@
 ## relationshipsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|　<!--フォローする人-->
-|follow_id|references|null: false, foreign_key: { to_table: :users }|　<!--フォローされる人-->
+|user_id|references|null: false, foreign_key: true, index: true,|　<!--フォローする人-->
+|follow_id|references|null: false, foreign_key: { to_table: :users }, index: true|　<!--フォローされる人-->
 ### Association
 - belongs_to :user
 - belongs_to :follow, class_name: 'User' <!--擬似的にfollowと命名-->
+### Option
+[:user_id, :follow_id], unique: true
