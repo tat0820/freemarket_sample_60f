@@ -58,6 +58,7 @@
 |price|integer|null: false|　<!--値段-->
 |status|string|null: false|　<!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
+|likes_count|integer||　<!--いいね数のカウンタ-->
 ### Association
 - belongs_to :user
 - belongs_to :detail
@@ -101,12 +102,16 @@
 |size|string|null: false|　<!--サイズ-->
 |brand|string|null: false|　<!--ブランド-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+### Association
+- belongs_to :product
 
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |img|string|null: false|　<!--画像-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+### Association
+- belongs_to :product
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -114,6 +119,9 @@
 |body|text|null: false|　<!--コメント-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
+### Association
+- belongs_to :user
+- belongs_to :product
 
 ## soldoutsテーブル
 |Column|Type|Options|
@@ -121,6 +129,7 @@
 |product_id|references|null: false, foreign_key: true|　<!--product_id-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--購入者-->
+
 
 ## evaluationsテーブル
 |Column|Type|Options|
