@@ -9,22 +9,19 @@
 |email|string|null: false| <!--メールアドレス-->
 |password|string|null: false| <!--パスワード-->
 |phone_number|integer|null: false| <!--電話番号-->
-|post_code|integer|null: false| <!--郵便番号-->
-|prefecture|string|null: false| <!--都道府県-->
-|town|string|null: false| <!--市区町村-->
-|address|integer|null: false| <!--番地-->
-|building_name|string|null: false| <!--建物名-->
 |card_number|integer|| <!--クレジットカード番号-->
 |exparation_date|integer|| <!--クレジットカード有効期限-->
 |security_code|integer|| <!--セキュリティコード-->
 |sales_money|string|null: false| <!--売上金-->
 |point|string|null: false| <!--ポイント-->
+|address_id|references|null: false, foreign_key: true|　<!--user_id-->
 ### Association
 - has_many :products
 - has_many :comments
 - has_many :messages
 - has_many :evaluations
 - has_many :todos
+- belongs_to :address
 
 <!--自分がフォローしているユーザーを取ってくる正方向の中間テーブル-->
 - has_many :relationships
@@ -58,6 +55,7 @@
 |status|string|null: false, index: true|　<!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--購入者-->
+|detail_id|references|null: false, foreign_key: true|　<!--detail_id-->
 |likes_count|integer||　<!--いいね数のカウンタ-->
 ### Association
 - belongs_to :user
@@ -151,3 +149,15 @@
 - belongs_to :follower, class_name: 'User' <!--擬似的にfollowと命名-->
 ### Option
 [:user_id, :follower_id], unique: true
+
+## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|post_code|integer|null: false| <!--郵便番号-->
+|prefecture|string|null: false| <!--都道府県-->
+|town|string|null: false| <!--市区町村-->
+|street|integer|null: false| <!--番地-->
+|building_name|string|null: false| <!--建物名-->
+|user_id|references|null: false, foreign_key: true|　<!--user_id-->
+### Association
+- belongs_to :user
