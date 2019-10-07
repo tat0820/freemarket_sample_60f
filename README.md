@@ -14,14 +14,13 @@
 |security_code|integer|| <!--セキュリティコード-->
 |sales_money|string|null: false| <!--売上金-->
 |point|string|null: false| <!--ポイント-->
-|address_id|references|null: false, foreign_key: true|　<!--user_id-->
 ### Association
 - has_many :products
 - has_many :comments
 - has_many :messages
 - has_many :evaluations
 - has_many :todos
-- belongs_to :address
+- has_one :address
 
 <!--自分がフォローしているユーザーを取ってくる正方向の中間テーブル-->
 - has_many :relationships
@@ -55,11 +54,10 @@
 |status|string|null: false, index: true|　<!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true|　<!--user_id-->
 |buyer_id|references|null: false, foreign_key: { to_table: :users }|　<!--購入者-->
-|detail_id|references|null: false, foreign_key: true|　<!--detail_id-->
 |likes_count|integer||　<!--いいね数のカウンタ-->
 ### Association
 - belongs_to :user
-- belongs_to :detail
+- has_one :detail
 - has_many :images
 - has_many :comments
 - has_many :messages
