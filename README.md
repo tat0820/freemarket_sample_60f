@@ -23,7 +23,6 @@
 - has_many :products
 - has_many :comments
 - has_many :messages
-- has_many :soldouts
 - has_many :evaluations
 - has_many :todos
 
@@ -63,7 +62,6 @@
 ### Association
 - belongs_to :user
 - belongs_to :detail
-- belongs_to :soldout
 - has_many :images
 - has_many :comments
 - has_many :messages
