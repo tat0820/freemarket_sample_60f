@@ -30,7 +30,7 @@
 - has_many :relationships
 
 <!--擬似的にfollowingsと命名、user.followingsで自分がフォローしているユーザーを全て取ってくる-->
-- has_many :followings, through: :relationships, source: :follow
+- has_many :followings, through: :relationships, source: :follower
 
 <!--擬似的にreverse_of_relationshipsと命名、自分をフォローしているユーザーを取ってくる逆方向の中間テーブル-->
 - has_many :reverse_of_relationships, class_name: 'Relationship', foreign_key: 'follow_id'
@@ -145,9 +145,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true, index: true,|　<!--フォローする人-->
-|follow_id|references|null: false, foreign_key: { to_table: :users }, index: true|　<!--フォローされる人-->
+|follower_id|references|null: false, foreign_key: { to_table: :users }, index: true|　<!--フォローされる人-->
 ### Association
 - belongs_to :user
-- belongs_to :follow, class_name: 'User' <!--擬似的にfollowと命名-->
+- belongs_to :follower, class_name: 'User' <!--擬似的にfollowと命名-->
 ### Option
-[:user_id, :follow_id], unique: true
+[:user_id, :follower_id], unique: true
