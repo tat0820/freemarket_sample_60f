@@ -58,8 +58,8 @@ set :ssh_options, auth_methods: ['publickey'],
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  Rails.application.credentials.aws[:access_key_id]
-  Rails.application.credentials.aws[:secret_access_key]
+  AWS_ACCESS_KEY_ID: Rails.application.credentials.aws[:access_key_id],
+  AWS_SECRET_ACCESS_KEY: Rails.application.credentials.aws[:secret_access_key]
 }
 
 # プロセス番号を記載したファイルの場所
