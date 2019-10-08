@@ -76,3 +76,4 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'carrierwave'
+gem 'active_hash'
