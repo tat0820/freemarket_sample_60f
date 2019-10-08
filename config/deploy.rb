@@ -54,6 +54,14 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/mercari.pem'] 
 
+# 環境変数をcapistranoでの自動デプロイで利用するため
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  Rails.application.credentials.aws[:access_key_id]
+  Rails.application.credentials.aws[:secret_access_key]
+}
+
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 
