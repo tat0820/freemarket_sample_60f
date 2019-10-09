@@ -38,6 +38,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :production do
   gem 'unicorn', '5.4.1'
+  gem 'fog-aws'
 end
 
 group :development, :test do
@@ -75,3 +76,4 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'active_hash'
+gem 'carrierwave'
