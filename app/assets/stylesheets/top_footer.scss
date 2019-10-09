@@ -1,0 +1,92 @@
+.top-footer-image{
+  background: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg) center center / cover;
+  background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/download_app_bg-b57d6f1a32f2aebd89cf6f43bc2e4b39.jpg);
+  height: 300px;
+  padding: 0 22vw;
+  display: flex;
+
+  &__left-box{
+    padding: 60px 35px 60px 0;
+    
+    &__text-top{
+      color: white;
+      font-size: 24px;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    &__text-bottom{
+      color: white;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    &__images{
+      .image-mercari{
+        width: 70px;
+        height: 70px;
+        margin-right: 16px;
+      }
+
+      .image-app{
+        padding-bottom: 14px;
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__right-box{
+    .image-right{
+      height: 294px;
+      width: auto;
+    }
+  }
+}
+
+.top-footer-bottom{
+  background: #222222;
+
+
+  &__contents{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 14vw 3vh;
+
+    &__content{
+      color: white;
+
+      &__title{
+        font-size: 16px;
+        font-weight: 600;
+        padding: 14px 0;
+      }
+
+      &__margin{
+        margin-top: 52px;
+      }
+
+      &__box{
+        font-size: 12px;
+        width: 195px;
+
+        &--text{
+          padding-bottom: 10px;
+        }
+
+        .sns-icon{
+          padding-right: 16px;
+        }
+      }
+    }
+  }
+
+  &__logo{
+    padding: 0 15vw 32px;
+
+    &__text{
+      color: white;
+      font-size: 12px;
+      display: inline-block;
+      margin-left: 24vw;
+    }
+  }
+}
