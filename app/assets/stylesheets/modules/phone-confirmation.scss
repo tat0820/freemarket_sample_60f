@@ -1,0 +1,94 @@
+.phone-confirmation{
+  background:rgb(245,245,245)
+}
+
+.check-phone-number h2 {
+  font-size: 22px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  background: white;
+  width: 700px;
+  margin: 0 auto;
+  line-height:80px;
+  border-bottom: solid 0.5px #f5f5f5;
+}
+
+.phone-confirmation-header{
+  width:730px;
+  margin:0px auto;
+  text-align:center;
+  display:flex;
+}
+
+.phone-confirmation-main{
+  width:700px;
+  margin:0px auto;
+  background:white;
+  padding-top:15px;
+  padding-bottom:60px;
+  text-align: center;
+}
+
+.phone-confirmation-content{
+  margin: 25px auto ;
+  max-width: 343px;
+  padding-top:10px;
+}
+
+.phone-form-list{
+  max-width: 343px;
+}
+
+.phone-form-list .input-data {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+.phone-input-data {
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width:310px;
+}
+
+.phone-btn-red{
+  margin: 24px 0 0;
+  background: #ea352d;
+  border: 1px solid #ea352d;
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 14px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-align: center;
+}
+
+a{
+  color: #0099e8;
+  text-decoration: none;
+}
+
+p {
+  display: block;
+}
+
+.phone-text{
+  font-size:14px;
+  margin-top:0px;
+  text-align:left;
+}
+
+.phone-reason{
+  margin-top:15px;
+  float:right;
+  font-size:9x;
+}
+

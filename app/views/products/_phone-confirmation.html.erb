@@ -1,0 +1,49 @@
+<div class="phone-confirmation">
+
+  <div class="phone-confirmation-header">
+    <div class="register-top-icon">
+        <a href="https://www.mercari.com/jp/">
+      <img src="//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308" alt="mercari">
+    </a>
+    </div>
+    <div class="progress-phone">
+      <%= image_tag "phone.png" %>
+    </div>
+  </div>
+
+  <div class="phone-confirmation-main">
+      <div class=check-phone-number>
+        <h2>電話番号の確認</h2>
+      </div>
+
+      <div class="phone-confirmation-content">
+        <div class="phone-form-list">
+            <label for="password">携帯電話の番号</label>
+            <input type="tel" value="" name="phone_number" placeholder="携帯電話の番号を入力" class="phone-input-data">
+        </div>
+        
+        <div class="phone-form-list">
+          <div class="phone-text">
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          </div>
+        </div>
+
+        <button type="submit" class="phone-btn-red">次へ進む</button>
+
+        <div class="phone-form-list">
+          <div class="phone-text">
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+          </div>
+        </div>
+
+        <div class="phone-form-list text-right">
+          <p>
+            <a class="phone-reason" href="/jp/help_center/article/244/" target="_blank">電話番号の確認が必要な理由<strong>＞</strong></a>
+          </p>
+        </div>
+      </div>
+  </div>
+
+  <%= render 'registration_footer'%>
+
+</div>
