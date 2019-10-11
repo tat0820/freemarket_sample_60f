@@ -1,0 +1,79 @@
+.top-header{
+  background: white;
+  padding: 10px 14vw 0;
+  filter: drop-shadow(0 3px 3px rgb(204,204,204));
+
+  &__logo{
+    display:inline-block;
+    img{
+      height: 36px;
+      width: 134px;
+    }
+  }
+
+  &__search{
+    position: relative;
+    display:inline-block;
+
+    &__form{
+      width: 54vw;
+      height: 34px;
+      float: right;
+      padding: 0 50px 0 10px;
+      border-radius: 5px;
+      border: solid 1px rgb(204,204,204);
+      background: rgb(245,245,245);
+      margin-left: 4vw;
+    }
+
+    &__button{
+      position: absolute;
+      right: 12px;
+      top: 5px;
+      color: gray;
+    }
+  }
+
+  &__list{
+    font-size: 14px;
+    &__category{
+      display:inline-block;
+      padding: 14px 10px 14px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      
+      .fa-list-ul{
+        color: #EA352D;
+      }
+    }
+    &__brand{
+      display:inline-block;
+      padding: 14px 10px 14px 0;
+      font-weight: 600;
+      letter-spacing: 1px;
+      .fa-tags{
+        color: #EA352D;
+      }
+    }
+    &__signup{
+      display:inline-block;
+      float: right;
+      padding: 4px 8px;
+      background: #EA352D;
+      color: white;
+      border-radius: 5px;
+      border: solid 1px #EA352D;
+      margin-top: 4px;
+    }
+    &__login{
+      display:inline-block;
+      float: right;
+      padding: 4px 8px;
+      color: #0095EE;
+      border-radius: 5px;
+      border: solid 1px #0095EE;
+      margin-left: 10px;
+      margin-top: 4px;
+    }
+  }
+}
