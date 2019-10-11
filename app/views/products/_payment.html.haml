@@ -1,0 +1,37 @@
+.payment-top
+  .payment-top__header
+    .payment-top__header__icon
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
+    .progress
+      = image_tag "payment.png"
+  .payment-top__main
+    .payment-top__main__new
+      %h2 支払い方法
+    .payment-top__main__content
+      .form-list
+        %label{:for => "nickname"} カード番号
+        %span.form-must 必須
+        %input.payment-input-data{:name => "nickname", :placeholder => "半角数字のみ", :type => "text", :value => ""}/
+        = image_tag "credit-cards.png"
+      .form-list
+        %label{:for => "exparation-limit"} 有効期限
+        %span.form-must 必須
+      .exparation-select-wrap
+        .select-wrap
+          %i.icon-arrow-bottom
+          %select.select-default{:name => "year"}
+            %option{:value => ""} --
+        %span.date 年
+        .exparation-wrap.select-wrap__month
+          %i.icon-arrow-bottom
+          %select.select-default{:name => "month"}
+            %option{:value => ""} --
+        %span.date 月
+      .form-list
+        %label{:for => "email"} セキュリティコード
+        %span.form-must 必須
+        %input.payment-input-data{:name => "email", :placeholder => "カード背面4行もしくは3行の番号", :type => "email", :value => ""}/
+        %p.card-back
+          %a.yourselfs{:href => "/jp/help_center/article/423/", :target => "_blank"} カード裏面の番号とは？
+      %button.btn-red-payment{:type => "submit"} 次へ進む
+  = render 'registration_footer'

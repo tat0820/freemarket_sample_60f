@@ -6,48 +6,47 @@
   font-size: 14px;
   color: #333;
   line-height: 1;
-}
 
-.register-top-icon{
-  padding-top:20px;
-  height:110px;
-  line-height:110px;
-  text-align:center;
-}
+  &__selection{
+    width:700px;
+    margin:0px auto;
+    background:white;
+    padding-top:30px;
+    padding-bottom:60px;
+    text-align: center;
+    line-height: 80px;
 
-.register-top-icon img {
-  width: 185px;
-  height: 49px;
+    a{
+      margin-bottom:15px;
+    }
+  }
+
+  &__icon{
+    padding-top:20px;
+    height:110px;
+    line-height:110px;
+    text-align:center;
+
+    img {
+      width: 185px;
+      height: 49px;
+    }
+  }
 }
 
 .new-register{
   margin-bottom:1px;
-}
 
-.new-register h2{
-  font-size:22px;
-  text-align:center;
-  font-weight:bold;
-  padding-top:32px;
-  padding-bottom:32px;
-  background:white;
-  width:700px;
-  margin:0 auto;
-
-}
-
-.register-top-selection{
-  width:700px;
-  margin:0px auto;
-  background:white;
-  padding-top:30px;
-  padding-bottom:60px;
-  text-align: center;
-  line-height: 80px;
-}
-
-.register-top-selection a{
-margin-bottom:15px;
+  h2{
+    font-size:22px;
+    text-align:center;
+    font-weight:bold;
+    padding-top:32px;
+    padding-bottom:32px;
+    background:white;
+    width:700px;
+    margin:0 auto;
+  }
 }
 
 .btn-mail{
@@ -61,7 +60,14 @@ margin-bottom:15px;
   height:50px;
   background-color: #Ea352D;
   color:white;
+
+  img{
+    float:left;
+    margin-left:17px;
+    margin-top:15px;
+  }
 }
+
 .btn-facebook{
   margin:0 auto 15px;
   display:block;
@@ -72,6 +78,11 @@ margin-bottom:15px;
   height:50px;
   background-color: #385185;
   color:white;
+
+  img{
+    float:left;
+    margin-left:10px;
+  }
 }
 .btn-google{
   margin:0 auto 0px;
@@ -83,20 +94,9 @@ margin-bottom:15px;
   height:50px;
   background-color: #FFFFFF;
   color:#333333;
-}
 
-.btn-google img{
-  float:left;
-  margin-left:10px;
-}
-
-.btn-facebook img{
-  float:left;
-  margin-left:10px;
-}
-
-.btn-mail img{
-  float:left;
-  margin-left:17px;
-  margin-top:15px;
+  img{
+    float:left;
+    margin-left:10px;
+  }
 }
