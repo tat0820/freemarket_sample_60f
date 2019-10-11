@@ -9,39 +9,39 @@
       %h2 発送元・お届け先住所入力
     .address-top__main__content
       .form-list
-        %label{:for => "nickname"} お名前
+        %label{for: "nickname"} お名前
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "例) 山田", :type => "text", :value => ""}/
-        %input.input-data{:name => "nickname", :placeholder => "例) 彩", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 山田", type: "text", value: ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 彩", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} お名前カナ
+        %label{for: "nickname"} お名前カナ
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "例) ヤマダ", :type => "text", :value => ""}/
-        %input.input-data{:name => "nickname", :placeholder => "例) アヤ", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) ヤマダ", type: "text", value: ""}/
+        %input.input-data{name: "nickname", placeholder: "例) アヤ", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 郵便番号
+        %label{for: "nickname"} 郵便番号
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "例) 123-4567", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 123-4567", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 都道府県
+        %label{for: "nickname"} 都道府県
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "北海道", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "北海道", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 市区町村
+        %label{for: "nickname"} 市区町村
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "例) 横浜市緑区", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 横浜市緑区", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 番地
+        %label{for: "nickname"} 番地
         %span.form-must 必須
-        %input.input-data{:name => "nickname", :placeholder => "例) 青山1-1-1", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 青山1-1-1", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 建物名
+        %label{for: "nickname"} 建物名
         %span.form-may 任意
-        %input.input-data{:name => "nickname", :placeholder => "例) TECHビル103", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) TECHビル103", type: "text", value: ""}/
       .form-list
-        %label{:for => "nickname"} 電話
+        %label{for: "nickname"} 電話
         %span.form-may 任意
-        %input.input-data{:name => "nickname", :placeholder => "例) 09012345678", :type => "text", :value => ""}/
+        %input.input-data{name: "nickname", placeholder: "例) 09012345678", type: "text", value: ""}/
     .next-content
-      %button.btn-red-red{:type => "submit"} 次へ進む
+      %button.btn-red-red{type: "submit"} 次へ進む
   = render 'registration_footer'

@@ -10,17 +10,17 @@
     .phone-confirmation__main__content
       .phone-form-list
         %label{:for => "password"} 携帯電話の番号
-        %input.phone-input-data{:name => "phone_number", :placeholder => "携帯電話の番号を入力", :type => "tel", :value => ""}/
+        %input.phone-input-data{name: "phone_number", placeholder: "携帯電話の番号を入力", :type => "tel", :value => ""}/
       .phone-form-list
         .phone-text
           本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
-      %button.phone-btn-red{:type => "submit"} 次へ進む
+      %button.phone-btn-red{type: "submit"} 次へ進む
       .phone-form-list
         .phone-text
           ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
       .phone-form-list.text-right
         %p
-          %a.phone-reason{:href => "/jp/help_center/article/244/", :target => "_blank"}
+          %span.using> 
             電話番号の確認が必要な理由
             %strong ＞
   = render 'registration_footer'

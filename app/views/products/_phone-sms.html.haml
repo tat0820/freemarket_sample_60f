@@ -10,26 +10,26 @@
     .sms-bigger
       .phone-sms__main__content
         %label{:for => "password"} 認証番号
-        %input.sms-input-data{:name => "phone_number", :placeholder => "認証番号を入力", :type => "tel", :value => ""}/
+        %input.sms-input-data{name: "phone_number", placeholder: "認証番号を入力", type: "tel", value: ""}/
         %p.sms-text
           SMSで届いた認証番号を入力してください
-        %button.phone-btn-red{:type => "submit"} 認証して完了
+        %button.phone-btn-red{type:"submit"} 認証して完了
     .sms-bigger
       .phone-sms__main__content
         .thirty-seconds 30秒たっても認証番号が届かない方へ
         .phone-sms-script 電話で認証番号を聞くこともできます。
-        %button.phone-btn-red{:type => "submit"} 電話で認証番号を聞く（通話無料）
+        %button.phone-btn-red{type: "submit"} 電話で認証番号を聞く（通話無料）
     .sms-smaller
       .phone-sms__main__content
         .sms-left
           .thirty-seconds
             認証番号を再送することもできます。もう一度電話番号を入力して下さい。
           .sms-again
-            %a.sms-reason{:href => "/jp/help_center/article/244/", :target => "_blank"}
+            .sms-reason
               電話番号を再度入力する
               %strong ＞
           .sms-trouble
             ※SMSが届かない場合は
-            %a{:href => "/jp/help_center/article/248/", :target => "_blank"}> SMS受信設定
+            %span.using> SMS受信設定
             を確認して、もう一度電話番号を入力してください。
   = render 'registration_footer'
