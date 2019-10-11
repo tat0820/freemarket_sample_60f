@@ -1,0 +1,80 @@
+.user-check
+  .user-check__title
+    本人情報の登録
+
+  .user-check__contents
+    .user-check__contents__explanation
+      お客さまの本人情報をご登録ください。   
+      %br
+      登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+
+    .user-check__contents__upload
+      本人確認書類のアップロードについて＞
+
+    .user-check__contents__form-group
+      .user-check__contents__form-group__label
+        お名前
+      .user-check__contents__form-group__text
+        ここに名前が入ります
+
+    .user-check__contents__form-group
+      .user-check__contents__form-group__label
+        お名前カナ
+      .user-check__contents__form-group__text
+        ここに名前カナが入ります
+
+    .user-check__contents__form-group
+      .user-check__contents__form-group__label
+        生年月日
+      .user-check__contents__form-group__text
+        xxxx/xx/xx
+
+    .user-check__contents__form-group
+      .user-check__contents__form-group__box
+        .user-check__contents__form-group__box__label
+          郵便番号
+        .user-check__contents__form-group__box__gray-box
+          任意
+      %input.user-check__contents__form-group__form{:placeholder => "例）1234567"}
+
+    .user-check__contents__form-group
+      .user-check__contents__form-group__box
+        .user-check__contents__form-group__box__label
+          都道府県
+        .user-check__contents__form-group__box__gray-box
+          任意
+      %select.user-check__contents__form-group__pul
+        %option{:value=> ""} --
+        - @prefectures.each do |prefecture|
+          %option{:value=> "#{prefecture}"}
+            = prefecture.name
+        
+    .user-check__contents__form-group
+      .user-check__contents__form-group__box
+        .user-check__contents__form-group__box__label
+          市区町村
+        .user-check__contents__form-group__box__gray-box
+          任意
+      %input.user-check__contents__form-group__form{:placeholder => "例）横浜市緑区"}
+        
+    .user-check__contents__form-group
+      .user-check__contents__form-group__box
+        .user-check__contents__form-group__box__label
+          番地
+        .user-check__contents__form-group__box__gray-box
+          任意
+      %input.user-check__contents__form-group__form{:placeholder => "例）青山1-1-1"}
+        
+    .user-check__contents__form-group
+      .user-check__contents__form-group__box
+        .user-check__contents__form-group__box__label
+          建物名
+        .user-check__contents__form-group__box__gray-box
+          任意
+      %input.user-check__contents__form-group__form{:placeholder => "例）柳ビル103"}
+        
+    %button.user-check__contents__register
+      登録する
+
+    .user-check__contents__upload
+      本人情報の登録について＞
