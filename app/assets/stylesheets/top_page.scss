@@ -1,0 +1,108 @@
+.top-image{
+  background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-super-exhibition-fes-1354ceda34bd06081a45ee755e911f07.jpg);
+  height: 390px;
+}
+
+.top-category{
+  padding: 50px 0px 36px;
+  background: white;
+  &__title{
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  &__kind{
+    text-align: center;
+
+    &__name{
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EFEFEF;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+}
+
+.top-products{
+  padding: 42px 12vw 100px;
+
+  &__title{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__show{
+    display: inline-block;
+    float: right;
+    color: #0095EE;
+    margin-top: 14px;
+    margin-right: 10px;
+    font-size: 14px;
+  }
+
+  &__items{
+    display: flex;
+    flex-wrap : wrap;
+
+    &__item{
+      position: relative;
+      height: 19vw;
+      width: 14vw;
+      background: white;
+      margin: 8px;
+      filter: drop-shadow(3px 3px 3px rgb(204,204,204));
+
+      img{
+        height: 15vw;
+        width: 14vw;
+        object-fit: cover;
+      }
+
+      &__price{
+        position: absolute;
+        top: 21vh;
+        color: white;
+        padding: 1vh 1vw;
+        background: rgba(0,0,0,.4);
+        border-radius: 0 14px 14px 0;
+      }
+
+      &__name{
+        height: 3vw;
+        width: 12vw;
+        overflow: hidden;
+        font-size: 14px;
+        padding: 0 1vw;
+      }
+    }
+  }
+}
+
+.top-icon{
+  background: #EA352D;
+  height: 160px;
+  width: 160px;
+  border-radius: 100px;
+  bottom: 32px;
+  right: 32px;
+  font-size: 60px;
+  position: fixed;
+  text-align: center;
+  color: white;
+
+  &__margin{
+    height: 24px;
+  }
+  
+  &__text{
+    color: white;
+    font-size: 22px;
+    height: 25px;
+    line-height: 25px;
+  }
+}

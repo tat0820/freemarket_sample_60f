@@ -1,5 +1,6 @@
 @import "reset";
 @import "font-awesome";
+
 @import "mixin";
 @import "modules/register-top-footer";
 @import "modules/signup";
@@ -9,3 +10,11 @@
 @import "modules/address";
 @import "modules/payment";
 @import "modules/done"
+
+@import "user_check";
+@import "top_page";
+@import "top_header";
+@import "top_footer";
+@import "user_logout";
+@import "sale_page";
+
