@@ -1,0 +1,91 @@
+.phone-sms{
+  background:rgb(245,245,245);
+
+  &__header{
+    @include bar;
+    &__icon{
+      @include banner;
+    }
+  }
+
+  &__main{
+    width:700px;
+    margin:0px auto;
+    background:white;
+    padding-top:15px;
+    padding-bottom:120px;
+    text-align: center;
+
+    &__content{
+      margin:25px auto 0px;
+      max-width: 343px;
+      padding-top:10px;
+      padding-bottom:30px;
+
+      label {
+        display: inline-block;
+        float:left;
+      }
+
+      a{
+        color: #0099e8;
+        text-decoration: none;
+      }
+    }
+
+    &__check h2 {
+      @include word;
+    }
+  }
+}
+
+.sms-bigger{
+  border-bottom: solid 0.5px #f5f5f5;
+}
+
+.sms-left{
+  float:left;
+}
+
+.sms-input-data {
+  height: 30px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+  width:310px;
+}
+
+.phone-btn-red{
+  @include redbtn;
+}
+
+.sms-text{
+  margin-top:0px;
+  text-align:left;
+}
+
+.sms-reason{
+  font-size:9x;
+  text-align:left;
+}
+
+.sms-trouble{
+  font-size:9px;
+  text-align:left;
+}
+
+.thirty-seconds{
+  text-align:left;
+  font-weight:bold;
+}
+
+.phone-sms-script{
+  text-align:left;
+}
+
+.sms-again{
+  text-align:left;
+}

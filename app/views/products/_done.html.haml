@@ -1,0 +1,15 @@
+.done-top
+  .done-top__header
+    .done-top__header__icon
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
+    .progress
+      = image_tag "done.png"
+  .done-top__main
+    .done-top__main__new
+      %h2 会員登録完了
+    .done-top__main__content
+      .thanks
+        .thank-you ありがとうございます。
+        .thank-you 会員登録が完了しました。
+      %button.btn-red-done{type: "submit"} メルカリをはじめる
+  = render 'registration_footer'

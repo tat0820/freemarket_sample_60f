@@ -1,0 +1,45 @@
+.done-top{
+  position: relative;
+  min-height: 100%;
+  background: #f5f5f5;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1;
+
+  &__header{
+    @include bar;
+
+    &__icon{
+      @include banner;
+    }
+  }
+
+  &__main{
+    width:700px;
+    margin:0px auto;
+    background:white;
+    padding-top:15px;
+    padding-bottom:60px;
+    text-align: center;
+
+    &__new h2{
+      @include word;
+    }
+
+    &__content{
+      margin: 0 auto;
+      max-width: 343px;
+      padding-top:20px;
+    }
+  }
+}
+
+.btn-red-done{
+  @include redbtn;
+}
+
+.thanks{
+  padding:10px 0px;
+  font-size:15px;
+}
