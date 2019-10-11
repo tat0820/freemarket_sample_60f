@@ -87,7 +87,7 @@
   @include redbtn;
 }
 
-.form-list a{
+.using{
   color: #0099e8;
   text-decoration: none;
 }
@@ -159,4 +159,9 @@
 
 .form-info-text{
   text-align:left;
+}
+
+.g-recaptcha.signup-recaptcha{
+  width: 304px;
+  height: 78px;
 }
