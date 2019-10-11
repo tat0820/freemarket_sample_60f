@@ -1,16 +1,16 @@
 .header-mypage-ribon{
-  width:100%;
-  background:white;
+  background: white;
   filter: drop-shadow(0 3px 3px rgb(203, 203, 203));
-  line-height: 50px;
   font-size: 14px;
+  width: 100%;
+  line-height: 50px;
   padding-left: 15vw;
   display: flex;
   i{
-    margin:0 8px;
+    color: gray;
     font-size: 9px;
-    line-height: 50px;
-    color:gray;
+    line-height: 50px; 
+    margin: 0 8px;
   }
   &__now-page{
     font-weight: 600;
@@ -18,45 +18,45 @@
 }
 
 .mypage-left-contents{
-  margin-top:40px;
+  margin-top: 40px;
   margin-bottom: 40px;
-  margin-left:15vw;
+  margin-left: 15vw;
   float: left;
   &__top{
     background: white;
-    width:15vw;
-    padding:17px;
+    font-size: 14px;
+    width: 15vw;
+    padding: 17px;
     margin-bottom: 1px;
-    font-size:14px;
   i{
+    color: gray;
     float: right;
-    color:gray;
-    padding-top:5px;
+    padding-top: 5px;
    } 
   }
   &__title{
-    margin-top:35px;
-    margin-bottom:7px;
     font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 7px;
   }
 }
 
 .right-mypage-contents{
   background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Monsoon/Water_Drops_and_Light_Reflection_in_Rain_HD_Images.jpg);
-  height:215px;
-  margin-top: 40px;
-  width: 50vw;
-  float: right;
-  margin-right:15vw;
   background-size: cover;
+  width: 50vw;
+  height: 215px;
+  margin-top: 40px;
+  float: right;
+  margin-right: 15vw;
   position: relative;
   &__image{
     text-align: center;
-    padding-top:50px;
+    padding-top: 50px;
   img{
-    border-radius: 50%;
     width: 60px;
     height: 60px;
+    border-radius: 50%;
   }
  }
   &__user-name{
@@ -72,59 +72,59 @@
 .right-middle-contents{
   width: 50vw;
   float: right;
-  margin-right:15vw;
+  margin-right: 15vw;
   position: relative;
   &__notice{
-    line-height: 72px;
     background: white;
-    text-align: center;
-    width: 25vw;
-    position: absolute;
-    font-weight: 700;
     border-top: 2px solid #ea352d;
+    font-weight: 700;
+    position: absolute;
+    width: 25vw;
+    line-height: 72px;
+    text-align: center;
     }
   &__todo{
-    line-height:72px;
-    text-align: center;
-    width: 25vw;
+    font-weight: 700;
     position: absolute;
-    font-weight:700;
-    margin-left:25vw;
+    width: 25vw;
+    line-height: 72px;
+    text-align: center;
+    margin-left: 25vw;
     }
   }
 
 .mypage-item-list{
   width: 50vw;
   float: right;
-  margin-right:15vw;
-  margin-top:72px;
+  margin-right: 15vw;
+  margin-top: 72px;
   &__body{
     background: white;
-    height:76px;
+    height: 76px;
     margin-bottom: 1px;
     &__image{
       position: absolute;
-      padding:16px;
+      padding: 16px;
       img{
         width: 48px;
-        height:48px;
+        height: 48px;
      }
     }
     &__text{
-      padding-top:16px;
-      padding-left:80px;
-      font-size:14px;
+      font-size: 14px;
+      padding-top: 16px;
+      padding-left: 80px;
     i{
-      color:gray;
-      height:14px;
-      width:9px;
+      color: gray;
+      height: 14px;
+      width: 9px;
       float: right;
-      padding:18px;
+      padding: 18px;
     } 
   }
     &__time{
       font-size: 14px;
-      padding-left:80px;
+      padding-left: 80px;
     i{
       color:gray;
     }
@@ -135,13 +135,13 @@
     height: 88px;
     position: relative;
     &__graybox{
-      background:rgb(245,245,245);
+      background: rgb(245,245,245);
+      font-size: 14px;
       text-align: center;
       line-height: 56px;
       position: absolute;
       width: 48vw;
       margin: 16px;
-      font-size: 14px;
     }
   }
 }
@@ -152,7 +152,7 @@
   font-weight: 700;
   width: 50vw;
   float: right;
-  margin-right:15vw;
+  margin-right: 15vw;
   &__text{
     padding-left: 16px;
     font-size: 16px;
@@ -160,38 +160,37 @@
   }
   &__transation{
     background: white;
+    border-top: 2px solid #ea352d;
+    width: 25vw;
     line-height: 72px;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
-    width: 25vw;
-    border-top: 2px solid #ea352d;
     float: left;
 
   }
   &__after-transation{
+    background: rgb(245,245,245);
     line-height: 72px;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
     width: 25vw;
     float: right;
-    background:rgb(245,245,245);
-
   }
   &__not-found-transation{
-    height:240px;
     background: white;
-    margin-top:72px;
+    height: 240px;
+    margin-top: 72px;
     clear: both;
     img{
       padding: 0 310px;
       padding-top: 40px;
     }    
     &__text{
-      text-align: center;
-      padding-top:30px;
       color: #ccc;
+      text-align: center;
+      padding-top: 30px;
     }
   }
 }
@@ -201,76 +200,76 @@
 .right-middle-contents{
   width: 50vw;
   float: right;
-  margin-right:15vw;
+  margin-right: 15vw;
   position: relative;
   &__notice-2{
+    font-weight: 700;
     line-height: 72px;
     text-align: center;
     width: 25vw;
     position: absolute;
-    font-weight: 700;
     }
   &__todo-2{
-    line-height:72px;
+    background: white;
+    border-top: 2px solid #ea352d;
+    font-weight: 700;
+    line-height: 72px;
     text-align: center;
     width: 25vw;
     position: absolute;
-    font-weight:700;
-    margin-left:360px;
-    background: white;
-    border-top: 2px solid #ea352d;
+    margin-left: 360px;
     }
   }
 
 .mypage-item-list-2{
   width: 50vw;
   float: right;
-  margin-right:15vw;
-  margin-top:72px;
+  margin-right: 15vw;
+  margin-top: 72px;
   &__body{
     background: white;
-    height:240px;
+    height: 240px;
     &__image{
       padding: 40px 310px 0;
     }
     &__text{
-      text-align: center;
-      padding-top:30px;
       color: #ccc;
-      font-weight:700;
+      font-weight: 700;
+      text-align: center;
+      padding-top: 30px;
     }
   }
 }
 
 .purchased-item{
   background: white;
-  margin-top: 40px;
   font-weight: 700;
   width: 50vw;
   float: right;
-  margin-right:15vw;
+  margin-top: 40px;
+  margin-right: 15vw;
   &__text{
-    padding-left: 16px;
     font-size: 16px;
     line-height: 72px;
+    padding-left: 16px;
   }
   &__transation-2{
+    background: rgb(245,245,245);
     line-height: 72px;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
     width: 25vw;
     float: left;
-    background:rgb(245,245,245);
   }
   &__after-transation-2{
+    background: white;
+    border-top: 2px solid #ea352d;
     line-height: 72px;
     font-size: 16px;
     font-weight: 700;
     text-align: center;
     width: 25vw;
     float: right;
-    background: white;
-    border-top: 2px solid #ea352d;
   }
 }
