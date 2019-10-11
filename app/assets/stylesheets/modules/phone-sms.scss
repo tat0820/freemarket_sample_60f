@@ -15,11 +15,22 @@
     padding-top:15px;
     padding-bottom:120px;
     text-align: center;
+
     &__content{
       margin:25px auto 0px;
       max-width: 343px;
       padding-top:10px;
       padding-bottom:30px;
+
+      label {
+        display: inline-block;
+        float:left;
+      }
+
+      a{
+        color: #0099e8;
+        text-decoration: none;
+      }
     }
 
     &__check h2 {
@@ -36,11 +47,6 @@
   float:left;
 }
 
-label {
-  display: inline-block;
-  float:left;
-}
-
 .sms-input-data {
   height: 30px;
   padding: 10px 16px 8px;
@@ -54,15 +60,6 @@ label {
 
 .phone-btn-red{
   @include redbtn;
-}
-
-a{
-  color: #0099e8;
-  text-decoration: none;
-}
-
-p {
-  display: block;
 }
 
 .sms-text{

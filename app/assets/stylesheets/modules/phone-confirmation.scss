@@ -26,6 +26,15 @@
       max-width: 343px;
       padding-top:10px;
     }
+
+    p {
+      display: block;
+    }
+
+    a{
+      color: #0099e8;
+      text-decoration: none;
+    }
   }
 }
 
@@ -51,15 +60,6 @@
 
 .phone-btn-red{
   @include redbtn;
-}
-
-a{
-  color: #0099e8;
-  text-decoration: none;
-}
-
-p {
-  display: block;
 }
 
 .phone-text{

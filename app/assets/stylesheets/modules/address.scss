@@ -53,12 +53,10 @@
 
 .form-list label {
   font-weight: 600;
-}
-
-label {
   display: inline-block;
   float:left;
 }
+
 
 .halfs{
   display:flex;
@@ -84,34 +82,6 @@ label {
 .btn-red-red{
   max-width: 377px;
   @include redbtn;
-}
-
-a{
-  color: #0099e8;
-  text-decoration: none;
-}
-
-p {
-  display: block;
-}
-
-h3 {
-  display: block;
-  font-size: 1.17em;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  font-weight: bold;
-}
-
-.form-info-text {
-  float:left;
-  padding-top:10px;
-  padding-bottom:20px;
-  margin: 8px 0 0;
-  color: #888;
-  line-height: 1.5;
 }
 
 .date{

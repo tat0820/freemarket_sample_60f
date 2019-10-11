@@ -27,6 +27,11 @@
       margin: 0 auto;
       max-width: 343px;
       padding-top:20px;
+
+      a{
+        color: #0099e8;
+        text-decoration: none;
+      }
     }
 
     &__new h2 {
@@ -59,9 +64,6 @@
 
 .form-list label {
   font-weight: 600;
-}
-
-label {
   display: inline-block;
   float:left;
 }
@@ -136,7 +138,4 @@ label {
   float:right;
 }
 
-a{
-  color: #0099e8;
-  text-decoration: none;
-}
+
