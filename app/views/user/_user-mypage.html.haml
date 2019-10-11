@@ -1,0 +1,22 @@
+.header-mypage-ribon
+  メルカリ
+  = fa_icon 'chevron-right', class: 'icon'
+  .header-mypage-ribon__now-page
+    マイページ
+
+=render "user/side-bar"
+
+
+.right-mypage-contents
+  .right-mypage-contents__image
+    = image_tag "user-mypage-icon.png"
+  .right-mypage-contents__user-name
+    ユーザー
+  .right-mypage-contents__number
+    評価 2 出品数 1
+
+-# =render "user/appear-notice"
+=render "user/appear-todo"
+
+-# =render "user/appear-transation"
+=render "user/appear-after-transation"
