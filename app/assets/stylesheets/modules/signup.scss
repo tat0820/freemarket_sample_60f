@@ -22,10 +22,7 @@
   }
 
   &__icon{
-    padding-top:20px;
-    height:110px;
-    line-height:110px;
-    text-align:center;
+    @include banner;
 
     img {
       width: 185px;
@@ -38,14 +35,7 @@
   margin-bottom:1px;
 
   h2{
-    font-size:22px;
-    text-align:center;
-    font-weight:bold;
-    padding-top:32px;
-    padding-bottom:32px;
-    background:white;
-    width:700px;
-    margin:0 auto;
+    @include word;
   }
 }
 
