@@ -1,0 +1,179 @@
+.user-buying{
+  width: 100vw;
+
+  &__header{
+    background:rgb(245, 245, 245);
+    width: 100vw;
+    height: 130px;
+    text-align: center;
+
+    &__mercari-box{
+      
+      &__icon{
+        width: 180px;
+        height: 50px;
+        margin: 40px;
+      }
+    }
+  }
+  &__main{
+    width: 100vw;
+
+    &__box{
+      background-color: white;
+      width: 700px;
+      margin: 0 auto;
+
+      &__head{
+        text-align: center;
+        height: 60px;
+        font-size: 20px;
+        margin: 20px 0;
+        line-height: 60px;
+        border-bottom: 1px solid #f5f5f5;
+      }
+    }
+  }
+}
+
+.buy-item{
+  background-color: white;
+  width: 700px;
+  text-align: center;
+  
+  &__inner{
+    width: 320px;
+    margin: 0 auto;
+    display: flex;
+
+    &__image{
+      width: 64px;
+      height: 64px;
+    }
+    &__name{
+      width: 240px;
+    }
+  }
+  .buy-box{
+    width: 320px;
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px 0;
+    
+  }
+  .buy-box-point{
+    background-color: rgb(245, 245, 245);
+    width: 320px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px
+  }
+  .buy-box-pay{
+    display: flex;
+    justify-content: center;
+
+    &__all{
+    width: 200px;
+    height: 60px;
+    text-align: left;
+    line-height: 60px
+    }
+  
+    &__price{
+    width: 120px;
+    height: 60px;
+    text-align: right;
+    line-height: 60px;
+    }
+  }
+  .buy-box-pay-error{
+    width: 320px;
+    margin: 0 auto;
+    font-size: 13px;
+    color: #e62017;
+  }
+  .buy-box-btn{
+    background: #e62017;
+    width: 320px;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 50px;
+  }
+}
+
+  .buy-user-info{
+    width: 700px;
+  
+  
+    &__post{
+      width: 320px;
+      margin: 0 auto;
+      margin-top: 50px;
+      border-top: 1px solid #f5f5f5;
+    }
+
+    &__post-mark{
+      width: 320px;
+      margin: 0 auto;
+    }
+
+    &__post-text{
+      width: 320px;
+      margin: 0 auto;
+      word-break: break-all;
+    }
+      
+    &__name{
+      width: 320px;
+      margin: 0 auto;
+    }
+
+    &__fix{
+      width: 320px;
+      margin: 0 auto; 
+      text-align: right;
+      padding-bottom: 50px;
+    }
+      
+    &__pay-method{
+      width: 320px;
+      margin: 0 auto; 
+      padding-top: 50px;
+      border-top: 1px solid #f5f5f5
+    }
+    &__pay-method-text{
+      width: 320px;
+      margin: 0 auto; 
+    }
+}
+
+.sale-page-footer{
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 200px;
+  padding: 20px 0;
+  text-align: center;
+
+  &__box{
+    text-decoration: none;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: 28vw;
+    padding: 20px;
+    font-size: 12px;
+  }
+
+  &__img{
+
+    &--logo{
+      height: 65px;
+    }
+  }
+
+  &__rogo{
+    text-align: center;
+    font-size: 13px;
+  }
+}

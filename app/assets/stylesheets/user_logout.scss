@@ -7,10 +7,8 @@
     position: relative;
     top:30px;
     right: 200px;
-    
-    }
 
-      &__box__container{
+      &__container{
       width: 300px;
       height: 50px;
       background-color: #EA352D;
@@ -20,8 +18,8 @@
       bottom: 0;
       left: 0;
       margin: auto;
-      }
-        &__box__container_content{
+
+        &__content{
           position: absolute;
           top: 50%;
           left: 50%;
@@ -29,4 +27,6 @@
           color: white;
           font-size: 15px;
         }
-}
+      }
+    }
+  }
