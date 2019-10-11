@@ -1,5 +1,10 @@
 class ProductsController < ApplicationController
+
   def index
-    @prefectures = Prefecture.all
+    @products = Product.all
   end
+
+  def new
+  end
+
 end
