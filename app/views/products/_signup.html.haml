@@ -1,0 +1,17 @@
+.register-top
+  .register-top__icon
+    = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", alt: "mercari"
+  .register-top__main
+    .new-register
+      %h2 新規会員登録
+    .register-top__selection
+      .btn-mail
+        = image_tag "http://www.iconarchive.com/download/i58749/dakirby309/windows-8-metro/Other-Mail-alt-Metro.ico",size: "20x20", alt: "mail"
+        メールアドレスで登録する
+      %button#facebook-login.btn-facebook
+        = image_tag "https://ja.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png",size: "18x18" , alt: "facebook"
+        Facebookで登録する
+      %button#google-login.btn-google
+        = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja" ,size:"18x18" , alt:"google"
+        Googleで登録する
+  = render 'registration_footer'

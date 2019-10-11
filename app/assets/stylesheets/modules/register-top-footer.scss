@@ -1,0 +1,26 @@
+
+.register-top-footer {
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 250px;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer-list{
+  text-decoration:none;
+  display:flex;
+  color:#333333;
+  margin: 0 auto;
+  width:462px;
+  padding:20px;
+}
+
+.footer-list a{
+  text-decoration:none;
+  color:#333333;
+  text-align:center;
+  padding:0px 10px 15px 15px;
+  font-size:13px;
+}

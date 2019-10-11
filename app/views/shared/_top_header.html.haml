@@ -1,0 +1,20 @@
+.top-header
+  .top-header__logo
+    = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
+
+  .top-header__search
+    %input.top-header__search__form{:placeholder => "何かお探しですか？"}
+    .top-header__search__button
+      = fa_icon "search"
+
+  .top-header__list
+    .top-header__list__category
+      = fa_icon "list-ul"
+      カテゴリーから探す
+    .top-header__list__brand
+      = fa_icon "tags"
+      ブランドから探す
+    .top-header__list__login
+      ログイン
+    .top-header__list__signup
+      新規会員登録
