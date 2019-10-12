@@ -1,0 +1,117 @@
+.header-mypage-ribon{
+  background: white;
+  filter: drop-shadow(0 3px 3px rgb(203, 203, 203));
+  font-size: 14px;
+  width: 100%;
+  line-height: 50px;
+  padding-left: 15vw;
+  display: flex;
+  i{
+    color: gray;
+    font-size: 9px;
+    line-height: 50px; 
+    margin: 0 8px;
+  }
+  &__now-page{
+    font-weight: 600;
+  }
+}
+
+.mypage-profile-edit{
+  height: 1500px;
+
+  &__box{
+  background-color: #fff;
+  float: right;
+  margin-right: 150px;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  }
+    .profile-header{
+      background-color: white;
+      width: 700px;
+      text-align: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f5f5f5;
+      font-size: 24px;
+      margin: 0 auto;
+      font-weight: bold;
+    }
+    .profile-background-image{
+      width: auto;
+      height: 170px;
+      background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Monsoon/Water_Drops_and_Light_Reflection_in_Rain_HD_Images.jpg);
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+      .profile-icon{
+        overflow: hidden;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-top: 80px;
+        img{
+        width: 60px;
+        height: 60px;
+        }
+      }
+      .profile-name{
+      background-color: #fff;
+      width: 220px;
+      height: 50px;
+      margin-top: 80px;
+      margin-left: 10px;
+      line-height: 50px;
+      }
+    }
+    .profile-contents{
+      background-color: #fff;
+      width: 700px;
+      padding: 40px 16px 10px 16px;
+      &__box{
+        background: #fff;
+        width: 670px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        line-height: 2;
+        padding: 14px;
+      }
+    }
+    .profile__contents__btn{
+      width: 700px;
+      height: 50px;
+      background-color: #ea352d;
+      border: 1px solid #ea352d;
+      color: #fff;
+      text-align: center;
+      line-height: 50px;
+      margin: 0 auto;
+    }
+  }
+  
+.top-icon{
+  background: #EA352D;
+  height: 160px;
+  width: 160px;
+  border-radius: 100px;
+  bottom: 32px;
+  right: 32px;
+  font-size: 60px;
+  position: fixed;
+  text-align: center;
+  a{
+    text-decoration: none;
+    color: white;
+  }
+
+  &__margin{
+    height: 24px;
+  }
+  
+  &__text{
+    font-size: 22px;
+    height: 25px;
+    line-height: 25px;
+  }
+}
