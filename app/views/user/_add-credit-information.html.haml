@@ -4,7 +4,7 @@
       %h2 クレジットカード情報入力
     .add-credit-top__main__content
       .form-list
-        %label{:for => "nickname"} カード番号
+        %label{for: "nickname"} カード番号
         %span.form-must 必須
         %input.payment-input-data{name: "nickname", placeholder: "半角数字のみ", type: "text", value: ""}/
         = image_tag "credit-cards.png"
@@ -27,5 +27,6 @@
         %span.form-must 必須
         %input.payment-input-data{name: "email", placeholder: "カード背面4行もしくは3行の番号", type: "email", value: ""}/
         %p.card-back
-          %a.yourselfs{href: "/jp/help_center/article/423/", target: "_blank"} カード裏面の番号とは？
+      .yourselfs
+        = link_to 'カード裏面の番号とは？', href: "/jp/help_center/article/423/" ,target: "_blank"  
       %button.btn-red-payment{type: "submit"} 追加する
