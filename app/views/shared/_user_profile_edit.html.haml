@@ -1,0 +1,30 @@
+.header-mypage-ribon
+  メルカリ
+  = fa_icon 'chevron-right', class: 'icon'
+  .header-mypage-ribon__pre
+    マイページ 
+    = fa_icon 'chevron-right', class: 'icon'
+  .header-mypage-ribon__now-page
+    プロフィール
+
+.mypage-profile-edit
+  .mypage-profile-edit__box
+    .profile-header
+      プロフィール
+    .profile-background-image
+      .profile-icon
+        = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png'
+      .profile-name
+        mercariくん
+    .profile-contents
+      .profile-contents__box
+        例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪
+    .profile__contents__btn
+      変更する
+
+.top-icon
+  = link_to new_product_path do
+    .top-icon__margin
+    .top-icon__text
+      出品
+    = fa_icon "camera" 
