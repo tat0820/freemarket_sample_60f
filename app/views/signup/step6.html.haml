@@ -1,0 +1,42 @@
+= form_for @user, url: "/signup" do |f|
+  .payment-top
+    .payment-top__header
+      = link_to "/" do
+        .payment-top__header__icon
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
+      .progress
+        = image_tag "payment.png"
+    .payment-top__main
+      .payment-top__main__new
+        %h2 支払い方法
+      .payment-top__main__content
+        .form-list
+          = f.label :カード番号
+          %span.form-must 必須
+          = f.text_field :card_number ,class: "payment-input-data", placeholder: "半角数字のみ"
+          = render partial: 'error_messages', locals: {user: @user, column: "card_number"}
+          = image_tag "credit-cards.png"
+        .form-list
+          = f.label :有効期限
+          %span.form-must 必須
+        .exparation-select-wrap
+          .select-wrap
+            %i.icon-arrow-bottom
+            = f.select :card_limit_year, [["--", "--"], options_for_select(2019..2030)], {}, class: "select-default"
+          %span.date 年
+          .exparation-wrap.select-wrap__month
+            %i.icon-arrow-bottom
+            = f.select :card_limit_month, [["--", "--"], options_for_select(1..12)], {}, class: "select-default"
+          %span.date 月
+          
+        .form-list
+          = f.label :セキュリティコード
+          %span.form-must 必須
+          = f.text_field :security_code ,class: "payment-input-data", placeholder: "カード背面4行もしくは3行の番号"
+          = render partial: 'error_messages', locals: {user: @user, column: "security_code"}
+          %p.card-back
+            .yourselfs
+              カード裏面の番号とは？
+        = f.submit "次へ進む",class: "btn-red-payment"
+
+= render 'registration_footer'

@@ -1,0 +1,29 @@
+= form_for @user, url: "/signup/step4", method: "get" do |f|
+  .phone-confirmation
+    .phone-confirmation__header
+      = link_to "/" do
+        .phone-confirmation__header__icon
+          = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
+      .progress-phone
+        = image_tag "phone.png"
+    .phone-confirmation__main
+      .phone-confirmation__main__check
+        %h2 電話番号の確認
+      .phone-confirmation__main__content
+        .phone-form-list
+          = f.label "携帯電話の番号"
+          = f.text_field :phone_number , placeholder: "携帯電話の番号を入力", class: "phone-input-data"
+        .phone-form-list
+          .phone-text
+            本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
+          = f.submit "次へ進む", class: "phone-btn-red"
+        .phone-form-list
+          .phone-text
+            ※電話番号は本人確認や不正利用防止のために利用します。他のユーザーに公開されることはありません。
+        .phone-form-list.text-right
+          %p
+            %span.using> 
+              電話番号の確認が必要な理由
+              %strong ＞
+
+= render 'registration_footer'

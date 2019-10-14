@@ -1,0 +1,96 @@
+.registration
+  .registration__header
+    = link_to "/" do
+      .registration__header__icon
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
+    .progress
+      = image_tag "registration.png"
+  .registration__main
+    = form_for @user, url: "/signup/step3", method: "get", html: {class: "registration__main__main"} do |f|
+      .registration__main__main__member
+        %h2 会員情報入力
+      .registration__main__main__content
+        .form-list
+          = f.label :ニックネーム
+          %span.form-must 必須
+          = f.text_field :nickname, class: "input-data", placeholder: "例) メルカリ太郎"
+          = render partial: 'error_messages', locals: {user: @user, column: "nickname"}
+        .form-list
+          = f.label :メールアドレス
+          %span.form-must 必須
+          = f.email_field :email, class: "input-data", placeholder: "PC・携帯どちらでも可"
+          = render partial: 'error_messages', locals: {user: @user, column: "email"}
+        .form-list
+          = f.label :パスワード
+          %span.form-must 必須
+          = f.password_field :password, class: "input-data", placeholder: "7文字以上"
+          = render partial: 'error_messages', locals: {user: @user, column: "password"}
+        .form-list
+          = f.label :パスワード（確認）
+          %span.form-must 必須
+          = f.password_field :password_confirmation, class: "input-data", placeholder: "7文字以上"
+          = render partial: 'error_messages', locals: {user: @user, column: "password_confirmation"}
+        .form-list
+          %h3.text-left.l-chapter-sub-head 本人確認
+          %p.safety-text
+            安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+        .form-list
+          %div
+            = f.label :お名前（全角）
+            %span.form-must 必須
+          %br/
+          .halfs
+            = f.text_field :last_name, class: "input-data-half", placeholder: "例) 山田"
+            = f.text_field :first_name, class: "input-data-half", placeholder: "例) 彩"
+          = render partial: 'error_messages', locals: {user: @user, column: "last_name"}
+          = render partial: 'error_messages', locals: {user: @user, column: "first_name"}
+        .form-list
+          %div
+            = f.label :お名前カナ（全角）
+            %span.form-must 必須
+          .halfs
+            = f.text_field :last_name_kana, class: "input-data-half", placeholder: "例) ヤマダ"
+            = f.text_field :first_name_kana, class: "input-data-half", placeholder: "例) アヤ"
+          = render partial: 'error_messages', locals: {user: @user, column: "last_name_kana"}
+          = render partial: 'error_messages', locals: {user: @user, column: "first_name_kana"}
+        .form-list
+          = f.label :生年月日
+          %span.form-must 必須
+          .birthday-select-wrap
+            .select-wrap
+              %i.icon-arrow-bottom
+              = f.select :birthday_year, [["--", "--"], options_for_select(1950..2019)], {}, class: "select-default"
+            %span.date 年
+            .select-wrap.select-wrap__month
+              %i.icon-arrow-bottom
+              = f.select :birthday_month, [["--", "--"], options_for_select(1..12)], {}, class: "select-default"
+            %span.date 月
+            .select-wrap.select-wrap__day
+              %i.icon-arrow-bottom
+              = f.select :birthday_day, [["--", "--"], options_for_select(1..31)], {}, class: "select-default"
+            %span.date 日
+            = render partial: 'error_messages', locals: {user: @user, column: "birthday_year"}
+            = render partial: 'error_messages', locals: {user: @user, column: "birthday_month"}
+            = render partial: 'error_messages', locals: {user: @user, column: "birthday_day"}
+        %p.form-info-text
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .second-content
+        .form-list
+          .g-recaptcha.signup-recaptcha{"data-sitekey" => "6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc"}
+            %div
+              %div
+                %iframe{frameborder: "0", height: "78", name: "a-uwmzq6pxa220", role: "presentation", :sandbox => "allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox", :scrolling => "no", :src => "https://www.google.com/recaptcha/api2/anchor?ar=1&k=6LfZGCYTAAAAAHoK-s7Lg5OdYg5Fq4susvALmZoc&co=aHR0cHM6Ly93d3cubWVyY2FyaS5jb206NDQz&hl=ja&v=Zy-zVXWdnDW6AUZkKlojAKGe&size=normal&cb=e24fxowz7oc8", :width => "304"}
+              %textarea#g-recaptcha-response.g-recaptcha-response{:name => "g-recaptcha-response", :style => "width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"}
+        .form-list
+          %p.next-explanation
+            「次へ進む」のボタンを押すことにより、
+            %span.using> 利用規約
+            に同意したものとみなします
+        = f.submit "次へ進む", class: "phone-btn-red"
+        .form-list.text-right
+          %p
+            .yourself
+              本人情報の登録について
+              %strong ＞
+
+= render 'registration_footer'
