@@ -1,0 +1,84 @@
+.login-main{
+  width: 40vw;
+  background: white;
+  margin: 0 auto;
+
+  &__no-account{
+    padding: 40px 64px;
+    border-bottom: solid 1px rgb(245,245,245);
+
+    &__text{
+      font-size: 14px;
+      text-align: center;
+    }
+
+    a{
+      text-decoration: none;
+    }
+    
+    &__btn{
+      margin-top: 6px;
+      font-size: 14px;
+      padding: 10px 0;
+      background: #0099E8;
+      text-align: center;
+      color: white;
+    }
+  }
+
+  &__box{
+    padding: 40px 64px;
+
+    &__facebook{
+      font-size: 14px;
+      padding: 14px 0;
+      background: #385185;
+      text-align: center;
+      color: white;
+
+      .facebook{
+        width: 20px;
+        height: 20px;
+        float: left;
+        padding-left: 6px;
+      }
+    }
+
+    &__google{
+      margin-top: 14px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      padding: 14px 0;
+      text-align: center;
+      border: solid 1px #979797;
+
+      .google{
+        width: 20px;
+        height: 20px;
+        float: left;
+        padding-left: 6px;
+      }
+    }
+
+    .field{
+      width: 30vw;
+      margin-top: 20px;
+      padding: 10px 6px;
+    }
+
+    .login{
+      width: 31vw;
+      padding: 14px 6px;
+      background: #EA352D;
+      color: white;
+      margin-top: 20px;
+      border: none;
+      font-size: 14px;
+    }
+
+    &__password{
+      font-size: 14px;
+      margin-top: 40px;
+    }
+  }
+}
