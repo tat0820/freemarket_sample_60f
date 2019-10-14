@@ -45,6 +45,19 @@
   background: #fafafa;
 }
 
+.chosen-stage{
+  left: 0px;
+  width: 2700px;
+}
+
+.chosen-product{
+  width: 300px;
+}
+
+.chosen-product.active{
+  width: 300px;
+}
+
 .chosen-carousel {
   position: relative;
 }
