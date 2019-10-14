@@ -81,3 +81,4 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 gem 'active_hash'
 gem 'carrierwave'
+gem 'devise'
