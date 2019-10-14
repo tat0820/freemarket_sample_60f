@@ -93,14 +93,16 @@
   font-size: 60px;
   position: fixed;
   text-align: center;
-  color: white;
+  a{
+    text-decoration: none;
+    color: white;
+  }
 
   &__margin{
     height: 24px;
   }
   
   &__text{
-    color: white;
     font-size: 22px;
     height: 25px;
     line-height: 25px;

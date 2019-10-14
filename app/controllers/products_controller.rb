@@ -1,11 +1,10 @@
 class ProductsController < ApplicationController
+
   def index
-    @prefectures = Prefecture.all
+    @products = Product.all.order("id DESC")
   end
 
-  def signup
+  def new
   end
-
-
-
+  
 end
