@@ -22,11 +22,13 @@
         .exparation-select-wrap
           .select-wrap
             %i.icon-arrow-bottom
-            = f.select :card_limit_year, [["--", "--"], options_for_select(2019..2030)], {}, class: "select-default"
+            = f.select :card_limit_year, [options_for_select(2019..2030)], {include_blank: "--", selected: "--"}, class: "select-default"
+            = render partial: 'error_messages', locals: {user: @user, column: "card_limit_year"}
           %span.date 年
           .exparation-wrap.select-wrap__month
             %i.icon-arrow-bottom
-            = f.select :card_limit_month, [["--", "--"], options_for_select(1..12)], {}, class: "select-default"
+            = f.select :card_limit_month, [options_for_select(1..12)], {include_blank: "--", selected: "--"}, class: "select-default"
+            = render partial: 'error_messages', locals: {user: @user, column: "card_limit_month"}
           %span.date 月
           
         .form-list
