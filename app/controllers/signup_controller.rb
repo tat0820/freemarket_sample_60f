@@ -44,7 +44,8 @@ class SignupController < ApplicationController
       security_code: session[:security_code],
       birthday_year: session[:birthday_year],
       birthday_month: session[:birthday_month],
-      birthday_day: session[:birthday_day]
+      birthday_day: session[:birthday_day],
+      phone_number: session[:phone_number]
     )
     @user.build_address(
       post_code: session[:post_code],
@@ -93,7 +94,7 @@ class SignupController < ApplicationController
     session[:nickname] = user_params[:nickname]
     session[:email] = user_params[:email]
     session[:password] = user_params[:password]
-    session[:password_confirmation] = user_params[:assword_confirmation]
+    session[:password_confirmation] = user_params[:password_confirmation]
     session[:birthday_year] = user_params[:birthday_year]
     session[:birthday_month] = user_params[:birthday_month]
     session[:birthday_day] = user_params[:birthday_day]
