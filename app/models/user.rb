@@ -1,12 +1,13 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   has_one :address
   accepts_nested_attributes_for :address
 
   validates :nickname, presence: true
+  validates :email, presence: true
+  validates :password, presence: true, length: { minimum: 7 }
+  validates :password_confirmation, presence: true, length: { minimum: 7 }
   validates :birthday_year, presence: true
   validates :birthday_month, presence: true
   validates :birthday_day, presence: true
