@@ -13,87 +13,12 @@
             .chosen-product.active
               .chosen-product-inner
                 = image_tag @product.images[0].img, id:"MainPhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_2.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_3.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_4.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_5.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_6.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_7.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_8.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-              -# .chosen-product
-              -#   .chosen-product-inner
-              -#     .chosen-lazy
-              -#       = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_9.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK",class:"ChangePhoto"
-
-
-        -# .chosen-nav.disabled
-        -#   .chosen-prev prev
-        -#   .chosen-next next
         .chosen-dots
-          -# .chosen-dot.active
-          -#   = image_tag @product.images[0].img
-            -# .chosen-dot
-            -#   %span
-            -#   .chosen-dot-inner
-            -#     - @product.images.each do |image|
-            -#       = image_tag image.img, class:"ChangePhoto"
           - @product.images.each do |image|
             .chosen-dot
               %span
               .chosen-dot-inner
                 = image_tag image.img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag @product.images[0].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[1].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[2].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[3].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[4].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[5].img,class:"ChangePhoto"
-          -# .chosen-dot
-          -#   %span
-          -#   .chosen-dot-inner
-          -#     = image_tag  @product.images[6].img,class:"ChangePhoto"
-
-
-
     .product-price-box.text-center.visible-sp
       %span.product-yen ¥
       %span.product-price.bold
@@ -243,9 +168,7 @@
   %section.products-box-container.clearfix.related-product-column.products-in-user-profile
     %h2.products-box-head
       %span.link RPM☆プロフィールを必ずご覧ください☆さんのその他の出品
-      -# = link_to "#{@seller.nickname}さんのその他の出品", root_path
     .products-box-content.clearfix
-    -# - @user_products.each do |product|
       %section.products-box
         %figure.products-box-photo
           .lazyloaded
