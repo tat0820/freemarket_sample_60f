@@ -55,9 +55,13 @@ class SignupController < ApplicationController
       building_name: session[:building_name],
       user_id: session[:user_id]
     )
-    @user.save
-    session[:id] = @user.id
-    redirect_to "/signup/done"
+    if @user.save
+      session[:id] = @user.id
+      redirect_to "/signup/done"
+    else
+      render "/signup/step1"
+    end
+
   end
 
   def done
