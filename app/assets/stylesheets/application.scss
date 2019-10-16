@@ -10,6 +10,9 @@
 @import "modules/address";
 @import "modules/payment";
 @import "modules/done";
+@import "modules/add-credit";
+@import "modules/add-credit-information";
+
 @import "user_check";
 @import "user_logout";
 @import "user_buying";
@@ -19,3 +22,5 @@
 @import "user_logout";
 @import "sale_page";
 @import "user_login";
+@import "modules/product-detail";
+@import "user_profile_edit";
