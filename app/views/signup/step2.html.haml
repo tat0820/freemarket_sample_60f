@@ -59,19 +59,20 @@
           .birthday-select-wrap
             .select-wrap
               %i.icon-arrow-bottom
-              = f.select :birthday_year, [["--", "--"], options_for_select(1950..2019)], {}, class: "select-default"
+              = f.select :birthday_year, [options_for_select(1950..2019)], {include_blank: "--", selected: "--"}, class: "select-default"
+              = render partial: 'error_messages', locals: {user: @user, column: "birthday_year"}
             %span.date 年
             .select-wrap.select-wrap__month
               %i.icon-arrow-bottom
-              = f.select :birthday_month, [["--", "--"], options_for_select(1..12)], {}, class: "select-default"
+              = f.select :birthday_month, [options_for_select(1..12)], {include_blank: "--", selected: "--"}, class: "select-default"
+              = render partial: 'error_messages', locals: {user: @user, column: "birthday_month"}
             %span.date 月
             .select-wrap.select-wrap__day
               %i.icon-arrow-bottom
-              = f.select :birthday_day, [["--", "--"], options_for_select(1..31)], {}, class: "select-default"
+              = f.select :birthday_day, [options_for_select(1..31)], {include_blank: "--", selected: "--"}, class: "select-default"
+              = render partial: 'error_messages', locals: {user: @user, column: "birthday_day"}
             %span.date 日
-            = render partial: 'error_messages', locals: {user: @user, column: "birthday_year"}
-            = render partial: 'error_messages', locals: {user: @user, column: "birthday_month"}
-            = render partial: 'error_messages', locals: {user: @user, column: "birthday_day"}
+
         %p.form-info-text
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
       .second-content
