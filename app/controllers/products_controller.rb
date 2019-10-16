@@ -7,4 +7,10 @@ class ProductsController < ApplicationController
   def new
   end
   
+  def show
+    @product = Product.find(params[:id])
+    @detail = Detail.find(params[:id])
+    @image = Image.find(params[:id])
+  end
+
 end
