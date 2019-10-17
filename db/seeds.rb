@@ -28,6 +28,6 @@ Detail.create(
 )
 
 Image.create(
-  img: "https://images-na.ssl-images-amazon.com/images/I/41Wg%2B7BHmUL._SX425_.jpg"
+  img: "https://images-na.ssl-images-amazon.com/images/I/41Wg%2B7BHmUL._SX425_.jpg",
   product_id: "1",
 )
