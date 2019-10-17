@@ -8,11 +8,11 @@
 # coding: utf-8
 
 Product.create(
-  name: "うまい棒",
-  discription: "don't think. feel.",
+  name: "よっちゃん",
+  discription: "くそうまい",
   condition: "未使用に近い",
   delivery_charge: "出品者",
-  origin_area: "america",
+  origin_area: "宮城県",
   days_left_send: "1~2日",
   price: "30",
   status: "出品中",
