@@ -1,7 +1,10 @@
 .mypage-left-contents
-  .mypage-left-contents__top
-    マイページ
-    = fa_icon 'chevron-right', class: 'icon'
+
+  = link_to "/users/#{current_user.id}" do
+    .mypage-left-contents__top
+      マイページ
+      = fa_icon 'chevron-right', class: 'icon'
+
   .mypage-left-contents__top
     お知らせ
     = fa_icon 'chevron-right', class: 'icon'
@@ -51,24 +54,35 @@
     = fa_icon 'chevron-right', class: 'icon'
   .mypage-left-contents__title
     設定
-  .mypage-left-contents__top
-    プロフィール
-    = fa_icon 'chevron-right', class: 'icon'
+
+  = link_to "/users/#{current_user.id}/profile_edit" do
+    .mypage-left-contents__top
+      プロフィール
+      = fa_icon 'chevron-right', class: 'icon'
+
   .mypage-left-contents__top
     発送元・お届け先住所変更
     = fa_icon 'chevron-right', class: 'icon'
-  .mypage-left-contents__top
-    支払い方法
-    = fa_icon 'chevron-right', class: 'icon'
+
+  = link_to "/users/#{current_user.id}/credit" do
+    .mypage-left-contents__top
+      支払い方法
+      = fa_icon 'chevron-right', class: 'icon'
+
   .mypage-left-contents__top
     メール/パスワード
     = fa_icon 'chevron-right', class: 'icon'
-  .mypage-left-contents__top
-    本人情報
-    = fa_icon 'chevron-right', class: 'icon'
+
+  = link_to "/users/#{current_user.id}/user_check" do
+    .mypage-left-contents__top
+      本人情報
+      = fa_icon 'chevron-right', class: 'icon'
+
   .mypage-left-contents__top
     電話番号の確認
     = fa_icon 'chevron-right', class: 'icon'
-  .mypage-left-contents__top
-    ログアウト
-    = fa_icon 'chevron-right', class: 'icon'
+
+  = link_to "/users/#{current_user.id}/logout" do
+    .mypage-left-contents__top
+      ログアウト
+      = fa_icon 'chevron-right', class: 'icon'

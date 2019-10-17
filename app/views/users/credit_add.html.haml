@@ -1,3 +1,7 @@
+= render "shared/top_header"
+= render "shared/header-ribon"
+= render "shared/side-bar"
+
 .add-credit-top
   .add-credit-top__main
     .add-credit-top__main__new
@@ -30,3 +34,5 @@
       .yourselfs
         = link_to 'カード裏面の番号とは？', "/jp/help_center/article/423/" ,target: "_blank"  
       %button.btn-red-payment{type: "submit"} 追加する
+
+= render "shared/top_footer"

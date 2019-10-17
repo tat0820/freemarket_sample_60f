@@ -1,7 +1,5 @@
 .user-check{
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  width: 50vw;
+  width: 47vw;
   margin: 40px 15vw 40px 5vw;
   float: right;
 
@@ -57,14 +55,14 @@
       }
 
       &__form{
-        width: 38vw;
+        width: 36vw;
         padding: 10px;
         border-radius: 5px;
         border: solid 1px #eeeeee;
       }
 
       &__pul{
-        width: 40vw;
+        width: 38vw;
         padding: 10px;
         background: white;
         border: solid 1px #eeeeee;
@@ -74,7 +72,7 @@
     }
 
     &__register{
-      width: 40vw;
+      width: 38vw;
       background: #EA352D;
       color: white;
       border: none;

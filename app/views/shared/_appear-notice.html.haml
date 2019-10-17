@@ -1,8 +1,10 @@
 .right-middle-contents
   .right-middle-contents__notice
     お知らせ
-  .right-middle-contents__todo
-    やることリスト
+  
+  = link_to "/users/#{current_user.id}/appear_todo", remote: true do
+    .right-middle-contents__todo
+      やることリスト
 
 .mypage-item-list
   .mypage-item-list__body

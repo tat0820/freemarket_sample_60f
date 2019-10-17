@@ -1,0 +1,22 @@
+= render "shared/top_header"
+
+= render "shared/header-ribon"
+= render "shared/side-bar"
+
+.right-mypage-contents
+  .right-mypage-contents__image
+    = image_tag "user-mypage-icon.png"
+  .right-mypage-contents__user-name
+    = @user.nickname
+  .right-mypage-contents__number
+    評価 0 出品数 0
+
+.notice-content
+  = render "shared/appear-notice"
+  -# = render "shared/appear-todo"
+
+.transation-content
+  = render "shared/appear-transation"
+  -# = render "shared/appear-after-transation"
+
+= render "shared/top_footer"
