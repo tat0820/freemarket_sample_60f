@@ -3,7 +3,7 @@
 %section.product-box-container.first-container
   %h1.product-name 
     = @product.name
-  %p.product-wording #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@detail.small_category}/#{@detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
+  %p.product-wording #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
   .product-main-content.clearfix
     .product-photo
       .chosen-carousel.chosen-loaded.chosen-drag
@@ -48,15 +48,15 @@
           %th カテゴリー
           %td
             %span.link
-              #{@detail.large_category}
+              #{@product.detail.large_category}
             %span.link
               .product-detail-table-sub-category
                 %strong ＞
-                #{@detail.medium_category}
+                #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
                 %strong ＞
-                #{@detail.small_category}
+                #{@product.detail.small_category}
         %tr
           %th ブランド
           %td #{@product.detail.brand}

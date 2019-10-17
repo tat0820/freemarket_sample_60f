@@ -9,8 +9,6 @@ class ProductsController < ApplicationController
   
   def show
     @product = Product.find(params[:id])
-    # @detail = Detail.find(params[:id])
-    # @image = Image.find(params[:id])
   end
 
 end
