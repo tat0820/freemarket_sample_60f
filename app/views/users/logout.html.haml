@@ -1,0 +1,12 @@
+= render "shared/top_header"
+= render "shared/header-ribon"
+= render "shared/side-bar"
+
+.user-logout
+  .user-logout__box
+    = link_to destroy_user_session_path, method: :delete do
+      .user-logout__box__container
+        .user-logout__box__container__content
+          ログアウト
+
+= render "shared/top_footer"

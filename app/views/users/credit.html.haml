@@ -1,0 +1,19 @@
+= render "shared/top_header"
+= render "shared/header-ribon"
+= render "shared/side-bar"
+
+.right-credit-header
+  支払い方法
+.right-credit-contents
+  .right-credit-contents__text
+    クレジットカード一覧
+  .right-credit-contents__add-card
+
+    = link_to "/users/#{current_user.id}/credit_add" do
+      %bottun.right-credit-contents__add-card__add-button{type: "button"} クレジットカードを追加する
+
+  .right-credit-contents__about-regist
+    支払い方法について
+    = fa_icon 'chevron-right', class: 'icon'
+
+= render "shared/top_footer"

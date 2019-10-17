@@ -1,6 +1,8 @@
 .right-middle-contents
-  .right-middle-contents__notice-2
-    お知らせ
+
+  = link_to "/users/#{current_user.id}/appear_notice", remote: true do
+    .right-middle-contents__notice-2
+      お知らせ
   .right-middle-contents__todo-2
     やることリスト
 

@@ -1,8 +1,8 @@
-.header-mypage-ribon{
+.header-mypage-header{
   background: white;
   filter: drop-shadow(0 3px 3px rgb(203, 203, 203));
   font-size: 14px;
-  width: 100%;
+  width: 85vw;
   line-height: 50px;
   padding-left: 15vw;
   display: flex;
@@ -32,7 +32,7 @@
     color: gray;
     float: right;
     padding-top: 5px;
-   } 
+  } 
   }
   &__title{
     font-weight: 700;
@@ -58,7 +58,7 @@
     height: 60px;
     border-radius: 50%;
   }
- }
+}
   &__user-name{
     text-align: center;
     padding-top: 5px;
@@ -108,7 +108,7 @@
       img{
         width: 48px;
         height: 48px;
-     }
+      }
     }
     &__text{
       font-size: 14px;

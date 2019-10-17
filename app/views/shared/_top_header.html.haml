@@ -17,12 +17,9 @@
       ブランドから探す
 
     - if user_signed_in?
-      = link_to destroy_user_session_path, method: :delete do
-        .top-header__list__right-box
-          ログアウト
-
-      .top-header__list__mypage
-        マイページ
+      = link_to "/users/#{current_user.id}" do
+        .top-header__list__mypage
+          マイページ
 
       = image_tag "user-mypage-icon.png", class: "header-image"
 
@@ -46,3 +43,18 @@
       = link_to "/signup/step1" do
         .top-header__list__signup
           新規会員登録
+
+.top-icon
+  - if user_signed_in?
+    = link_to "/products/new" do
+      .top-icon__margin
+      .top-icon__text
+        出品
+      = fa_icon "camera"
+
+  - else
+    = link_to new_user_session_path do
+      .top-icon__margin
+      .top-icon__text
+        出品
+      = fa_icon "camera"
