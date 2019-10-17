@@ -22,14 +22,15 @@
     もっと見る＞
   .top-products__items
     - @products.each do |product|
-      .top-products__items__item
-        -# = image_tag product.images[0].img
-        
-        .top-products__items__item__price
-          ¥
-          = product.price
-        .top-products__items__item__name
-          = product.name
+
+      = link_to product_path(product.id) do
+        .top-products__items__item
+          = image_tag product.images[0].img
+          .top-products__items__item__price
+            ¥
+            = product.price
+          .top-products__items__item__name
+            = product.name
 
 .top-icon
   = link_to "/products/new" do
@@ -39,3 +40,5 @@
     = fa_icon "camera" 
 
 = render "shared/top_footer"
+
+

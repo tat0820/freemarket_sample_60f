@@ -1,0 +1,339 @@
+=render "shared/top_header"
+
+%section.product-box-container.first-container
+  %h1.product-name 
+    = @product.name
+  %p.product-wording #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
+  .product-main-content.clearfix
+    .product-photo
+      .chosen-carousel.chosen-loaded.chosen-drag
+        .chosen-stage-outer
+          .chosen-stage
+            .chosen-product.active
+              .chosen-product-inner
+                = image_tag @product.images[0].img, id:"MainPhoto"
+        .chosen-dots
+          - @product.images.each do |image|
+            .chosen-dot
+              %span
+              .chosen-dot-inner
+                = image_tag image.img,class:"ChangePhoto"
+    .product-price-box.text-center.visible-sp
+      %span.product-yen ¥
+      %span.product-price.bold
+        = @product.price
+      %span.product-tax (税込)
+      %span.product-shipping-fee 送料込み
+    %section.visible-sp
+      .product-btn-float-area
+        .product-buy-btn
+          購入画面に進む
+    %table.product-detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to root_path do
+              %div
+                .product-user-ratings
+                  .icon-good= fa_icon 'heart'
+                  %span 3991
+                .product-user-ratings
+                  .icon-normal= fa_icon 'heart'
+                  %span 12
+                .product-user-ratings
+                  .icon-bad= fa_icon 'heart'
+                  %span 3
+        %tr
+          %th カテゴリー
+          %td
+            %span.link
+              #{@product.detail.large_category}
+            %span.link
+              .product-detail-table-sub-category
+                %strong ＞
+                #{@product.detail.medium_category}
+            %span.link
+              .product-detail-table-sub-sub-category
+                %strong ＞
+                #{@product.detail.small_category}
+        %tr
+          %th ブランド
+          %td #{@product.detail.brand}
+        %tr
+          %th 商品の状態
+          %td #{@product.condition}
+        %tr
+          %th 配送料の負担
+          %td #{@product.delivery_charge}
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            %span.link #{@product.origin_area}
+        %tr
+          %th 発送日の目安
+          %td 2~3日で発送
+  .product-price-box.text-center
+    %span.product-yen.bold ¥
+    %span.product-price.bold
+      = @product.price
+    %span.product-tax (税込)
+    %span.product-shipping-fee 送料込み
+  .product-buy-btn
+    購入画面に進む
+  .product-description.f14
+    %p.product-description-inner
+      My Pet Monster（マイペットモンスター）トーキングプラッシュドール UK ver.
+      
+      ■大きさ約55cm（角の先からつま先まで）
+      
+      2008年にイギリスで発売されたマイペットモンスターです。
+      お腹を押すとおしゃべりするマイペットモンスターの
+      ぬいぐるみです。
+      
+      トーキング可動です。
+      
+      USED品で手錠やチェーンは欠品しています。
+      
+      目に小傷があります
+      それ以外は毛並みも手足も良い状態です。
+      
+      単品や単一セットのみのお値引きには
+      対応しておりません(^◇^;)
+      
+      ご購入前にプロフィールにも
+      目を通してくださいませ。
+      
+      【送料無料】
+      
+      メルカリ便を利用致します。
+      
+      \#mypetmonster
+      \#マイペットモンスター
+      \#ビンテージトイ
+      \#80s
+      \#モンスター
+      \#アメキャラ
+      \#アメリカ
+      \#キャラクター
+      \#アメリカンキャラクター
+      \#雑貨
+      \#アメリカ雑貨
+      \#アメリカン雑貨
+  .product-button-container.clearfix
+    .product-button-left
+      .product-button.product-button-like
+        .icon-like-border= fa_icon 'heart'
+        %span いいね!
+        %span{'data-num': "like"} 22
+      .product-button.product-button-report.clearfix
+        = fa_icon 'flag'
+        %span 不適切な商品の報告
+    .product-button-right
+      %span.link
+        あんしん・あんぜんへの取り組み
+.product-detail-message
+  .message-container
+%ul.nav-product-link-prev-next.clearfix
+  %li.nav-product-link-prev
+    %span.link
+      %strong> ＜
+      ピンクチェック マキシワンピース
+  %li.nav-product-link-next
+    %span.link
+      [ジャンク]マザーボード LGA1155  2枚 ピン折れ i5 3450 割れ
+      %strong ＞
+.product-social-media-box
+  %ul.social-media-box
+    %li
+      %a.share-btn
+        .icon-facebook= fa_icon 'facebook'
+    %li
+      %a.share-btn
+        .icon-twitter= fa_icon 'twitter'
+    %li.social-hidden-product
+      .icon-line
+        .icon-line= fa_icon 'comment'
+    %li
+      .share-btn
+        .icon-pinterest= fa_icon 'pinterest'
+
+
+
+.products-in-user-profile
+  %section.products-box-container.clearfix.related-product-column.products-in-user-profile
+    %h2.products-box-head
+      %span.link RPM☆プロフィールを必ずご覧ください☆さんのその他の出品
+    .products-box-content.clearfix
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m21603038327_1.jpg?1570811271",alt: "chichi69様 専用"
+          %figcaption
+            .product-sold-out-badge
+              %div SOLD
+        .products-box-body
+          %h3.products-box-name.font-2 chichi69様 専用
+          .products-box-num
+            .products-box-price.font-5 ¥6,330
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m56531144532_1.jpg?1570794818",alt: "No.5328 UDF チャーリーブラウン ＆ スヌーピー フィギュア"
+        .products-box-body
+          %h3.products-box-name.font-2 No.5328 UDF チャーリーブラウン ＆ スヌーピー フィギュア
+          .products-box-num
+            .products-box-price.font-5 ¥2,230
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 15
+      %section.products-box
+        %figure.products-box-photo
+          .is-higher-height.lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m46105054916_1.jpg?1570789052",alt: "No.5327 UDF スヌーピー マーブルズ フィギュア"
+        .products-box-body
+          %h3.products-box-name.font-2 No.5327 UDF スヌーピー マーブルズ フィギュア
+          .products-box-num
+            .products-box-price.font-5 ¥1,580
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 3
+      %section.products-box
+        %figure.products-box-photo
+          .is-higher-height.lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m36393335892_1.jpg?1570787461",alt: "No.5326 UDF スヌーピー マーブルズ フィギュア"
+          %figcaption
+            .product-sold-out-badge
+              %div SOLD
+        .products-box-body
+          %h3.products-box-name.font-2 No.5326 UDF スヌーピー マーブルズ フィギュア
+          .products-box-num
+            .products-box-price.font-5 ¥1,580
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          .is-higher-height.lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m80136863751_1.jpg?1570787348",alt: "No.5325 UDF アストロノーツ スヌーピー フィギュア"
+        .products-box-body
+          %h3.products-box-name.font-2 No.5325 UDF アストロノーツ スヌーピー フィギュア
+          .products-box-num
+            .products-box-price.font-5 ¥1,870
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 4
+      %section.products-box
+        %figure.products-box-photo
+          .is-higher-height.lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m61533757520_1.jpg?1570787174",alt: "No.5324 UDF アストロノーツ チャーリーブラウン フィギュア"
+        .products-box-body
+          %h3.products-box-name.font-2 No.5324 UDF アストロノーツ チャーリーブラウン フィギュア
+          .products-box-num
+            .products-box-price.font-5 ¥1,870
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 5
+
+
+
+
+  %section.products-box-container.clearfix.related-product-column
+    %h2.products-box-head
+      %span.link
+        ぬいぐるみ （おもちゃ・ホビー・グッズ） その他の商品
+    .products-box-content.clearfix
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m77014304984_1.jpg?1560075458",alt: "American Dream ベアー／ブラウン"
+        .products-box-body
+          %h3.products-box-name.font-2 American Dream ベアー／ブラウン
+          .products-box-num
+            .products-box-price.font-5 ¥4,200
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded.is-higher-height
+            = image_tag "https://static.mercdn.net/thumb/photos/m86991400068_1.jpg?1570893503",alt: "ふんわり ころころきつね ぬいぐるみ 全4種類 ③"
+        .products-box-body
+          %h3.products-box-name.font-2 ふんわり ころころきつね ぬいぐるみ 全4種類 ③
+          .products-box-num
+            .products-box-price.font-5 ¥2,800
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          %img.lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m65201690947_1.jpg?1569053576",alt: "ユニコーンのコニー オーロラリボン ぬいぐるみ"
+        .products-box-body
+          %h3.products-box-name.font-2 ユニコーンのコニー オーロラリボン ぬいぐるみ
+          .products-box-num
+            .products-box-price.font-5 ¥2,380
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m46851662345_1.jpg?1570893468", alt: "ふわふわバニーぬいぐるみ"
+        .products-box-body
+          %h3.products-box-name.font-2 ふわふわバニーぬいぐるみ
+          .products-box-num
+            .products-box-price.font-5 ¥2,400
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m26839815332_1.jpg?1556536963",alt: "クレヨンしんちゃん めちゃでかぬいぐるみ 〜おすわりシロ〜"
+        .products-box-body
+          %h3.products-box-name.font-2 クレヨンしんちゃん めちゃでかぬいぐるみ 〜おすわりシロ〜
+          .products-box-num
+            .products-box-price.font-5 ¥1,700
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 3
+      %section.products-box
+        %figure.products-box-photo
+          .lazyloaded
+            = image_tag "https://static.mercdn.net/thumb/photos/m81687621385_1.jpg?1569053942",alt: "ぽてうさろっぴー ビビッド ぬいぐるみ"
+        .products-box-body
+          %h3.products-box-name.font-2 ぽてうさろっぴー ビビッド ぬいぐるみ
+          .products-box-num
+            .products-box-price.font-5 ¥1,980
+            .font-2
+              .icon-like-border= fa_icon 'heart'
+              %span 1
+
+
+
+
+              
+%aside.modal{'data-close': "modal", 'data-modal': "report-product"}
+  .modal-inner.modal-banner
+    .modal-body
+      .modal-head.bold 確認
+      不適切な商品を報告しますか？
+    .clearfix
+      .modal-btn.modal-btn-cancel{'data-close': "modal"} キャンセル
+      %button.modal-btn.modal-btn-submit はい
+%nav.bread-crumbs.pos-bottom
+  %ul
+    %li{productscope: "", producttype: "http://data-vocabulary.org/Breadcrumb"}
+      %span{productprop: "title"} メルカリ
+      %strong ＞
+    %li{productscope: "", producttype: "http://data-vocabulary.org/Breadcrumb"}
+      %span{productprop: "title"} No.5038 My Pet Monster トーキングプラッシュドール UK
+
+=render "shared/top_footer"
