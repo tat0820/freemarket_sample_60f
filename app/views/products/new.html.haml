@@ -1,1 +1,119 @@
-= render "shared/sale_page"
+.sale-page-title
+  = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class: "sale-page-title--image"
+
+.sale-page-box
+  = form_for @product, url: "/products", method: "post" do |f|
+    .sale-page-box__title
+      商品の情報を入力
+    .sale-page-box__upload-box
+      .sale-page-box__upload-box__title
+        = f.label :出品画像
+      .sale-page-box__upload-box__must
+        必須
+      .sale-page-box__upload-box__text
+        最大10枚アップロードできます
+      .sale-page-box__upload-box__item
+        ドラッグアンドドロップ
+        %br
+        またはクリックしてファイルをアップロード
+        = f.fields_for :images do |i|
+          = i.file_field :img, multiple: true
+
+    .sale-page-box__product
+      = f.label :商品名, class: "sale-page-box__product__title"
+      .sale-page-box__product__must
+        必須
+      = f.text_field :name, class: "sale-page-box__product__form-name", placeholder: "商品名（必須 40字まで）"
+
+      = f.label :商品の説明, class: "sale-page-box__product__title"
+      .sale-page-box__product__must
+        必須
+      = f.text_area :discription, class:"sale-page-box__product__form-text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+
+    .sale-page-box__pul
+      .sale-page-box__pul__left
+        商品の詳細
+      .sale-page-box__pul__right
+        .sale-page-box__pul__right__title
+          カテゴリー
+        .sale-page-box__pul__right__must
+          必須
+        %select.sale-page-box__pul__right__bottom-margin
+          %option{:value=> ""} --
+          %option{:value => "レディース"} レディース
+          %option{:value => "メンズ"} メンズ
+          %option{:value => "ベビー・キッズ"} ベビー・キッズ
+          %option{:value => "インテリア・住まい・小物"} インテリア・住まい・小物
+          %option{:value => "本・音楽・ゲーム"} 本・音楽・ゲーム
+          %option{:value => "おもちゃ・ホビー・グッズ"} おもちゃ・ホビー・グッズ
+          %option{:value => "コスメ・香水・美容"} コスメ・香水・美容
+          %option{:value => "家電・スマホ・カメラ"} 家電・スマホ・カメラ
+          %option{:value => "スポーツ・レジャー"} スポーツ・レジャー
+          %option{:value => "ハンドメイド"} ハンドメイド
+          %option{:value => "チケット"} チケット
+          %option{:value => "自動車・オートバイ"} 自動車・オートバイ
+          %option{:value => "その他"} その他
+
+
+        = f.label :商品の状態, class:"sale-page-box__pul__right__title"
+        .sale-page-box__pul__right__must
+          必須
+        = f.select :condition, [["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]], {prompt:"--"}, class: "sale-page-box__pul__right__not-margin"
+    .sale-page-box__pul
+      .sale-page-box__pul__left
+        配送について
+      .sale-page-box__pul__right
+      
+        = f.label :配送料の負担, class:"sale-page-box__pul__right__title"
+        .sale-page-box__pul__right__must
+          必須
+        = f.select :delivery_charge, [["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]], {prompt:"--"}, class: "sale-page-box__pul__right__bottom-margin"
+
+        = f.label :発送元の地域,  class:"sale-page-box__pul__right__title"
+        .sale-page-box__pul__right__must
+          必須
+        = f.collection_select :origin_area, Prefecture.all,:name,:name, {prompt:'--'}, class: "sale-page-box__pul__right__bottom-margin"
+     
+        = f.label :発送までの日数, class:"sale-page-box__pul__right__title"
+        .sale-page-box__pul__right__must
+          必須
+        = f.select :days_left_send, [["1~2日で配送",1],["2~3日で配送",2],["4~7日で配送",3]], {prompt:"--"}, class: "sale-page-box__pul__right__bottom-margin"
+    .sale-page-box__price
+      .sale-page-box__price__left
+        販売価格（300〜9,999,999）
+      .sale-page-box__price__right
+        = f.label :価格, class: "sale-page-box__price__right__title"
+        .sale-page-box__price__right__must
+          必須
+        .sale-page-box__price__right__en
+          ¥
+        = f.text_field :price, class: "sale-page-box__price__right__value", placeholder: "例）300"
+
+        .sale-page-box__price__right__fee
+          販売手数料(10%)
+          = fa_icon "minus", class: "minus"
+          
+        .sale-page-box__price__right__profit
+          販売利益
+          = fa_icon "minus", class: "minus"
+
+    .sale-page-box__btn-box
+      .sale-page-box__btn-box__text
+        禁止されている出品、行為を必ずご確認ください。
+        %br
+        またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+        %br
+        また、出品をもちまして加盟店規約に同意したことになります。
+      = f.submit "出品する", class: "sale-page-box__btn-box__red-btn"
+      .sale-page-box__btn-box__gray-btn
+        もどる
+
+.sale-page-footer
+  %ul.sale-page-footer__box
+    %li プライバシーポリシー
+    %li メルカリ利用規約
+    %li 特定商取引に関する表記
+  .sale-page-footer__img
+    = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308", class: "sale-page-footer__img--logo"
+  %p.sale-page-footer__rogo
+    %small © 2019 Mercari
