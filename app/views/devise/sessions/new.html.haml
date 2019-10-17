@@ -1,0 +1,30 @@
+.register-top
+  = link_to "/" do
+    .register-top__icon
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"
+
+.login-main
+  .login-main__no-account
+    .login-main__no-account__text
+      アカウントをお持ちでない方はこちら
+    = link_to "/signup/step1" do
+      .login-main__no-account__btn
+        新規会員登録
+
+  .login-main__box
+    .login-main__box__facebook
+      = image_tag "https://ja.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png", class: "facebook"
+      Facebookでログイン
+    .login-main__box__google
+      = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja", class: "google"
+      Googleでログイン
+    
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "field"
+      = f.password_field :password, autocomplete: "current-password", placeholder: "パスワード", class: "field"
+      = f.submit "ログイン", class: "login"
+
+    .login-main__box__password
+      パスワードをお忘れの方
+
+= render 'signup/registration_footer'

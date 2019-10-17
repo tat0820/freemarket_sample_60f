@@ -8,12 +8,20 @@
 |nickname|string|null: false| <!--名前-->
 |email|string|null: false| <!--メールアドレス-->
 |password|string|null: false| <!--パスワード-->
+|last_name|string|null: false| <!--姓-->
+|first_name|string|null: false| <!--名-->
+|last_name_kana|string|null: false| <!--姓（カナ）-->
+|first_name_kana|string|null: false| <!--名（カナ）-->
+|birthday_year|integer|null: false| <!--生年月日（年）-->
+|birthday_month|integer|null: false| <!--生年月日（月）-->
+|birthday_day|integer|null: false| <!--生年月日（日）-->
 |phone_number|integer|null: false| <!--電話番号-->
 |card_number|integer|| <!--クレジットカード番号-->
-|exparation_date|integer|| <!--クレジットカード有効期限-->
+|card_limit_month|integer|| <!--クレジットカード有効期限-->
+|card_limit_year|integer|| <!--クレジットカード有効期限-->
 |security_code|integer|| <!--セキュリティコード-->
-|sales_money|string|null: false| <!--売上金-->
-|point|string|null: false| <!--ポイント-->
+|sales_money|integer|null: false| <!--売上金-->
+|point|integer|null: false| <!--ポイント-->
 ### Association
 - has_many :products
 - has_many :comments
@@ -45,7 +53,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true| <!--商品名-->
-|discription|text|| <!--商品説明-->  
+|discription|text|| <!--商品説明-->
 |condition|string|null: false, index: true| <!--商品の状態-->
 |delivery_charge|string|null: false, index: true| <!--配送料の負担-->
 |origin_area|string|null: false| <!--発送元の地域-->
@@ -151,11 +159,11 @@
 ## addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|post_code|integer|null: false| <!--郵便番号-->
+|post_code|string|null: false| <!--郵便番号-->
 |prefecture|string|null: false| <!--都道府県-->
 |town|string|null: false| <!--市区町村-->
-|street|integer|null: false| <!--番地-->
-|building_name|string|null: false| <!--建物名-->
+|street|string|null: false| <!--番地-->
+|building_name|string|| <!--建物名-->
 |user_id|references|null: false, foreign_key: true| <!--user_id-->
 ### Association
 - belongs_to :user
