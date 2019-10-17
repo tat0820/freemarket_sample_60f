@@ -1,3 +1,4 @@
+
 * {
   background-repeat: no-repeat;
   margin: 0;
@@ -123,6 +124,7 @@
   max-height: none;
   opacity: .4;
   cursor: pointer;
+  float:left;
 }
 
 .chosen-dot.active {
@@ -158,6 +160,10 @@
 .product-price {
     margin: 0 16px 0 0;
     font-size: 50px;
+}
+
+.product-yen {
+  font-size: 50px;
 }
 
 .bold {
@@ -1121,3 +1127,6 @@ h2 {
   background: #fff;
 }
 
+.producty{
+  display:flex;
+}

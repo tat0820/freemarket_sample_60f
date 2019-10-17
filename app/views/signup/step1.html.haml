@@ -12,9 +12,8 @@
           メールアドレスで登録する
       %button#facebook-login.btn-facebook
         = image_tag "https://ja.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png",size: "18x18" , alt: "facebook"
-        Facebookで登録する
+        = link_to "Facebookで登録する",user_facebook_omniauth_authorize_path, method: :post
       %button#google-login.btn-google
         = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja" ,size:"18x18" , alt:"google"
-        Googleで登録する
-        
+        = link_to "Googleで登録する",user_google_oauth2_omniauth_authorize_path, method: :post
 = render 'registration_footer'

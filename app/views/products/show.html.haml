@@ -1,9 +1,9 @@
-
 =render "shared/top_header"
 
 %section.product-box-container.first-container
-  %h1.product-name No.5038 My Pet Monster トーキングプラッシュドール UK
-  %p.product-wording 『No.5038 My Pet Monster トーキングプラッシュドール UK』は、3988回の取引実績を持つ●●●さんから出品されました。ぬいぐるみ/おもちゃ・ホビー・グッズの商品で、愛知県から2~3日で発送されます。
+  %h1.product-name 
+    = @product.name
+  %p.product-wording #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
   .product-main-content.clearfix
     .product-photo
       .chosen-carousel.chosen-loaded.chosen-drag
@@ -11,82 +11,17 @@
           .chosen-stage
             .chosen-product.active
               .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_1.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_2.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_3.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_4.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_5.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_6.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_7.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_8.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-            .chosen-product
-              .chosen-product-inner
-                .chosen-lazy
-                  = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_9.jpg?1564909867",alt: "No.5038 My Pet Monster トーキングプラッシュドール UK"
-        .chosen-nav.disabled
-          .chosen-prev prev
-          .chosen-next next
+                = image_tag @product.images[0].img, id:"MainPhoto"
         .chosen-dots
-          .chosen-dot.active
-            %span
-            .chosen-dot-inner
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_1.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m64922026898_2.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_3.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_4.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_5.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_6.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_7.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_8.jpg?1564909867"
-          .chosen-dot
-            %span
-            .chosen-dot-inner
-              = image_tag  "https://static.mercdn.net/item/detail/orig/photos/m64922026898_9.jpg?1564909867"
+          - @product.images.each do |image|
+            .chosen-dot
+              %span
+              .chosen-dot-inner
+                = image_tag image.img,class:"ChangePhoto"
     .product-price-box.text-center.visible-sp
-      %span.product-price.bold ¥16,300
+      %span.product-yen ¥
+      %span.product-price.bold
+        = @product.price
       %span.product-tax (税込)
       %span.product-shipping-fee 送料込み
     %section.visible-sp
@@ -97,52 +32,54 @@
       %tbody
         %tr
           %th 出品者
-          %td
-            %span.link RPM☆プロフィールを必ずご覧ください☆
-            %div
+          %td 
+            シンプソンズ
+            .producty
               .product-user-ratings
-                .icon-good= fa_icon 'heart'
-                %span 3991
+              .icon-good= fa_icon 'heart'
+              %span 3991
               .product-user-ratings
-                .icon-normal= fa_icon 'heart'
-                %span 12
+              .icon-normal= fa_icon 'heart'
+              %span 12
               .product-user-ratings
-                .icon-bad= fa_icon 'heart'
-                %span 3
+              .icon-bad= fa_icon 'heart'
+              %span 3
         %tr
           %th カテゴリー
           %td
             %span.link
-              %div おもちゃ・ホビー・グッズ
+              #{@product.detail.large_category}
             %span.link
               .product-detail-table-sub-category
                 %strong ＞
-                おもちゃ
+                #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
                 %strong ＞
-                ぬいぐるみ
+                #{@product.detail.small_category}
         %tr
           %th ブランド
-          %td
+          %td #{@product.detail.brand}
         %tr
           %th 商品の状態
-          %td やや傷や汚れあり
+          %td #{@product.condition}
         %tr
           %th 配送料の負担
-          %td 送料込み(出品者負担)
+          %td #{@product.delivery_charge}
         %tr
           %th 配送の方法
           %td らくらくメルカリ便
         %tr
           %th 配送元地域
           %td
-            %span.link 愛知県
+            %span.link #{@product.origin_area}
         %tr
           %th 発送日の目安
           %td 2~3日で発送
   .product-price-box.text-center
-    %span.product-price.bold ¥16,300
+    %span.product-yen.bold ¥
+    %span.product-price.bold
+      = @product.price
     %span.product-tax (税込)
     %span.product-shipping-fee 送料込み
   .product-buy-btn
@@ -189,7 +126,7 @@
   .product-button-container.clearfix
     .product-button-left
       .product-button.product-button-like
-        .icon-like-border= fa_icon 'heart'
+        = fa_icon 'heart'
         %span いいね!
         %span{'data-num': "like"} 22
       .product-button.product-button-report.clearfix
@@ -219,10 +156,13 @@
         .icon-twitter= fa_icon 'twitter'
     %li.social-hidden-product
       .icon-line
-        %i.fab.fa-line
+        .icon-line= fa_icon 'comment'
     %li
       .share-btn
         .icon-pinterest= fa_icon 'pinterest'
+
+
+
 .products-in-user-profile
   %section.products-box-container.clearfix.related-product-column.products-in-user-profile
     %h2.products-box-head
@@ -240,7 +180,7 @@
           .products-box-num
             .products-box-price.font-5 ¥6,330
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -251,7 +191,7 @@
           .products-box-num
             .products-box-price.font-5 ¥2,230
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 15
       %section.products-box
         %figure.products-box-photo
@@ -262,7 +202,7 @@
           .products-box-num
             .products-box-price.font-5 ¥1,580
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 3
       %section.products-box
         %figure.products-box-photo
@@ -276,7 +216,7 @@
           .products-box-num
             .products-box-price.font-5 ¥1,580
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -287,7 +227,7 @@
           .products-box-num
             .products-box-price.font-5 ¥1,870
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 4
       %section.products-box
         %figure.products-box-photo
@@ -298,8 +238,12 @@
           .products-box-num
             .products-box-price.font-5 ¥1,870
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 5
+
+
+
+
   %section.products-box-container.clearfix.related-product-column
     %h2.products-box-head
       %span.link
@@ -314,7 +258,7 @@
           .products-box-num
             .products-box-price.font-5 ¥4,200
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -325,7 +269,7 @@
           .products-box-num
             .products-box-price.font-5 ¥2,800
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -336,7 +280,7 @@
           .products-box-num
             .products-box-price.font-5 ¥2,380
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -347,7 +291,7 @@
           .products-box-num
             .products-box-price.font-5 ¥2,400
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
       %section.products-box
         %figure.products-box-photo
@@ -358,7 +302,7 @@
           .products-box-num
             .products-box-price.font-5 ¥1,700
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 3
       %section.products-box
         %figure.products-box-photo
@@ -369,8 +313,13 @@
           .products-box-num
             .products-box-price.font-5 ¥1,980
             .font-2
-              .icon-like-border= fa_icon 'heart'
+              = fa_icon 'heart'
               %span 1
+
+
+
+
+              
 %aside.modal{'data-close': "modal", 'data-modal': "report-product"}
   .modal-inner.modal-banner
     .modal-body
