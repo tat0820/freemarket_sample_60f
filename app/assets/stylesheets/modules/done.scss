@@ -34,6 +34,9 @@
     }
   }
 }
+.done-btn{
+  text-decoration: none;
+}
 
 .btn-red-done{
   @include redbtn;

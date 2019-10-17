@@ -16,6 +16,9 @@
     text-align: center;
     line-height: 80px;
 
+    a{
+      text-decoration: none;
+    }
   }
 
   &__icon{
@@ -86,4 +89,13 @@
     float:left;
     margin-left:10px;
   }
+}
+
+.error-message{
+  text-align: left;
+}
+
+.error-message{
+  color: #EA352D;
+  padding: 8px 0;
 }
