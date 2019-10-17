@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_025152) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
@@ -46,10 +47,10 @@ ActiveRecord::Schema.define(version: 2019_10_16_025152) do
 
   create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "large_category", null: false
-    t.string "medium_category"
-    t.string "small_category"
-    t.string "size"
-    t.string "brand"
+    t.string "medium_category", null: false
+    t.string "small_category", null: false
+    t.string "size", null: false
+    t.string "brand", null: false
     t.bigint "product_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -24,7 +24,7 @@ Detail.create(
   small_category: "ビヨンセ",
   size: "S",
   brand: "ビヨンセ",
-  product_id: "3",
+  product_id: "6",
 )
 
 Image.create(
@@ -38,5 +38,5 @@ Image.create(
   img: "https://rockinon.com/images/artist_image/width:600/230/1",
   img: "https://www.madametussauds.jp/media/507746/ba_beyonce_after_962x540.jpg?anchor=center&mode=crop&width=962&height=540",
   
-  product_id: "3",
+  product_id: "6",
 )
