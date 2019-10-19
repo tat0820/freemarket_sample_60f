@@ -10,7 +10,7 @@ class User < ApplicationRecord
           provider = auth.provider
           snscredential = SnsCredential.where(uid: uid, provider: provider).first
           password = Devise.friendly_token.first(7)
-          # binding.pry
+          
       
           if snscredential.present? #sns登録のみ完了してるユーザー
             user = User.where(id: snscredential.user_id).first
@@ -23,7 +23,7 @@ class User < ApplicationRecord
               )
             end
             sns = snscredential
-            #binding.pry
+            
       
           else #sns登録 未
             user = User.where(email: auth.info.email).first
@@ -40,15 +40,15 @@ class User < ApplicationRecord
                 password: password,
                 password_confirmation: password
               )
-              # binding.pry
+              
               sns = SnsCredential.create(
                 uid: uid,
                 provider: provider
               )
-              # binding.pry 
+              
             end
           end
-          # binding.pry
+          
           # hashでsnsのidを返り値として保持しておく
           return { user: user , sns_id: sns.id}
         end
