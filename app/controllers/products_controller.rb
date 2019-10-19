@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.build
+    # @product.images.build
   end
   
   def create
@@ -22,10 +22,10 @@ class ProductsController < ApplicationController
       status: "出品中"
       )
       
-    @product.images.build(
-      img: product_params[:images_attributes][:img],
-      product_id: product_params[:images_attributes][:product_id]
-      )
+    # @product.images.build(
+    #   img: product_params[:images_attributes][:img],
+    #   product_id: product_params[:images_attributes][:product_id]
+    #   )
 
     @product.save
     redirect_to root_path
@@ -46,7 +46,8 @@ class ProductsController < ApplicationController
     :delivery_charge, 
     :days_left_send,
     :origin_area,
-    :price,
-    images_attributes: {img: []})   
+    :price
+    )
+    # images_attributes: {img: []}
   end
 end
