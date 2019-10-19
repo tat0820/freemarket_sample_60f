@@ -25,12 +25,13 @@
       .sale-page-box__product__must
         必須
       = f.text_field :name, class: "sale-page-box__product__form-name", placeholder: "商品名（必須 40字まで）"
+      = render partial: 'product_error_messages', locals: {product: @product, column: "name"}
 
       = f.label :商品の説明, class: "sale-page-box__product__title"
       .sale-page-box__product__must
         必須
       = f.text_area :discription, class:"sale-page-box__product__form-text", placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
-
+      = render partial: 'product_error_messages', locals: {product: @product, column: "discription"}
     .sale-page-box__pul
       .sale-page-box__pul__left
         商品の詳細
@@ -54,12 +55,13 @@
           %option{:value => "チケット"} チケット
           %option{:value => "自動車・オートバイ"} 自動車・オートバイ
           %option{:value => "その他"} その他
-
+        
 
         = f.label :商品の状態, class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
           必須
         = f.select :condition, [["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]], {prompt:"--"}, class: "sale-page-box__pul__right__not-margin"
+        = render partial: 'product_error_messages', locals: {product: @product, column: "condition"}
     .sale-page-box__pul
       .sale-page-box__pul__left
         配送について
@@ -69,16 +71,20 @@
         .sale-page-box__pul__right__must
           必須
         = f.select :delivery_charge, [["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]], {prompt:"--"}, class: "sale-page-box__pul__right__bottom-margin"
+        = render partial: 'product_error_messages', locals: {product: @product, column: "delivery_charge"}
+        
 
         = f.label :発送元の地域,  class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
           必須
         = f.collection_select :origin_area, Prefecture.all,:name,:name, {prompt:'--'}, class: "sale-page-box__pul__right__bottom-margin"
-     
+        = render partial: 'product_error_messages', locals: {product: @product, column: "origin_area"}
+
         = f.label :発送までの日数, class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
           必須
         = f.select :days_left_send, [["1~2日で配送",1],["2~3日で配送",2],["4~7日で配送",3]], {prompt:"--"}, class: "sale-page-box__pul__right__bottom-margin"
+        = render partial: 'product_error_messages', locals: {product: @product, column: "days_left_send"}
     .sale-page-box__price
       .sale-page-box__price__left
         販売価格（300〜9,999,999）
@@ -89,7 +95,7 @@
         .sale-page-box__price__right__en
           ¥
         = f.text_field :price, class: "sale-page-box__price__right__value", placeholder: "例）300"
-
+        = render partial: 'product_error_messages', locals: {product: @product, column: "pri"}
         .sale-page-box__price__right__fee
           販売手数料(10%)
           = fa_icon "minus", class: "minus"

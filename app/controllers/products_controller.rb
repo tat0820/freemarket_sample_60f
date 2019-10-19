@@ -27,8 +27,11 @@ class ProductsController < ApplicationController
     #   product_id: product_params[:images_attributes][:product_id]
     #   )
 
-    @product.save
-    redirect_to root_path
+    if @product.save
+      redirect_to root_path
+    else
+      render "/products/new"
+    end
     
   end 
 
