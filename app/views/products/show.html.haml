@@ -25,9 +25,6 @@
       %span.product-tax (税込)
       %span.product-shipping-fee 送料込み
     %section.visible-sp
-      .product-btn-float-area
-        .product-buy-btn
-          購入画面に進む
     %table.product-detail-table
       %tbody
         %tr
@@ -82,8 +79,9 @@
       = @product.price
     %span.product-tax (税込)
     %span.product-shipping-fee 送料込み
-  .product-buy-btn
-    購入画面に進む
+    = link_to "/products/#{@product.id}/user_buying" do
+      .product-buy-btn
+        購入画面に進む
   .product-description.f14
     %p.product-description-inner
       My Pet Monster（マイペットモンスター）トーキングプラッシュドール UK ver.
