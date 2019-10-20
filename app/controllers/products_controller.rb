@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    # @product.images.build
     10.times{@product.images.build}
   end
   
@@ -20,7 +21,8 @@ class ProductsController < ApplicationController
       price: product_params[:price],
       user_id: current_user.id,
       status: "出品中"
-    )
+      )
+    
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
@@ -51,8 +53,13 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"9"][:img]
     )
-    @product.save
-    redirect_to root_path
+      
+    if @product.save
+      redirect_to root_path
+    else
+      render "/products/new"
+    end
+  
   end 
 
   def show
@@ -82,7 +89,7 @@ class ProductsController < ApplicationController
     :delivery_charge, 
     :days_left_send,
     :origin_area,
-    :price,
+    :price
     )
   end
 end
