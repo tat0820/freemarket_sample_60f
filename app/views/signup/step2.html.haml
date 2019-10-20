@@ -20,16 +20,20 @@
           %span.form-must 必須
           = f.email_field :email, class: "input-data", placeholder: "PC・携帯どちらでも可"
           = render partial: 'error_messages', locals: {user: @user, column: "email"}
-        .form-list
-          = f.label :パスワード
-          %span.form-must 必須
-          = f.password_field :password, class: "input-data", placeholder: "7文字以上"
-          = render partial: 'error_messages', locals: {user: @user, column: "password"}
-        .form-list
-          = f.label :パスワード（確認）
-          %span.form-must 必須
-          = f.password_field :password_confirmation, class: "input-data", placeholder: "7文字以上"
-          = render partial: 'error_messages', locals: {user: @user, column: "password_confirmation"}
+        - if session["devise.sns_id"].blank?
+          .form-list
+            = f.label :パスワード
+            %span.form-must 必須
+            = f.password_field :password, class: "input-data", placeholder: "7文字以上"
+            = render partial: 'error_messages', locals: {user: @user, column: "password"}
+          .form-list
+            = f.label :パスワード（確認）
+            %span.form-must 必須
+            = f.password_field :password_confirmation, class: "input-data", placeholder: "7文字以上"
+            = render partial: 'error_messages', locals: {user: @user, column: "password_confirmation"}
+        - else
+          = f.hidden_field :password
+          = f.hidden_field :password_confirmation
         .form-list
           %h3.text-left.l-chapter-sub-head 本人確認
           %p.safety-text

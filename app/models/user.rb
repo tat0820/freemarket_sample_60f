@@ -5,38 +5,55 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable,omniauth_providers: [:facebook, :google_oauth2]
 
-        def self.find_oauth(auth)
+         def self.find_oauth(auth)
           uid = auth.uid
           provider = auth.provider
           snscredential = SnsCredential.where(uid: uid, provider: provider).first
-          if snscredential.present?
+          password = Devise.friendly_token.first(7)
+          
+      
+          if snscredential.present? #sns登録のみ完了してるユーザー
             user = User.where(id: snscredential.user_id).first
-          else
-            user = User.where(email: auth.info.email).first
-            if user.present?
-              SnsCredential.create(
-                uid: uid,
-                provider: provider,
-                user_id: user.id
-                )
-            else
-              user = User.create(
+            unless user.present? #ユーザーが存在しないなら
+              user = User.new(
                 nickname: auth.info.name,
-                email:    auth.info.email,
-                password: Devise.friendly_token[0, 20],
-                
+                email: auth.info.email,
+                password: password,
+                password_confirmation: password
               )
-              SnsCredential.create(
+            end
+            sns = snscredential
+            
+      
+          else #sns登録 未
+            user = User.where(email: auth.info.email).first
+            if user.present? #会員登録 済
+              sns = SnsCredential.new(
                 uid: uid,
                 provider: provider,
                 user_id: user.id
-                )
+              )
+            else #会員登録 未
+              user = User.new(
+                nickname: auth.info.name,
+                email: auth.info.email,
+                password: password,
+                password_confirmation: password
+              )
+              
+              sns = SnsCredential.create(
+                uid: uid,
+                provider: provider
+              )
+              
             end
           end
-          return user
+          
+          # hashでsnsのidを返り値として保持しておく
+          return { user: user , sns_id: sns.id}
         end
 
-
+  has_many :sns_credentials, dependent: :destroy
   has_one :address
   accepts_nested_attributes_for :address
 

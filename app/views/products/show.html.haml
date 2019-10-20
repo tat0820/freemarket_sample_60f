@@ -3,7 +3,8 @@
 %section.product-box-container.first-container
   %h1.product-name 
     = @product.name
-  %p.product-wording #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
+  %p.product-wording 
+  -# #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
   .product-main-content.clearfix
     .product-photo
       .chosen-carousel.chosen-loaded.chosen-drag
@@ -11,13 +12,13 @@
           .chosen-stage
             .chosen-product.active
               .chosen-product-inner
-                = image_tag @product.images[0].img, id:"MainPhoto"
+                = image_tag @product.images[0].img.url, id:"MainPhoto"
         .chosen-dots
           - @product.images.each do |image|
             .chosen-dot
               %span
               .chosen-dot-inner
-                = image_tag image.img,class:"ChangePhoto"
+                = image_tag image.img.url,class:"ChangePhoto"
     .product-price-box.text-center.visible-sp
       %span.product-yen ¥
       %span.product-price.bold
@@ -25,9 +26,6 @@
       %span.product-tax (税込)
       %span.product-shipping-fee 送料込み
     %section.visible-sp
-      .product-btn-float-area
-        .product-buy-btn
-          購入画面に進む
     %table.product-detail-table
       %tbody
         %tr
@@ -48,18 +46,18 @@
           %th カテゴリー
           %td
             %span.link
-              #{@product.detail.large_category}
+              -# #{@product.detail.large_category}
             %span.link
               .product-detail-table-sub-category
                 %strong ＞
-                #{@product.detail.medium_category}
+                -# #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
                 %strong ＞
-                #{@product.detail.small_category}
+                -# #{@product.detail.small_category}
         %tr
           %th ブランド
-          %td #{@product.detail.brand}
+          -# %td #{@product.detail.brand}
         %tr
           %th 商品の状態
           %td #{@product.condition}
@@ -82,47 +80,12 @@
       = @product.price
     %span.product-tax (税込)
     %span.product-shipping-fee 送料込み
-  .product-buy-btn
-    購入画面に進む
+    = link_to "/products/#{@product.id}/user_buying" do
+      .product-buy-btn
+        購入画面に進む
   .product-description.f14
     %p.product-description-inner
-      My Pet Monster（マイペットモンスター）トーキングプラッシュドール UK ver.
-      
-      ■大きさ約55cm（角の先からつま先まで）
-      
-      2008年にイギリスで発売されたマイペットモンスターです。
-      お腹を押すとおしゃべりするマイペットモンスターの
-      ぬいぐるみです。
-      
-      トーキング可動です。
-      
-      USED品で手錠やチェーンは欠品しています。
-      
-      目に小傷があります
-      それ以外は毛並みも手足も良い状態です。
-      
-      単品や単一セットのみのお値引きには
-      対応しておりません(^◇^;)
-      
-      ご購入前にプロフィールにも
-      目を通してくださいませ。
-      
-      【送料無料】
-      
-      メルカリ便を利用致します。
-      
-      \#mypetmonster
-      \#マイペットモンスター
-      \#ビンテージトイ
-      \#80s
-      \#モンスター
-      \#アメキャラ
-      \#アメリカ
-      \#キャラクター
-      \#アメリカンキャラクター
-      \#雑貨
-      \#アメリカ雑貨
-      \#アメリカン雑貨
+      = @product.discription
   .product-button-container.clearfix
     .product-button-left
       .product-button.product-button-like
