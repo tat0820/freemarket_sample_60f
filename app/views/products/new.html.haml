@@ -98,11 +98,13 @@
         = render partial: 'product_error_messages', locals: {product: @product, column: "pri"}
         .sale-page-box__price__right__fee
           販売手数料(10%)
-          = fa_icon "minus", class: "minus"
+          .minus
+            ー
           
         .sale-page-box__price__right__profit
           販売利益
-          = fa_icon "minus", class: "minus"
+          .minus
+            ー
 
     .sale-page-box__btn-box
       .sale-page-box__btn-box__text
