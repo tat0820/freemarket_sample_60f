@@ -3,12 +3,12 @@
     = image_tag "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class: "sale-page-title--image"
 
 .sale-page-box
-  = form_for @product, url: "/products", method: "post" do |f|
+  = form_for @product do |f|
     .sale-page-box__title
       商品の情報を入力
     .sale-page-box__upload-box
       .sale-page-box__upload-box__title
-        = f.label :出品画像
+        = f.label :出品画像 
       .sale-page-box__upload-box__must
         必須
       .sale-page-box__upload-box__text
@@ -18,7 +18,7 @@
         %br
         またはクリックしてファイルをアップロード
         = f.fields_for :images do |i|
-          = i.file_field :img, multiple: true
+          = i.file_field :img
 
     .sale-page-box__product
       = f.label :商品名, class: "sale-page-box__product__title"
@@ -39,6 +39,7 @@
           カテゴリー
         .sale-page-box__pul__right__must
           必須
+
         %select.sale-page-box__pul__right__bottom-margin
           %option{:value=> ""} --
           %option{:value => "レディース"} レディース
@@ -54,7 +55,6 @@
           %option{:value => "チケット"} チケット
           %option{:value => "自動車・オートバイ"} 自動車・オートバイ
           %option{:value => "その他"} その他
-
 
         = f.label :商品の状態, class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
@@ -74,7 +74,7 @@
         .sale-page-box__pul__right__must
           必須
         = f.collection_select :origin_area, Prefecture.all,:name,:name, {prompt:'--'}, class: "sale-page-box__pul__right__bottom-margin"
-     
+
         = f.label :発送までの日数, class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
           必須

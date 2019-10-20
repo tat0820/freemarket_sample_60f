@@ -25,7 +25,7 @@
 
       = link_to product_path(product.id) do
         .top-products__items__item
-          = image_tag product.images[0].img
+          = image_tag product.images[0].img.url
           .top-products__items__item__price
             ¥
             = product.price

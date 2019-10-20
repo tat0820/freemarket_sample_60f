@@ -1,5 +1,6 @@
 $(function(){
-$(".chosen-dot").mouseover(function(){
+
+    $(".chosen-dot").mouseover(function(){
     var chosen_dot_child = $(this).children("div")
     var chosen_dot_childchild = chosen_dot_child.children("img")
     var ImgSrc = chosen_dot_childchild.attr("src");
@@ -7,6 +8,6 @@ $(".chosen-dot").mouseover(function(){
     $("img#MainPhoto").hide();
     $("img#MainPhoto").fadeIn();
     return false;
+    });
+    
 });
-});
-

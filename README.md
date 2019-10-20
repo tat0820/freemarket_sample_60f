@@ -61,7 +61,7 @@
 |price|integer|null: false, index: true| <!--値段-->
 |status|string|null: false, index: true| <!--ステータス(出品中か取引中か売却済み)-->
 |user_id|references|null: false, foreign_key: true| <!--user_id-->
-|buyer_id|references|null: false, foreign_key: { to_table: :users }| <!--購入者-->
+|buyer_id|references|foreign_key: { to_table: :users }| <!--購入者-->
 |likes_count|integer|| <!--いいね数のカウンタ-->
 ### Association
 - belongs_to :user
