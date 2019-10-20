@@ -36,6 +36,20 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+    
+  def user_buying
+    @product = Product.find(params[:id])
+  end
+
+  # ↓↓ここでいい？↓↓
+  # def pay
+  #   Payjp.api_key = 'sk_test_97aebb6be695bba58735b8a5'
+  #   charge = Payjp::Charge.create(
+  #   :amount => @product.price,
+  #   :card => params['payjp-token'],
+  #   :currency => 'jpy',
+  #   )
+  # end
 
   private
   def product_params

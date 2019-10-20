@@ -8,29 +8,34 @@
         購入内容の確認
       .buy-item
         .buy-item__inner
-          = image_tag "hi-chan.jpg", class: "buy-item__inner__image"
+          = image_tag @product.images[0].img, class: "buy-item__inner__image"
           .buy-item__inner__name
-            IZ*ONE vampire 本田仁美 生写真 コンプ
+            = @product.name
         .buy-box
-          ¥888 送料込み
+          ¥#{@product.price} 送料込み
         .buy-box-point
           ポイントはありません
         .buy-box-pay
           .buy-box-pay__all
             支払い金額
             .buy-box-pay__price
-            ¥888
+            ¥#{@product.price}
         .buy-box-pay-error
           配送先と支払い方法の入力をを完了をしてください。
-        .buy-box-btn
-          購入する
+          = form_for @user, url: "/signup/step3", method: "get", html: {class: "registration__main__main"} do |f|
+          = form_tag @user,(action: :pay, method: :post) do
+            .buy-box-btn{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_bef0e180e97b4332f43daba0"}
       .buy-user-info
         .buy-user-info__post
           配送先
         .buy-user-info__post-mark
           〒
+          = current_user.address.post_code
         .buy-user-info__post-text
-          testtesttesttesttesttesttesttesttesttesttesttesttest
+          = current_user.address.prefecture
+          = current_user.address.town
+          = current_user.address.street
+
         .buy-user-info__name
           mercariくん
         .buy-user-info__fix
