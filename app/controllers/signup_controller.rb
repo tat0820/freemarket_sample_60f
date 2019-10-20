@@ -179,7 +179,6 @@ class SignupController < ApplicationController
       street: session[:street],
       user_id: session[:user_id]
     )
-
     render '/signup/step5' unless @user.valid?
   end
 
@@ -213,7 +212,6 @@ class SignupController < ApplicationController
       street: session[:street],
       user_id: session[:user_id]
     )
-
     render '/signup/step6' unless @user.valid?
   end
 

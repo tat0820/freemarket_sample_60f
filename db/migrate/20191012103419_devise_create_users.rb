@@ -14,7 +14,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer :birthday_year, null: false
       t.integer :birthday_month, null: false
       t.integer :birthday_day, null: false
-      t.integer :phone_number
+      t.string :phone_number
       t.integer :card_number
       t.integer :card_limit_month
       t.integer :card_limit_year
