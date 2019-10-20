@@ -7,27 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # coding: utf-8
 
-# Product.create(
-#   name: "よっちゃん",
-#   discription: "くそうまい",
-#   condition: "未使用に近い",
-#   delivery_charge: "出品者",
-#   origin_area: "宮城県",
-#   days_left_send: "1~2日",
-#   price: "30",
-#   status: "出品中",
-# )
+Product.create(
+  name: "よっちゃん",
+  discription: "くそうまい",
+  condition: "未使用に近い",
+  delivery_charge: "出品者",
+  origin_area: "宮城県",
+  days_left_send: "1~2日",
+  price: "30",
+  status: "出品中",
+)
 
-# Detail.create(
-#   large_category: "レディース",
-#   medium_category: "トップス",
-#   small_category: "ビヨンセ",
-#   size: "S",
-#   brand: "ビヨンセ",
-#   product_id: "7",
-# )
+Detail.create(
+  large_category: "レディース",
+  medium_category: "トップス",
+  small_category: "ビヨンセ",
+  size: "S",
+  brand: "ビヨンセ",
+  product_id: "1",
+)
 
-# Image.create(
-#   img: "https://dagashi.info/wp-content/uploads/2019/08/yochan-eyecatch.jpg",
-#   product_id: "7",
-# )
+Image.create(
+  img: "https://images-na.ssl-images-amazon.com/images/I/41Wg%2B7BHmUL._SX425_.jpg",
+  product_id: "1",
+)

@@ -1,15 +1,22 @@
 Rails.application.routes.draw do
   devise_for :users,
-  controllers: {
-  sessions: 'users/sessions',
-  registrations: 'users/registrations' ,
-  omniauth_callbacks: 'users/omniauth_callbacks'
-  }
+  controllers:  { omniauth_callbacks: 'users/omniauth_callbacks',
+  registrations: 'users/registrations' }
 
   root 'products#index'
 
   resources :products ,only: [:new,:create,:show]
   resources :users ,only: [:show]
+
+
+  get '/products/:id/user_buying' => 'products#user_buying'
+
+  # ↓↓ここでいいのか不明↓↓
+  # resources :products do
+  #   collection do
+  #     post 'pay/:id' => 'products#pay', as: 'pay'
+  #   end
+  # end
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'

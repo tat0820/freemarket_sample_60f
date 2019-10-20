@@ -7,6 +7,7 @@ class SignupController < ApplicationController
   end
 
   def step2
+    session["devise.sns_id"] = []
     @user = User.new
   end
 
@@ -55,13 +56,19 @@ class SignupController < ApplicationController
       building_name: session[:building_name],
       user_id: session[:user_id]
     )
+
+    snscredential = 0
     if @user.save
+      if session["devise.sns_id"].present?
+        snscredential = SnsCredential.find(session["devise.sns_id"])
+        snscredential.user_id = @user.id
+        snscredential.save
+      end
       session[:id] = @user.id
       redirect_to "/signup/done"
     else
       render "/signup/step1"
     end
-
   end
 
   def done
