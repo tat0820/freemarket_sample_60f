@@ -6,8 +6,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.images.build
-    10.times{@product.images.build}
+    2.times{@product.images.build}
   end
   
   def create
@@ -29,31 +28,7 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"2"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"3"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"4"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"5"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"6"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"7"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"8"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"9"][:img]
-    )
-      
+    
     if @product.save
       redirect_to root_path
     else
