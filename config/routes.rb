@@ -5,18 +5,19 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products ,only: [:new,:create,:show]
+
   resources :users ,only: [:show]
 
 
   get '/products/:id/user_buying' => 'products#user_buying'
+  get '/products/:id/pay' => 'products#pay'
 
-  # ↓↓ここでいいのか不明↓↓
-  # resources :products do
-  #   collection do
-  #     post 'pay/:id' => 'products#pay', as: 'pay'
-  #   end
-  # end
+
+  resources :products do
+    collection do
+      post ':id/pay' => 'products#pay', as: 'pay'
+    end
+  end
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
