@@ -47,6 +47,7 @@ describe ProductsController do
       expect{
         delete :destroy, id: product.id
       }.to change(Product,:count).by(-1)
+      # 以下復習用
       # post :destroy params: {id: product}
       # expect{desroy :product}.to change(Product, :count).by(-1)
       # expect{delete :destroy, product}.to change(Product, :count).by(-1)

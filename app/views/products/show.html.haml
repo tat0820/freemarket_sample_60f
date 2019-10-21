@@ -105,7 +105,7 @@
     or
   .listing-product-change-box__restart
     出品を再開する
-  = link_to("/products/#{@product.id}/destroy",{method:"post"}) do
+  = link_to(product_path(@product.id),{method:"delete"}) do
     .listing-product-change-box__destroy
       この商品を削除する
 .product-detail-message

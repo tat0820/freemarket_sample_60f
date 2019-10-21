@@ -5,12 +5,11 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products ,only: [:new,:create,:show]
+  resources :products ,only: [:new,:create,:show,:destroy]
   resources :users ,only: [:show]
 
 
   get '/products/:id/user_buying' => 'products#user_buying'
-  post 'products/:id/destroy' => "products#destroy"
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
