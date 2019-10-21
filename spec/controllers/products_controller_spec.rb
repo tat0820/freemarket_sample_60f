@@ -53,4 +53,14 @@ describe ProductsController do
       # expect{delete :destroy, product}.to change(Product, :count).by(-1)
     end
   end
+  
+  describe 'GET #pay' do
+    it "payjpが登録できるか" do
+      product = create(:product)
+      post :pay, params: { id: product }
+      expect(response).to render_template :pay
+    end
+  end
+
+
 end
