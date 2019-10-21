@@ -98,6 +98,16 @@
     .product-button-right
       %span.link
         あんしん・あんぜんへの取り組み
+.listing-product-change-box
+  .listing-product-change-box__edit
+    商品の編集
+  .listing-product-change-box__or
+    or
+  .listing-product-change-box__restart
+    出品を再開する
+  = link_to("/products/#{@product.id}/destroy",{method:"post"}) do
+    .listing-product-change-box__destroy
+      この商品を削除する
 .product-detail-message
   .message-container
 %ul.nav-product-link-prev-next.clearfix
