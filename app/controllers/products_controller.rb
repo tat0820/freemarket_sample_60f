@@ -68,8 +68,8 @@ class ProductsController < ApplicationController
     :currency => 'jpy',
     )
     @product.status = "取引中"
-    @product.buyer_id = current_user.id
-    @product.save
+    @product.buyer_id = current_user.id
+    @product.save
   end
 
   private
