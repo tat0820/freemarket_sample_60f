@@ -5,13 +5,13 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
+  get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
+  get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
 
   resources :users ,only: [:show]
 
-
   get '/products/:id/user_buying' => 'products#user_buying'
   get '/products/:id/pay' => 'products#pay'
-
 
   resources :products do
     collection do
@@ -41,4 +41,8 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+
+  resources :products ,only: [:new,:create,:show]
+  resources :users ,only: [:show]
+  
 end

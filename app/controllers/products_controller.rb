@@ -7,7 +7,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    3.times{@product.images.build}
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    2.times{@product.images.build}
+    @product.build_detail
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
   end
   
   def create
@@ -21,17 +34,17 @@ class ProductsController < ApplicationController
       price: product_params[:price],
       user_id: current_user.id,
       status: "出品中"
-      )
-    
+    )
+    @product.build_detail(
+      large_category: product_params[:detail_attributes][:large_category],
+      medium_category: product_params[:detail_attributes][:medium_category],
+      small_category: product_params[:detail_attributes][:small_category]
+    )
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
-    )
-
-    @product.images.build(
-      img: params[:product][:images_attributes][:"2"][:img]
     )
       
     if @product.save
@@ -39,7 +52,6 @@ class ProductsController < ApplicationController
     else
       render "/products/new"
     end
-  
   end 
 
   def show
@@ -47,7 +59,6 @@ class ProductsController < ApplicationController
 
   def user_buying
   end
-
 
   def pay
     Payjp.api_key = ENV['PAYJPSK']
@@ -73,7 +84,8 @@ class ProductsController < ApplicationController
     :delivery_charge, 
     :days_left_send,
     :origin_area,
-    :price
+    :price,
+    detail_attributes:[:id, :large_category, :medium_category, :small_category]
     )
   end
 end

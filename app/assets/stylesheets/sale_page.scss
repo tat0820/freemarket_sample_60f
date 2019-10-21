@@ -142,6 +142,39 @@
         height: 40px;
         color: gray;
       }
+
+      &__category{
+        margin-bottom: 40px;
+
+        &__parent{
+          width: 26vw;
+          padding: 10px;
+          background: white;
+          border: solid 1px rgb(204,204,204);
+          height: 40px;
+          color: gray;
+        }
+
+        &__child{
+          margin-top: 10px;
+          width: 26vw;
+          padding: 10px;
+          background: white;
+          border: solid 1px rgb(204,204,204);
+          height: 40px;
+          color: gray;
+        }
+
+        &__grandchild{
+          margin-top: 10px;
+          width: 26vw;
+          padding: 10px;
+          background: white;
+          border: solid 1px rgb(204,204,204);
+          height: 40px;
+          color: gray;
+        }
+      }
     }
   }
 
