@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
     @products = Product.all.order("id DESC")
@@ -45,24 +46,36 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
-    
+      
     if @product.save
       redirect_to root_path
     else
       render "/products/new"
     end
-  
   end 
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def user_buying
-    @product = Product.find(params[:id])
+  end
+
+  def pay
+    Payjp.api_key = ENV['PAYJPSK']
+    charge = Payjp::Charge.create(
+    :amount => @product.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+    @product.status = "取引中"
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(
     :name, 

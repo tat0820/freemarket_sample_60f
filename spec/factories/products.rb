@@ -1,7 +1,7 @@
 FactoryBot.define do
 
   factory :product do
-    # id {"1"}
+    id {"1"}
     name {"おーいお茶"}
     discription {"美味しいお茶です"}
     condition {"未使用に近い"}
@@ -10,7 +10,8 @@ FactoryBot.define do
     days_left_send {"1~2日で発送"}
     price {"1000"}
     status {"出品中"}
-    # created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
+    user_id {"1"}
+    created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 
 end

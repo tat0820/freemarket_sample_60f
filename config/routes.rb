@@ -8,7 +8,16 @@ Rails.application.routes.draw do
   get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
   get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
 
+  resources :users ,only: [:show]
+
   get '/products/:id/user_buying' => 'products#user_buying'
+  get '/products/:id/pay' => 'products#pay'
+
+  resources :products do
+    collection do
+      post ':id/pay' => 'products#pay', as: 'pay'
+    end
+  end
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
