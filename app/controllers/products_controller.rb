@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    
     # @product.images.build
     3.times{@product.images.build}
   end
@@ -29,6 +30,7 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
+
     @product.images.build(
       img: params[:product][:images_attributes][:"2"][:img]
     )
