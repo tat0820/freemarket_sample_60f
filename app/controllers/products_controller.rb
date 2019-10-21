@@ -7,11 +7,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-<<<<<<< HEAD
-=======
-    
-    # @product.images.build
->>>>>>> 5148949a80301f56cff6e19046ccb17314988e5b
     3.times{@product.images.build}
   end
   
