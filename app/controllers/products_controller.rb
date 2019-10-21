@@ -34,12 +34,14 @@ class ProductsController < ApplicationController
       price: product_params[:price],
       user_id: current_user.id,
       status: "出品中"
+      )
+    
     )
     @product.build_detail(
       large_category: product_params[:detail_attributes][:large_category],
       medium_category: product_params[:detail_attributes][:medium_category],
       small_category: product_params[:detail_attributes][:small_category]
-    )
+   ）
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
@@ -60,6 +62,11 @@ class ProductsController < ApplicationController
   def user_buying
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to("/")
+    
   def pay
     Payjp.api_key = ENV['PAYJPSK']
     charge = Payjp::Charge.create(
