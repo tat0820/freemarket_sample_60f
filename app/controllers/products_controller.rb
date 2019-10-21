@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     # @product.images.build
-    10.times{@product.images.build}
+    2.times{@product.images.build}
   end
   
   def create
@@ -29,30 +29,6 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"2"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"3"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"4"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"5"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"6"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"7"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"8"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"9"][:img]
-    )
       
     if @product.save
       redirect_to root_path
@@ -70,15 +46,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  # ↓↓ここでいい？↓↓
-  # def pay
-  #   Payjp.api_key = 'sk_test_97aebb6be695bba58735b8a5'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @product.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to("/")
+  end
 
   private
   def product_params
