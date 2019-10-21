@@ -3,9 +3,11 @@ class Product < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to :user, optional: true
   has_one :detail
+  accepts_nested_attributes_for :detail
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
-
+  belongs_to :category
+  
   validates :name, presence: true,length: { minimum: 1, maximum: 40 }
   validates :discription, presence: true,length: { minimum: 1, maximum: 1000 }
   validates :condition, presence: true

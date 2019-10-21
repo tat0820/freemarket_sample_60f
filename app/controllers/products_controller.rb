@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
     @products = Product.all.order("id DESC")
@@ -6,8 +7,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.images.build
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
     2.times{@product.images.build}
+    @product.build_detail
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
   end
   
   def create
@@ -23,6 +36,12 @@ class ProductsController < ApplicationController
       status: "出品中"
       )
     
+    )
+    @product.build_detail(
+      large_category: product_params[:detail_attributes][:large_category],
+      medium_category: product_params[:detail_attributes][:medium_category],
+      small_category: product_params[:detail_attributes][:small_category]
+   ）
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
@@ -35,24 +54,37 @@ class ProductsController < ApplicationController
     else
       render "/products/new"
     end
-  
   end 
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def user_buying
-    @product = Product.find(params[:id])
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to("/")
+    
+  def pay
+    Payjp.api_key = ENV['PAYJPSK']
+    charge = Payjp::Charge.create(
+    :amount => @product.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+    @product.status = "取引中"
+    @product.buyer_id = current_user.id
+    @product.save
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(
     :name, 
@@ -61,7 +93,8 @@ class ProductsController < ApplicationController
     :delivery_charge, 
     :days_left_send,
     :origin_area,
-    :price
+    :price,
+    detail_attributes:[:id, :large_category, :medium_category, :small_category]
     )
   end
 end

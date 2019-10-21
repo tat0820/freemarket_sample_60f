@@ -3,10 +3,9 @@ $(function(){
         var chosen_dot_child = $(this).children("div")
         var chosen_dot_childchild = chosen_dot_child.children("img")
         var ImgSrc = chosen_dot_childchild.attr("src");
-        console.log(chosen_dot_child)
         $("img#MainPhoto").attr({src:ImgSrc});
         $("img#MainPhoto").hide();
-        $("img#MainPhoto").fadeIn();
+        $("img#MainPhoto").fadeIn("fast");
         return false;
     });
 
