@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
     @products = Product.all.order("id DESC")
@@ -6,7 +7,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    2.times{@product.images.build}
+    3.times{@product.images.build}
   end
   
   def create
@@ -28,7 +29,11 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
-    
+
+    @product.images.build(
+      img: params[:product][:images_attributes][:"2"][:img]
+    )
+      
     if @product.save
       redirect_to root_path
     else
@@ -38,24 +43,28 @@ class ProductsController < ApplicationController
   end 
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def user_buying
+  end
+
+
+  def pay
+    Payjp.api_key = ENV['PAYJPSK']
+    charge = Payjp::Charge.create(
+    :amount => @product.price,
+    :card => params['payjp-token'],
+    :currency => 'jpy',
+    )
+    @product.status = "取引中"
+  end
+
+  private
+
+  def set_product
     @product = Product.find(params[:id])
   end
 
-  # ↓↓ここでいい？↓↓
-  # def pay
-  #   Payjp.api_key = 'sk_test_97aebb6be695bba58735b8a5'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @product.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
-
-  private
   def product_params
     params.require(:product).permit(
     :name, 
