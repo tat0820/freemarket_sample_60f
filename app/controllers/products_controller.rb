@@ -59,7 +59,6 @@ class ProductsController < ApplicationController
     :currency => 'jpy',
     )
     @product.status = "取引中"
-    redirect_to root_path
   end
 
   private
