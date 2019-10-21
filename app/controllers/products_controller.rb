@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
     @products = Product.all.order("id DESC")
@@ -6,7 +7,6 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.images.build
     3.times{@product.images.build}
   end
   
@@ -42,17 +42,14 @@ class ProductsController < ApplicationController
   end 
 
   def show
-    @product = Product.find(params[:id])
   end
 
   def user_buying
-    @product = Product.find(params[:id])
   end
 
 
   def pay
-    @product = Product.find(params[:id])
-    Payjp.api_key = 'sk_test_97aebb6be695bba58735b8a5'
+    Payjp.api_key = ENV['PAYJPSK']
     charge = Payjp::Charge.create(
     :amount => @product.price,
     :card => params['payjp-token'],
@@ -62,6 +59,11 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
   def product_params
     params.require(:product).permit(
     :name, 
