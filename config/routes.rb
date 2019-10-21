@@ -5,18 +5,10 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  resources :products ,only: [:new,:create,:show]
-  resources :users ,only: [:show]
-
+  get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
+  get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
 
   get '/products/:id/user_buying' => 'products#user_buying'
-
-  # ↓↓ここでいいのか不明↓↓
-  # resources :products do
-  #   collection do
-  #     post 'pay/:id' => 'products#pay', as: 'pay'
-  #   end
-  # end
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
@@ -40,4 +32,8 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+
+  resources :products ,only: [:new,:create,:show]
+  resources :users ,only: [:show]
+  
 end

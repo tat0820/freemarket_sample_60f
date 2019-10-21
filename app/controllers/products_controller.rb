@@ -6,8 +6,20 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    # @product.images.build
-    10.times{@product.images.build}
+    @category_parent_array = []
+    Category.where(ancestry: nil).each do |parent|
+      @category_parent_array << parent.name
+    end
+    2.times{@product.images.build}
+    @product.build_detail
+  end
+
+  def get_category_children
+    @category_children = Category.find_by(name: "#{params[:parent_name]}", ancestry: nil).children
+  end
+
+  def get_category_grandchildren
+    @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
   end
   
   def create
@@ -21,39 +33,19 @@ class ProductsController < ApplicationController
       price: product_params[:price],
       user_id: current_user.id,
       status: "出品中"
-      )
-    
+    )
+    @product.build_detail(
+      large_category: product_params[:detail_attributes][:large_category],
+      medium_category: product_params[:detail_attributes][:medium_category],
+      small_category: product_params[:detail_attributes][:small_category]
+    )
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"2"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"3"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"4"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"5"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"6"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"7"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"8"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"9"][:img]
-    )
-      
+    
     if @product.save
       redirect_to root_path
     else
@@ -70,16 +62,6 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
-  # ↓↓ここでいい？↓↓
-  # def pay
-  #   Payjp.api_key = 'sk_test_97aebb6be695bba58735b8a5'
-  #   charge = Payjp::Charge.create(
-  #   :amount => @product.price,
-  #   :card => params['payjp-token'],
-  #   :currency => 'jpy',
-  #   )
-  # end
-
   private
   def product_params
     params.require(:product).permit(
@@ -89,7 +71,8 @@ class ProductsController < ApplicationController
     :delivery_charge, 
     :days_left_send,
     :origin_area,
-    :price
+    :price,
+    detail_attributes:[:id, :large_category, :medium_category, :small_category]
     )
   end
 end
