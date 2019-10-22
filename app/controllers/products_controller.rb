@@ -36,12 +36,12 @@ class ProductsController < ApplicationController
       status: "出品中"
       )
     
-    )
+    
     @product.build_detail(
       large_category: product_params[:detail_attributes][:large_category],
       medium_category: product_params[:detail_attributes][:medium_category],
       small_category: product_params[:detail_attributes][:small_category]
-   ）
+    )
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
@@ -66,6 +66,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to("/")
+  end
     
   def pay
     Payjp.api_key = ENV['PAYJPSK']
