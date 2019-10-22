@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all.order("id DESC")
+    @category_parent = Category.where(ancestry: nil)
   end
 
   def new
@@ -55,6 +56,7 @@ class ProductsController < ApplicationController
   end 
 
   def show
+    @category_parent = Category.where(ancestry: nil)
   end
 
   def user_buying
