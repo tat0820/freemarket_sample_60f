@@ -1,0 +1,145 @@
+
+<div class="left-all">
+
+  <div class="change-line">
+  <select name="sort_order" class="top-default">
+          <option value="">並び替え</option>
+        </select>
+  </div>
+
+  <div class="left-all__main">
+
+    <p class="detailp">詳細検索
+    </p>
+
+    <div class="text-form">
+    <span class="formspan">キーワードを追加する</span>
+      <input type="text" name="keyword" placeholder="例）値下げ" class="input-default">
+
+    </div>
+
+    <div class="text-form">
+    <span class="formspan">カテゴリーを選択する</span>
+    <select name="category_root" class="select-default">
+          <option value="">すべて</option>
+                  </select>
+    </div>
+
+    <div class="text-form">
+    <span class="formspan">ブランド名から探す</span>
+      <input type="text" name="keyword" placeholder="例）シャネル" class="input-default">
+    </div>
+
+    <div class="text-form">
+    <span class="formspan">サイズを指定する</span>
+    <select name="size_group" class="select-default">
+          <option value="">すべて</option>
+                  </select>
+    </div>
+
+    <div class="text-form">
+    <span class="formspan">価格</span>
+    <select name="" class="select-default" data-search="price">
+          <option value="">選択してください</option>
+                  </select>
+      <input type="number" name="price_min" value="" placeholder="¥ Min" class="input-small" data-search="price-min">
+      <span> ~ </span>
+      <input type="number" name="price_max" value="" placeholder="¥ Max" class="input-small" data-search="price-max">
+    </div>
+
+
+    <div class="check-list">
+    <span class="formspan">商品の状態</span>
+        <div class="checkbox-default">
+          <input type="checkbox" name="condition_all" id="condition_all" value="1" data-search="all">
+          <i class="icon-check"></i>
+          <label for="condition_all">すべて</label>
+        </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[1]" id="item_condition_id[1]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[1]">新品、未使用</label>
+          </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[2]" id="item_condition_id[2]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[2]">未使用に近い</label>
+          </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[3]" id="item_condition_id[3]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[3]">目立った傷や汚れなし</label>
+          </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[4]" id="item_condition_id[4]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[4]">やや傷や汚れあり</label>
+          </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[5]" id="item_condition_id[5]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[5]">傷や汚れあり</label>
+          </div>
+                  <div class="checkbox-default">
+            <input type="checkbox" name="item_condition_id[6]" id="item_condition_id[6]" value="1">
+            <i class="icon-check"></i>
+            <label for="item_condition_id[6]">全体的に状態が悪い</label>
+          </div>
+    </div>
+
+    <div class="check-list">
+    <span class="formspan">配送料の負担</span>
+<div>
+          <div class="checkbox-default">
+            <input type="checkbox" name="shipping_payer_all" id="shipping_payer_all" value="1" data-search="all">
+            <i class="icon-check"></i>
+            <label for="shipping_payer_all">すべて</label>
+          </div>
+                      <div class="checkbox-default">
+              <input type="checkbox" name="shipping_payer_id[1]" id="shipping_payer_id[1]" value="1">
+              <i class="icon-check"></i>
+              <label for="shipping_payer_id[1]">着払い(購入者負担)</label>
+            </div>
+                      <div class="checkbox-default">
+              <input type="checkbox" name="shipping_payer_id[2]" id="shipping_payer_id[2]" value="1">
+              <i class="icon-check"></i>
+              <label for="shipping_payer_id[2]">送料込み(出品者負担)</label>
+            </div>
+                  </div>
+
+    </div>
+
+    <div class="check-list">
+    <span class="formspan">販売状況</span>
+
+        <div class="checkbox-default">
+          <input type="checkbox" name="status_all" id="status_all" value="1" data-search="all">
+          <i class="icon-check"></i>
+          <label for="status_all">すべて</label>
+        </div>
+        <div class="checkbox-default">
+          <input type="checkbox" name="status_on_sale" id="status_on_sale" value="1">
+          <i class="icon-check"></i>
+          <label for="status_on_sale">販売中</label>
+        </div>
+        <div class="checkbox-default">
+          <input type="checkbox" name="status_trading_sold_out" id="status_trading_sold_out" value="1">
+          <i class="icon-check"></i>
+          <label for="status_trading_sold_out">売り切れ</label>
+        </div>
+
+    </div>
+
+    <div class=two-btn>
+      <div class="half-btn-gray">
+        クリア
+      </div>
+
+      <div class="half-btn-red">
+        完了
+      </div>
+    </div>
+
+  </div>
+
+</div>
