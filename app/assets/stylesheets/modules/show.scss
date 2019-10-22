@@ -1130,3 +1130,48 @@ h2 {
 .producty{
   display:flex;
 }
+
+.listing-product-change-box{
+  background-color: #fff;
+  width: 670px;
+  height: 250px;
+  margin: 24px auto;
+  padding: 8px 16px;
+
+  
+  &__edit{
+    background-color: #ea352d;
+    color: #fff;
+    width: 670px;
+    height: 50px;
+    margin: 16px auto;
+    text-align: center;
+    line-height: 50px;
+  }
+  &__or{
+    width: 670px;
+    height: 15px;
+    margin: 16px auto;
+    text-align: center;
+    line-height: 15px;
+  }
+  &__restart{
+    background-color: #ea352d;
+    color: #fff;
+    width: 670px;
+    height: 50px;
+    margin: 16px auto;
+    text-align: center;
+    line-height: 50px;
+  }
+  &__destroy{
+    background: #aaa;
+    border: 1px solid #aaa;
+    color: #fff;
+    width: 670px;
+    height: 50px;
+    margin: 16px auto;
+    text-align: center;
+    line-height: 50px;
+  }
+}

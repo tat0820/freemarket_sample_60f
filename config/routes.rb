@@ -5,12 +5,17 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
+  resources :products ,only: [:new,:create,:show,:destroy]
+  resources :users ,only: [:show]
   get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
   get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
 
   resources :users ,only: [:show]
 
   get '/products/:id/user_buying' => 'products#user_buying'
+
+  post 'products/:id/destroy' => "products#destroy"
+
   get '/products/:id/pay' => 'products#pay'
 
   resources :products do
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
       post ':id/pay' => 'products#pay', as: 'pay'
     end
   end
+
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
@@ -29,6 +35,7 @@ Rails.application.routes.draw do
   get '/users/:id/appear_todo' => 'users#appear_todo'
   get '/users/:id/appear_transation' => 'users#appear_transation'
   get '/users/:id/appear_after_transation' => 'users#appear_after_transation'
+
 
   resources :signup, only: [:create] do
     collection do

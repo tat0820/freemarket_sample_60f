@@ -11,6 +11,7 @@ FactoryBot.define do
     price {"1000"}
     status {"出品中"}
     user_id {"1"}
+    buyer_id{"1"}
     created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
 
