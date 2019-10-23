@@ -36,8 +36,6 @@ class ProductsController < ApplicationController
       user_id: current_user.id,
       status: "出品中"
       )
-    
-    
     @product.build_detail(
       large_category: product_params[:detail_attributes][:large_category],
       medium_category: product_params[:detail_attributes][:medium_category],

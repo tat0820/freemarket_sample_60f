@@ -23,10 +23,10 @@
                 %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}"}
                   = child.name
 
-                  -# %ul{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}"}
-                  -#   - child.children.each_with_index do |grandchild, c|
-                  -#     %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}__li#{c}"}
-                  -#       = grandchild.name
+                  %ul{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}"}
+                    - child.children.each_with_index do |grandchild, c|
+                      %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}__li#{c}"}
+                        = grandchild.name
 
     .top-header__list__brand
       = fa_icon "tags"
