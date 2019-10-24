@@ -1,12 +1,13 @@
 class ProductsController < ApplicationController
 
   def index
+    @product = Product.new
     @products = Product.all.order("id DESC")
   end
 
   def new
     @product = Product.new
-    2.times{@product.images.build}
+    1.times{@product.images.build}
   end
   
   def create
@@ -25,9 +26,9 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"1"][:img]
-    )
+    # @product.images.build(
+    #   img: params[:product][:images_attributes][:"1"][:img]
+    # )
     
     if @product.save
       redirect_to root_path
@@ -39,6 +40,12 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)',"%#{@keyword}%").order("id ASC").limit(15)
+    @all_products = Product.all
   end
 
   def user_buying

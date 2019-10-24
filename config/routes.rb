@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   registrations: 'users/registrations' }
 
   root 'products#index'
+  get '/products/search' => 'products#search'
 
   resources :products ,only: [:new,:create,:show]
   resources :users ,only: [:show]

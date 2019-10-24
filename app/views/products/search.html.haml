@@ -1,0 +1,125 @@
+.top-header
+  = link_to "/" do
+    .top-header__logo
+      = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
+  .top-header__search
+    = form_tag("/products/search", method: :get) do 
+      = text_field_tag :keyword, @keyword, class: "top-header__search__form", placeholder:"何かお探しですか？"
+
+      = label :keyword, class: 'top-header__search__button' do
+        = fa_icon "search", class: 'top-header__search__button'
+        = submit_tag 'search', keyword: nil, class: "top-header__search__hidden"
+
+  .top-header__list
+    .top-header__list__category
+      = fa_icon "list-ul"
+      カテゴリーから探す
+    .top-header__list__brand
+      = fa_icon "tags"
+      ブランドから探す
+
+    - if user_signed_in?
+      = link_to "/users/#{current_user.id}" do
+        .top-header__list__mypage
+          マイページ
+
+      = image_tag "user-mypage-icon.png", class: "header-image"
+
+      .top-header__list__right-box
+        = fa_icon "check", class: "header-icon"
+        やることリスト
+
+      .top-header__list__right-box
+        = fa_icon "bell-o", class: "header-icon"
+        おしらせ
+
+      .top-header__list__right-box
+        = fa_icon "heart-o", class: "header-icon"
+        いいね！一覧
+
+    - else
+      = link_to new_user_session_path do
+        .top-header__list__login
+          ログイン
+
+      = link_to "/signup/step1" do
+        .top-header__list__signup
+          新規会員登録
+
+.top-icon
+  - if user_signed_in?
+    = link_to "/products/new" do
+      .top-icon__margin
+      .top-icon__text
+        出品
+      = fa_icon "camera"
+
+  - else
+    = link_to new_user_session_path do
+      .top-icon__margin
+      .top-icon__text
+        出品
+      = fa_icon "camera"
+
+- if @products.length != 0 && @keyword.length != 0
+  .top-search-products
+    .top-search-products__head
+      = @keyword
+    .top-search-products__title
+      の検索結果
+    .top-search-products__num
+      ="1~#{@products.count}件表示"
+    .top-search-products__items
+      - @products.each do |product|
+        = link_to product_path(product.id) do
+          .top-search-products__items__item
+            = image_tag product.images[0].img.url
+            .top-search-products__items__item__price
+              ¥
+              = product.price
+            .top-search-products__items__item__name
+              = product.name
+
+- elsif @keyword.length != 0
+  .top-search-products
+    .top-search-products__head
+      = @keyword
+    .top-search-products__title
+      の検索結果はありません
+    .top-search-products__num
+      該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+    .top-search-products__new
+      新着商品
+    .top-search-products__items
+      - @all_products.each do |product|
+        = link_to product_path(product.id) do
+          .top-search-products__items__item
+            = image_tag product.images[0].img.url
+            .top-search-products__items__item__price
+              ¥
+              = product.price
+            .top-search-products__items__item__name
+              = product.name
+
+- else
+  .top-search-products
+    .top-search-products__head
+    .top-search-products__title
+      検索結果はありません
+    .top-search-products__num
+      該当する商品が見つかりません。検索条件を変えて、再度お試しください。
+    .top-search-products__new
+      新着商品
+    .top-search-products__items
+      - @all_products.each do |product|
+        = link_to product_path(product.id) do
+          .top-search-products__items__item
+            = image_tag product.images[0].img.url
+            .top-search-products__items__item__price
+              ¥
+              = product.price
+            .top-search-products__items__item__name
+              = product.name
+      
+= render "shared/top_footer"
+

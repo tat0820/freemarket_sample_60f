@@ -1,0 +1,62 @@
+.top-search-products{
+  padding: 42px;
+  float: right;
+  width:63vw;
+  &__head{
+    font-size: 22px;
+    font-weight: 700;
+    display: inline-block;
+  }
+  &__title{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+
+    
+    }
+  &__num{
+    font-size: 14px;
+    margin-top: 10px;
+
+  }
+  &__new{
+    font-size: 22px;
+    margin-top: 20px;
+  }
+  &__items{
+    display: flex;
+    flex-wrap : wrap;
+
+    &__item{
+      position: relative;
+      height: 17vw;
+      width: 12vw;
+      background: white;
+      margin: 8px;
+      filter: drop-shadow(3px 3px 3px rgb(204,204,204));
+
+      img{
+        height: 13vw;
+        width: 12vw;
+        object-fit: cover;
+      }
+
+      &__price{
+        position: absolute;
+        top: 21vh;
+        color: white;
+        padding: 1vh 1vw;
+        background: rgba(0,0,0,.4);
+        border-radius: 0 14px 14px 0;
+      }
+
+      &__name{
+        height: 3vw;
+        width: 12vw;
+        overflow: hidden;
+        font-size: 14px;
+        padding: 0 1vw;
+      }
+    }
+  }
+}
