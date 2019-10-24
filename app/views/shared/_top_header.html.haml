@@ -14,9 +14,39 @@
     .top-header__list__category
       = fa_icon "list-ul"
       カテゴリーから探す
+
+      %ul.top-header__list__category__list
+        - @category_parent.each_with_index do |parent, a|
+          %li{class: "top-header__list__category__list__li#{a}"}
+            = parent.name
+
+            %ul{class: "top-header__list__category__list__li#{a}__ul#{a}"}
+              - parent.children.each_with_index do |child, b|
+                %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}"}
+                  = child.name
+
+                  %ul{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}"}
+                    - child.children.each_with_index do |grandchild, c|
+                      %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}__li#{c}"}
+                        = grandchild.name
+
     .top-header__list__brand
       = fa_icon "tags"
       ブランドから探す
+
+      %ul.top-header__list__brand__list
+        %li.top-header__list__brand__list__li
+          シャネル
+        %li.top-header__list__brand__list__li
+          ナイキ
+        %li.top-header__list__brand__list__li
+          ルイ ヴィトン
+        %li.top-header__list__brand__list__li
+          シュプリーム
+        %li.top-header__list__brand__list__li
+          アディダス
+        %li.top-header__list__brand__list__li
+          ブランド一覧
 
     - if user_signed_in?
       = link_to "/users/#{current_user.id}" do

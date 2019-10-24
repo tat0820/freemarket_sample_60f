@@ -1,0 +1,92 @@
+.left-all
+  .change-line
+    %select.top-default{name: "sort_order"}
+      %option{value: ""} 並び替え
+  .left-all__main
+    %p.detailp
+      詳細検索
+    .text-form
+      %span.formspan キーワードを追加する
+      %input.input-default{name: "keyword", placeholder: "例）値下げ", type: "text"}/
+    .text-form
+      %span.formspan カテゴリーを選択する
+      %select.select-default{name: "category_root"}
+        %option{:value => ""} すべて
+    .text-form
+      %span.formspan ブランド名から探す
+      %input.input-default{name: "keyword", placeholder: "例）シャネル", type: "text"}/
+    .text-form
+      %span.formspan サイズを指定する
+      %select.select-default{name: "size_group"}
+        %option{value: ""} すべて
+    .text-form
+      %span.formspan 価格
+      %select.select-default{'data-search': "price", name: ""}
+        %option{value: ""} 選択してください
+      %input.input-small{'data-search': "price-min", name: "price_min", placeholder: "¥ Min", type: "number", value: ""}/
+      %span ~
+      %input.input-small{'data-search': "price-max", name: "price_max", placeholder: "¥ Max", type: "number", value: ""}/
+    .check-list
+      %span.formspan 商品の状態
+      .checkbox-default
+        %input#condition_all{'data-search': "all", name: "condition_all", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "condition_all"} すべて
+      .checkbox-default
+        %input{id: "item_condition_id[1]", name: "item_condition_id[1]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[1]"} 新品、未使用
+      .checkbox-default
+        %input{id: "item_condition_id[2]", name: "item_condition_id[2]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[2]"} 未使用に近い
+      .checkbox-default
+        %input{id: "item_condition_id[3]", name: "item_condition_id[3]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[3]"} 目立った傷や汚れなし
+      .checkbox-default
+        %input{id: "item_condition_id[4]", name: "item_condition_id[4]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[4]"} やや傷や汚れあり
+      .checkbox-default
+        %input{id: "item_condition_id[5]", name: "item_condition_id[5]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[5]"} 傷や汚れあり
+      .checkbox-default
+        %input{id: "item_condition_id[6]", name: "item_condition_id[6]", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "item_condition_id[6]"} 全体的に状態が悪い
+    .check-list
+      %span.formspan 配送料の負担
+      %div
+        .checkbox-default
+          %input#shipping_payer_all{'data-search': "all", name: "shipping_payer_all", type: "checkbox", value: "1"}/
+          %i.icon-check
+          %label{for: "shipping_payer_all"} すべて
+        .checkbox-default
+          %input{id: "shipping_payer_id[1]", name: "shipping_payer_id[1]", type: "checkbox", value: "1"}/
+          %i.icon-check
+          %label{for: "shipping_payer_id[1]"} 着払い(購入者負担)
+        .checkbox-default
+          %input{id: "shipping_payer_id[2]", name: "shipping_payer_id[2]", type: "checkbox", value: "1"}/
+          %i.icon-check
+          %label{for: "shipping_payer_id[2]"} 送料込み(出品者負担)
+    .check-list
+      %span.formspan 販売状況
+      .checkbox-default
+        %input#status_all{"data-search" => "all", name: "status_all", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "status_all"} すべて
+      .checkbox-default
+        %input#status_on_sale{name: "status_on_sale", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "status_on_sale"} 販売中
+      .checkbox-default
+        %input#status_trading_sold_out{name: "status_trading_sold_out", type: "checkbox", value: "1"}/
+        %i.icon-check
+        %label{for: "status_trading_sold_out"} 売り切れ
+    .two-btn
+      .half-btn-gray
+        クリア
+      .half-btn-red
+        完了
