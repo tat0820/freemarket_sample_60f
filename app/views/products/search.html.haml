@@ -19,7 +19,7 @@
       ブランドから探す
 
     - if user_signed_in?
-      = link_to "/users/#{current_user.id}" do
+      = link_to user_path(current_user.id) do
         .top-header__list__mypage
           マイページ
 
@@ -42,13 +42,13 @@
         .top-header__list__login
           ログイン
 
-      = link_to "/signup/step1" do
+      = link_to step1_sighup_index_path do
         .top-header__list__signup
           新規会員登録
 
 .top-icon
   - if user_signed_in?
-    = link_to "/products/new" do
+    = link_to new_product_path do
       .top-icon__margin
       .top-icon__text
         出品
