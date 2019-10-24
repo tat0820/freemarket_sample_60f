@@ -24,7 +24,10 @@
     - @products.each do |product|
       = link_to product_path(product.id) do
         .top-products__items__item
-          = image_tag product.imgages[0].img.url
+          = image_tag product.images[0].img.url
+          - if product.status !=  "出品中"
+            .top-products__items__item__sold__image
+            .top-products__items__item__sold__text SOLD
           .top-products__items__item__price
             ¥
             = product.price

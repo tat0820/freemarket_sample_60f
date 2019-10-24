@@ -13,6 +13,9 @@
             .chosen-product.active
               .chosen-product-inner
                 = image_tag @product.images[0].img.url, id:"MainPhoto"
+                - if @product.status !=  "出品中"
+                  .chosen-product-inner__sold__image
+                  .chosen-product-inner__sold__text SOLD
         .chosen-dots
           - @product.images.each do |image|
             .chosen-dot
