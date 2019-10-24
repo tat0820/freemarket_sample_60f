@@ -25,7 +25,6 @@
       = link_to product_path(product.id) do
         .top-products__items__item
           = image_tag product.imgages[0].img.url
-          -# try(:images).try(:first).try(:img).try(:url)
           .top-products__items__item__price
             ¥
             = product.price
