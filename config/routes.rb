@@ -6,18 +6,25 @@ Rails.application.routes.draw do
   root 'products#index'
   get '/products/search' => 'products#search'
 
-  resources :products ,only: [:new,:create,:show]
-  resources :users ,only: [:show]
+  
+  get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
+  get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
 
+  resources :products ,only: [:new,:create,:show,:update,:destroy,:edit]
+  resources :users ,only: [:show]
 
   get '/products/:id/user_buying' => 'products#user_buying'
 
-  # ↓↓ここでいいのか不明↓↓
-  # resources :products do
-  #   collection do
-  #     post 'pay/:id' => 'products#pay', as: 'pay'
-  #   end
-  # end
+  post 'products/:id/destroy' => "products#destroy"
+
+  get '/products/:id/pay' => 'products#pay'
+
+  resources :products do
+    collection do
+      post ':id/pay' => 'products#pay', as: 'pay'
+    end
+  end
+
 
   get '/users/:id/logout' => 'users#logout'
   get '/users/:id/credit' => 'users#credit'
@@ -30,6 +37,7 @@ Rails.application.routes.draw do
   get '/users/:id/appear_transation' => 'users#appear_transation'
   get '/users/:id/appear_after_transation' => 'users#appear_after_transation'
 
+
   resources :signup, only: [:create] do
     collection do
       get 'step1'
@@ -41,4 +49,8 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
+
+  resources :products ,only: [:new,:create,:show]
+  resources :users ,only: [:show]
+  
 end

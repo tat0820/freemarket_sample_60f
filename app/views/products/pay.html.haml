@@ -1,0 +1,15 @@
+.done-top
+  %header.user-buying__header
+    %h1.user-buyinng__header__mercari-box
+      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class: "user-buying__header__mercari-box__icon"
+  .done-top__main
+    .done-top__main__new
+      %h2 購入完了
+    .done-top__main__content
+      .thanks
+        .thank-you 購入が完了しました！
+      = link_to "/", class: "done-btn" do
+        .btn-red-done
+          メルカリトップページに戻る
+
+= render partial: 'signup/registration_footer'

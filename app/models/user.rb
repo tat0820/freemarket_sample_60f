@@ -10,7 +10,6 @@ class User < ApplicationRecord
           provider = auth.provider
           snscredential = SnsCredential.where(uid: uid, provider: provider).first
           password = Devise.friendly_token.first(7)
-          
       
           if snscredential.present? #sns登録のみ完了してるユーザー
             user = User.where(id: snscredential.user_id).first
@@ -53,6 +52,7 @@ class User < ApplicationRecord
           return { user: user , sns_id: sns.id}
         end
 
+  has_many :products
   has_many :sns_credentials, dependent: :destroy
   has_one :address
   accepts_nested_attributes_for :address

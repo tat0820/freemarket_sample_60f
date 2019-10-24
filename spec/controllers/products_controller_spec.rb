@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 describe ProductsController do
+  let(:user) { create(:user) }
+
 
   describe 'GET #index' do
-
     it "indexビューが呼ばれているか" do
       get :index
       expect(response).to render_template :index
@@ -45,4 +46,24 @@ describe ProductsController do
       expect(response).to render_template :search
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:product) { create(:product) }
+    it "productテーブルのレコードが削除できたか" do
+      # product = create(:product)
+      expect{
+        delete :destroy, params: {id: product.id}
+      }.to change(Product,:count).by(-1)
+
+    end
+  end
+  
+  describe 'GET #pay' do
+    it "payjpが登録できるか" do
+      product = create(:product)
+      post :pay, params: { id: product }
+      expect(response).to render_template :pay
+    end
+  end
+
 end
