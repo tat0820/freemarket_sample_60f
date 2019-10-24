@@ -31,9 +31,19 @@
 
     &__button{
       position: absolute;
-      right: 12px;
-      top: 5px;
+      right: 10px;
+      top: 10px;
       color: gray;
+      height: 50px; 
+      
+    }
+
+    &__hidden{
+      position: absolute;
+      right: 1px;
+      top: 10px;
+      color: gray; 
+      opacity: 0;
     }
   }
 

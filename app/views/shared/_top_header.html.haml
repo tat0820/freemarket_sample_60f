@@ -2,11 +2,13 @@
   = link_to "/" do
     .top-header__logo
       = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
-
   .top-header__search
-    %input.top-header__search__form{:placeholder => "何かお探しですか？"}
-    .top-header__search__button
-      = fa_icon "search"
+    = form_tag("/products/search", method: :get) do 
+      = text_field_tag :keyword, "", class: "top-header__search__form", placeholder:"何かお探しですか？"
+
+      = label :keyword, class: 'top-header__search__button' do
+        = fa_icon "search", class: 'top-header__search__button'
+        = submit_tag 'search', keyword: nil, class: "top-header__search__hidden"
 
   .top-header__list
     .top-header__list__category

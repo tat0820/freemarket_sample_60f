@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
+    @product = Product.new
     @products = Product.all.order("id DESC")
     @category_parent = Category.where(ancestry: nil)
   end
@@ -22,6 +23,7 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
+
   end
   
   def create
@@ -44,10 +46,12 @@ class ProductsController < ApplicationController
     @product.images.build(
       img: params[:product][:images_attributes][:"0"][:img]
     )
+
     @product.images.build(
       img: params[:product][:images_attributes][:"1"][:img]
     )
       
+
     if @product.save
       redirect_to root_path
     else
@@ -65,6 +69,12 @@ class ProductsController < ApplicationController
       @product.update(product_params)
     end
     redirect_to "/"
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)',"%#{@keyword}%").limit(15)
+    @all_products = Product.all
   end
 
   def user_buying
