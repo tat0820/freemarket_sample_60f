@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
   belongs_to :user
-  has_one :detail
+  has_one :detail, dependent: :destroy
   accepts_nested_attributes_for :detail
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images
