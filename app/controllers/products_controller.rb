@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   def search
     @keyword = params[:keyword]
-    @products = Product.where('name LIKE(?)',"%#{@keyword}%").order("id ASC").limit(15)
+    @products = Product.where('name LIKE(?)',"%#{@keyword}%").limit(15)
     @all_products = Product.all
   end
 
