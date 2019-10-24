@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all.order("id DESC")
+    @category_parent = Category.where(ancestry: nil)
   end
 
   def new
@@ -35,8 +36,6 @@ class ProductsController < ApplicationController
       user_id: current_user.id,
       status: "出品中"
       )
-    
-    
     @product.build_detail(
       large_category: product_params[:detail_attributes][:large_category],
       medium_category: product_params[:detail_attributes][:medium_category],
@@ -57,6 +56,7 @@ class ProductsController < ApplicationController
   end 
 
   def show
+    @category_parent = Category.where(ancestry: nil)
   end
 
   def update

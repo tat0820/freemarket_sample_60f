@@ -39,25 +39,133 @@
 
   &__list{
     font-size: 14px;
+
     &__category{
       display:inline-block;
       padding: 14px 10px 14px 0;
       font-weight: 600;
       letter-spacing: 1px;
+      position: relative;
       
       .fa-list-ul{
         color: #EA352D;
       }
+
+      &__list{
+        position: absolute;
+        display: none;
+        font-weight: normal;
+        background: #FFFFFF;
+        width: 230px;
+        top: 50px;
+        font-size: 13px;
+
+        @for $a from 0 through 12{
+          &__li#{$a}{
+            padding: 12px 14px;
+
+            &:hover{
+              background: #EA352D;
+              color: #FFFFFF;
+            }
+
+            @for $b from 0 through 18{
+              &:hover .top-header__list__category__list__li#{$a}__ul#{$a}__li#{$b}{
+                display: block;
+                color: #333333;
+              }
+            }
+
+            &__ul#{$a}{
+              position: absolute;
+              top: 0;
+              left: 231px;
+              background: #FFFFFF;
+              width: 230px;
+              font-size: 13px;
+
+              @for $b from 0 through 18{
+                &__li#{$b}{
+                  display: none;
+                  padding: 7px 14px;
+
+                  &:hover{
+                    background: rgb(240,240,240);
+                  }
+
+                  @for $c from 0 through 28{
+                    &:hover .top-header__list__category__list__li#{$a}__ul#{$a}__li#{$b}__ul#{$b}__li#{$c}{
+                      display: block;
+                      color: #333333;
+                    }
+                  }
+      
+
+                  &__ul#{$b}{
+                    position: absolute;
+                    top: 0;
+                    left: 231px;
+                    background: #FFFFFF;
+                    width: 280px;
+                    font-size: 13px;
+
+                    @for $c from 0 through 28{
+                      &__li#{$c}{
+                        display: none;
+                        padding: 7px 14px;
+
+                        &:hover{
+                          background: rgb(240,240,240);
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .top-header__list__category:hover &__list{
+        display: block;
+      }
     }
+
     &__brand{
       display:inline-block;
       padding: 14px 10px 14px 0;
       font-weight: 600;
       letter-spacing: 1px;
+      position: relative;
       .fa-tags{
         color: #EA352D;
       }
+
+      &__list{
+        position: absolute;
+        display: none;
+        font-weight: normal;
+        background: #FFFFFF;
+        width: 230px;
+        top: 50px;
+        font-size: 13px;
+
+        &__li{
+          padding: 12px 14px;
+
+          &:hover{
+            background: #EA352D;
+            color: #FFFFFF;
+          }
+        }
+      }
+
+      .top-header__list__brand:hover &__list{
+        display: block;
+      }  
     }
+    
     &__signup{
       display:inline-block;
       float: right;
@@ -106,7 +214,6 @@
         color: rgb(204,204,204);
         font-size: 20px;
       }
-
     }
   }
 }
