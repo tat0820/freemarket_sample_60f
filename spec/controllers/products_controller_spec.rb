@@ -17,26 +17,32 @@ describe ProductsController do
 
   # end
 
-  describe 'GET #new' do
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
+  # describe 'GET #new' do
+  #   it "renders the :new template" do
+  #     get :new
+  #     expect(response).to render_template :new
+  #   end
+  # end
+
+  # describe 'POST #create' do
+  #   it "productテーブルにレコードが保存できたか" do
+  #     product = build(:product)
+  #     expect{create :product}.to change(Product, :count).by(1)
+  #   end
+  # end
+
+  # describe 'GET #show' do
+  #   it "renders the :show template" do
+  #     product = create(:product)
+  #     get :show, params: { id: product }
+  #     expect(response).to render_template :show
+  #   end
+  # end
+
+  describe 'GET #search' do
+    it "searchビューが呼ばれているか" do
+      get :search
+      expect(response).to render_template :search
     end
   end
-
-  describe 'POST #create' do
-    it "productテーブルにレコードが保存できたか" do
-      product = build(:product)
-      expect{create :product}.to change(Product, :count).by(1)
-    end
-  end
-
-  describe 'GET #show' do
-    it "renders the :show template" do
-      product = create(:product)
-      get :show, params: { id: product }
-      expect(response).to render_template :show
-    end
-  end
-
 end

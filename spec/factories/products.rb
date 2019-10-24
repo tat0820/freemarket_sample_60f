@@ -12,5 +12,4 @@ FactoryBot.define do
     status {"出品中"}
     # created_at { Faker::Time.between(from: DateTime.now - 2, to: DateTime.now) }
   end
-
 end
