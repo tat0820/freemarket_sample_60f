@@ -42,7 +42,7 @@
 }
 
 .right-mypage-contents{
-  background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Monsoon/Water_Drops_and_Light_Reflection_in_Rain_HD_Images.jpg);
+  background-image: url(https://sandermechanical.com/wp-content/uploads/2014/05/009-Blue-Sky-with-Clouds.jpg);
   background-size: cover;
   width: 50vw;
   height: 215px;
@@ -64,8 +64,12 @@
     padding-top: 5px;
   }
   &__number{
-    text-align: center;
+    display:flex;
+    justify-content:center;
     padding-top: 5px;
+    &__sold{
+      padding-right:15px;
+    }
   }
 }
 
