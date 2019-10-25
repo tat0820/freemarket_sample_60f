@@ -22,6 +22,7 @@
   margin-bottom: 40px;
   margin-left: 15vw;
   float: left;
+
   &__top{
     background: white;
     font-size: 14px;
@@ -33,11 +34,23 @@
     color: gray;
     float: right;
     padding-top: 5px;
-  } 
+    transition: all 0.1s;
+    } 
+
+    &:hover{
+      background: #eee;
+    }
+
+     &:hover i{
+      transform: translate(5px,0);
+      color: #333333;
+    } 
   }
-  &__top:hover{
-    background: #eee;
-  }
+
+  
+
+ 
+
 
   &__title{
     font-weight: 700;
@@ -45,7 +58,6 @@
     margin-bottom: 7px;
   }
 }
-
 
 .right-mypage-contents{
   background-image: url(https://sandermechanical.com/wp-content/uploads/2014/05/009-Blue-Sky-with-Clouds.jpg);
