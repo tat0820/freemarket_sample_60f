@@ -47,12 +47,22 @@
     }
 
     &__item{
-      padding: 40px;
+      position: relative;
+      padding: 45px 40px;
       text-align: center;
       background: #F5F5F5;
       font-size: 13px;
-      border: dotted 1px rgb(204,204,204);
-      
+      border: dotted 2px rgb(204,204,204);
+
+      &__img{
+        // position: absolute;
+        // left: 0;
+        // bottom: 0;
+        // width: 44vw;
+        // height: 110px;
+        // opacity: 0;
+        cursor : pointer;
+      }
     }
   }
 
@@ -273,7 +283,7 @@
       color: white;
       text-align: center;
       padding: 12px 0;
-      width: 43vw;
+      width: 44vw;
     }
 
     &__gray-btn{
@@ -282,7 +292,7 @@
       color: white;
       text-align: center;
       padding: 12px 0;
-      width: 22vw;
+      width: 27vw;
       margin: 20px 120px;
     }
   }
@@ -307,7 +317,6 @@
   }
 
   &__img{
-
     &--logo{
       height: 65px;
     }
@@ -325,6 +334,4 @@
 
 .profit{
   float: right;
-
-
 }

@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_10_20_101327) do
   end
 
   create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "large_category", null: false
+    t.string "large_category"
     t.string "medium_category"
     t.string "small_category"
     t.string "size"

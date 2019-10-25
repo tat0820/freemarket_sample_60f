@@ -15,42 +15,42 @@
           = f.label :お名前
           %span.form-must 必須
           = f.text_field :last_name, class: "input-data", placeholder: "例) 山田"
-          = render partial: 'error_messages', locals: {user: @user, column: "last_name"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "last_name"}
           = f.text_field :first_name, class: "input-data", placeholder: "例) 彩"
-          = render partial: 'error_messages', locals: {user: @user, column: "first_name"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "first_name"}
 
         .form-list
           = f.label :お名前カナ
           %span.form-must 必須
           = f.text_field :last_name_kana, class: "input-data", placeholder: "例) ヤマダ"
-          = render partial: 'error_messages', locals: {user: @user, column: "last_name_kana"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "last_name_kana"}
           = f.text_field :first_name_kana, class: "input-data", placeholder: "例) アヤ"
-          = render partial: 'error_messages', locals: {user: @user, column: "last_name_kana"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "last_name_kana"}
 
         = f.fields_for :address do |i|
           .form-list
             = i.label :郵便番号
             %span.form-must 必須
             = i.text_field :post_code, class: "input-data", placeholder: "例) 123-4567"
-            = render partial: 'error_messages', locals: {user: @user, column: "post_code"}
+            = render partial: 'address_error_messages', locals: {address: @user.address, column: "post_code"}
 
           .form-list
             = i.label :都道府県
             %span.form-must 必須
             = i.text_field :prefecture, class: "input-data", placeholder: "例) 北海道"
-            = render partial: 'error_messages', locals: {user: @user, column: "prefecture"}
+            = render partial: 'address_error_messages', locals: {address: @user.address, column: "prefecture"}
 
           .form-list
             = i.label :市区町村
             %span.form-must 必須
             = i.text_field :town, class: "input-data", placeholder: "例) 横浜市緑区"
-            = render partial: 'error_messages', locals: {user: @user, column: "town"}
+            = render partial: 'address_error_messages', locals: {address: @user.address, column: "town"}
 
           .form-list
             = i.label :番地
             %span.form-must 必須
             = i.text_field :street, class: "input-data", placeholder: "例) 青山1-1-1"
-            = render partial: 'error_messages', locals: {user: @user, column: "street"}
+            = render partial: 'address_error_messages', locals: {address: @user.address, column: "street"}
 
           .form-list
             = i.label :建物名

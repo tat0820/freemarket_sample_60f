@@ -1,7 +1,7 @@
 class CreateDetails < ActiveRecord::Migration[5.2]
   def change
     create_table :details do |t|
-      t.string :large_category, null: false, index: true
+      t.string :large_category, index: true
       t.string :medium_category, index: true
       t.string :small_category, index: true
       t.string :size, index: true

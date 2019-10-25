@@ -8,11 +8,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
-    end
-    2.times{@product.images.build}
+    10.times{@product.images.build}
     @product.build_detail
   end
 
@@ -41,16 +37,25 @@ class ProductsController < ApplicationController
       medium_category: product_params[:detail_attributes][:medium_category],
       small_category: product_params[:detail_attributes][:small_category]
     )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"0"][:img]
-    )
-    @product.images.build(
-      img: params[:product][:images_attributes][:"1"][:img]
-    )
-      
+
+    if params[:product][:images_attributes].present?
+      for i in 0..9 do
+        if params[:product][:images_attributes][:"#{i}"].present?
+          @product.images.build(
+            img: params[:product][:images_attributes][:"#{i}"][:img]
+          )
+        end
+      end
+    else
+      @product.images.build(
+        img: params[:product][:images_attributes]
+      )
+    end
+    
     if @product.save
       redirect_to root_path
     else
+      10.times{@product.images.build}
       render "/products/new"
     end
   end 

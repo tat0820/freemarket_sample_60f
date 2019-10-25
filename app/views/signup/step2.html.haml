@@ -14,23 +14,23 @@
           = f.label :ニックネーム
           %span.form-must 必須
           = f.text_field :nickname, class: "input-data", placeholder: "例) メルカリ太郎"
-          = render partial: 'error_messages', locals: {user: @user, column: "nickname"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "nickname"}
         .form-list
           = f.label :メールアドレス
           %span.form-must 必須
           = f.email_field :email, class: "input-data", placeholder: "PC・携帯どちらでも可"
-          = render partial: 'error_messages', locals: {user: @user, column: "email"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "email"}
         - if session["devise.sns_id"].blank?
           .form-list
             = f.label :パスワード
             %span.form-must 必須
             = f.password_field :password, class: "input-data", placeholder: "7文字以上"
-            = render partial: 'error_messages', locals: {user: @user, column: "password"}
+            = render partial: 'user_error_messages', locals: {user: @user, column: "password"}
           .form-list
             = f.label :パスワード（確認）
             %span.form-must 必須
             = f.password_field :password_confirmation, class: "input-data", placeholder: "7文字以上"
-            = render partial: 'error_messages', locals: {user: @user, column: "password_confirmation"}
+            = render partial: 'user_error_messages', locals: {user: @user, column: "password_confirmation"}
         - else
           = f.hidden_field :password
           = f.hidden_field :password_confirmation
@@ -46,8 +46,8 @@
           .halfs
             = f.text_field :last_name, class: "input-data-half", placeholder: "例) 山田"
             = f.text_field :first_name, class: "input-data-half", placeholder: "例) 彩"
-          = render partial: 'error_messages', locals: {user: @user, column: "last_name"}
-          = render partial: 'error_messages', locals: {user: @user, column: "first_name"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "last_name"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "first_name"}
         .form-list
           %div
             = f.label :お名前カナ（全角）
@@ -55,8 +55,8 @@
           .halfs
             = f.text_field :last_name_kana, class: "input-data-half", placeholder: "例) ヤマダ"
             = f.text_field :first_name_kana, class: "input-data-half", placeholder: "例) アヤ"
-          = render partial: 'error_messages', locals: {user: @user, column: "last_name_kana"}
-          = render partial: 'error_messages', locals: {user: @user, column: "first_name_kana"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "last_name_kana"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "first_name_kana"}
         .form-list
           = f.label :生年月日
           %span.form-must 必須
@@ -64,17 +64,17 @@
             .select-wrap
               %i.icon-arrow-bottom
               = f.select :birthday_year, [options_for_select(1950..2019)], {include_blank: "--", selected: "--"}, class: "select-default"
-              = render partial: 'error_messages', locals: {user: @user, column: "birthday_year"}
+              = render partial: 'user_error_messages', locals: {user: @user, column: "birthday_year"}
             %span.date 年
             .select-wrap.select-wrap__month
               %i.icon-arrow-bottom
               = f.select :birthday_month, [options_for_select(1..12)], {include_blank: "--", selected: "--"}, class: "select-default"
-              = render partial: 'error_messages', locals: {user: @user, column: "birthday_month"}
+              = render partial: 'user_error_messages', locals: {user: @user, column: "birthday_month"}
             %span.date 月
             .select-wrap.select-wrap__day
               %i.icon-arrow-bottom
               = f.select :birthday_day, [options_for_select(1..31)], {include_blank: "--", selected: "--"}, class: "select-default"
-              = render partial: 'error_messages', locals: {user: @user, column: "birthday_day"}
+              = render partial: 'user_error_messages', locals: {user: @user, column: "birthday_day"}
             %span.date 日
 
         %p.form-info-text
