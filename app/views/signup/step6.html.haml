@@ -14,7 +14,7 @@
           = f.label :カード番号
           %span.form-must 必須
           = f.text_field :card_number ,class: "payment-input-data", placeholder: "半角数字のみ"
-          = render partial: 'error_messages', locals: {user: @user, column: "card_number"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "card_number"}
           = image_tag "credit-cards.png"
         .form-list
           = f.label :有効期限
@@ -23,19 +23,19 @@
           .select-wrap
             %i.icon-arrow-bottom
             = f.select :card_limit_year, [options_for_select(2019..2030)], {include_blank: "--", selected: "--"}, class: "select-default"
-            = render partial: 'error_messages', locals: {user: @user, column: "card_limit_year"}
+            = render partial: 'user_error_messages', locals: {user: @user, column: "card_limit_year"}
           %span.date 年
           .exparation-wrap.select-wrap__month
             %i.icon-arrow-bottom
             = f.select :card_limit_month, [options_for_select(1..12)], {include_blank: "--", selected: "--"}, class: "select-default"
-            = render partial: 'error_messages', locals: {user: @user, column: "card_limit_month"}
+            = render partial: 'user_error_messages', locals: {user: @user, column: "card_limit_month"}
           %span.date 月
           
         .form-list
           = f.label :セキュリティコード
           %span.form-must 必須
           = f.text_field :security_code ,class: "payment-input-data", placeholder: "カード背面4行もしくは3行の番号"
-          = render partial: 'error_messages', locals: {user: @user, column: "security_code"}
+          = render partial: 'user_error_messages', locals: {user: @user, column: "security_code"}
           %p.card-back
             .yourselfs
               カード裏面の番号とは？

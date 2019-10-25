@@ -1,0 +1,7 @@
+- images.each do |image|
+  - if image.errors.any?
+    - unless image.valid?
+      - if errors = image.errors.full_messages_for(column.to_sym)
+        %ul.error-messages
+          - errors.each do |error|
+            %li.error-message= error

@@ -1,5 +1,5 @@
 .top-image{
-  background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-super-exhibition-fes-1354ceda34bd06081a45ee755e911f07.jpg);
+  background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg);
   height: 390px;
 }
 
@@ -88,11 +88,12 @@
 
       &__price{
         position: absolute;
-        top: 25vh;
+        top: 22vh;
+        font-size: 14px;
         color: white;
         padding: 1vh 1vw;
         background: rgba(0,0,0,.4);
-        border-radius: 0 14px 14px 0;
+        border-radius: 0 20px 20px 0;
       }
 
       &__name{
