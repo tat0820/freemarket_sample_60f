@@ -71,8 +71,12 @@
 
         &--text{
           padding-bottom: 10px;
+          text-decoration: none;
         }
 
+        &--text:hover{
+          text-decoration: underline;
+        }
         .sns-icon{
           padding-right: 16px;
         }

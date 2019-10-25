@@ -10,7 +10,12 @@
   .right-mypage-contents__user-name
     = @user.nickname
   .right-mypage-contents__number
-    評価 0 出品数 0
+    .right-mypage-contents__number__judge
+    評価 0
+    .right-mypage-contents__number__sold
+    出品数
+    .right-mypage-contents__number__sold-number
+    =current_user.products.length
 
 .notice-content
   = render "shared/appear-notice"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_101327) do
+ActiveRecord::Schema.define(version: 2019_10_24_101818) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "post_code", null: false
@@ -67,15 +67,16 @@ ActiveRecord::Schema.define(version: 2019_10_20_101327) do
     t.string "days_left_send", null: false
     t.integer "price", null: false
     t.string "status", null: false
-    t.integer "user_id", null: false
     t.integer "buyer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["condition"], name: "index_products_on_condition"
     t.index ["delivery_charge"], name: "index_products_on_delivery_charge"
     t.index ["name"], name: "index_products_on_name"
     t.index ["price"], name: "index_products_on_price"
     t.index ["status"], name: "index_products_on_status"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,5 +118,6 @@ ActiveRecord::Schema.define(version: 2019_10_20_101327) do
   add_foreign_key "addresses", "users"
   add_foreign_key "details", "products"
   add_foreign_key "images", "products"
+  add_foreign_key "products", "users"
   add_foreign_key "sns_credentials", "users"
 end

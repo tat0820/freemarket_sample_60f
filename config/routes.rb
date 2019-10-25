@@ -5,39 +5,30 @@ Rails.application.routes.draw do
 
   root 'products#index'
 
-  get '/products/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
-  get '/products/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
-
-  resources :products ,only: [:new,:create,:show,:destroy]
-  resources :users ,only: [:show]
-
-  resources :users ,only: [:show]
-
-  get '/products/:id/user_buying' => 'products#user_buying'
-
-  post 'products/:id/destroy' => "products#destroy"
-
-  get '/products/:id/pay' => 'products#pay'
-
   resources :products do
     collection do
-      post ':id/pay' => 'products#pay', as: 'pay'
+      get 'search'
+      post '/:id/pay' => 'products#pay', as: 'pay'
+      get '/:id/user_buying' => 'products#user_buying'
+      get '/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
+      get '/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
     end
   end
 
-
-  get '/users/:id/logout' => 'users#logout'
-  get '/users/:id/credit' => 'users#credit'
-  get '/users/:id/credit_add' => 'users#credit_add'
-  get '/users/:id/profile_edit' => 'users#profile_edit'
-  get '/users/:id/user_check' => 'users#user_check'
-
-  get '/users/:id/appear_notice' => 'users#appear_notice'
-  get '/users/:id/appear_todo' => 'users#appear_todo'
-  get '/users/:id/appear_transation' => 'users#appear_transation'
-  get '/users/:id/appear_after_transation' => 'users#appear_after_transation'
-
-
+  resources :users ,only: [:show] do
+    collection do
+      get '/:id/logout' => 'users#logout'
+      get '/:id/credit' => 'users#credit'
+      get '/:id/credit_add' => 'users#credit_add'
+      get '/:id/profile_edit' => 'users#profile_edit'
+      get '/:id/user_check' => 'users#user_check'
+      get '/:id/appear_notice' => 'users#appear_notice'
+      get '/:id/appear_todo' => 'users#appear_todo'
+      get '/:id/appear_transation' => 'users#appear_transation'
+      get '/:id/appear_after_transation' => 'users#appear_after_transation'    
+    end
+  end
+ 
   resources :signup, only: [:create] do
     collection do
       get 'step1'
@@ -49,8 +40,5 @@ Rails.application.routes.draw do
       get 'done'
     end
   end
-
-  resources :products ,only: [:new,:create,:show]
-  resources :users ,only: [:show]
   
 end

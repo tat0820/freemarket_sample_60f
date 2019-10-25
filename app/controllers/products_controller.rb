@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show,:user_buying, :pay]
 
   def index
+    @product = Product.new
     @products = Product.all.order("id DESC")
     @category_parent = Category.where(ancestry: nil)
   end
@@ -18,6 +19,7 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
+
   end
   
   def create
@@ -64,7 +66,25 @@ class ProductsController < ApplicationController
     @category_parent = Category.where(ancestry: nil)
   end
 
+  def update
+    @product = Product.find(params[:id])
+    if @product.user_id == current_user.id
+      @product.update(product_params)
+    end
+    redirect_to "/"
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)',"%#{@keyword}%").limit(15)
+    @all_products = Product.all
+  end
+
   def user_buying
+  end
+
+  def edit
+    @product = Product.find(params[:id])
   end
 
   def destroy

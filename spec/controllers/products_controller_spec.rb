@@ -3,8 +3,9 @@ require 'rails_helper'
 describe ProductsController do
   let(:user) { create(:user) }
 
-    describe 'GET #index' do
-      it "indexビューが呼ばれているか" do
+
+  describe 'GET #index' do
+    it "indexビューが呼ばれているか" do
       get :index
       expect(response).to render_template :index
     end
@@ -36,6 +37,13 @@ describe ProductsController do
       product = create(:product)
       get :show, params: { id: product }
       expect(response).to render_template :show
+    end
+  end
+
+  describe 'GET #search' do
+    it "searchビューが呼ばれているか" do
+      get :search
+      expect(response).to render_template :search
     end
   end
 

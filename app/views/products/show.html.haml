@@ -13,6 +13,9 @@
             .chosen-product.active
               .chosen-product-inner
                 = image_tag @product.images[0].img.url, id:"MainPhoto"
+                - if @product.status !=  "出品中"
+                  .chosen-product-inner__sold__image
+                  .chosen-product-inner__sold__text SOLD
         .chosen-dots
           - @product.images.each do |image|
             .chosen-dot
@@ -99,13 +102,14 @@
       %span.link
         あんしん・あんぜんへの取り組み
 .listing-product-change-box
-  .listing-product-change-box__edit
-    商品の編集
+  = link_to(edit_product_path(@product.id))do
+    .listing-product-change-box__edit
+      商品の編集
   .listing-product-change-box__or
     or
   .listing-product-change-box__restart
     出品を再開する
-  = link_to(product_path(@product.id),{method:"delete"}) do
+  = link_to(product_path(@product.id),{method: "delete"}) do
     .listing-product-change-box__destroy
       この商品を削除する
 .product-detail-message
