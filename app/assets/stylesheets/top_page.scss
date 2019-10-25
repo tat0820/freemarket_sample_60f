@@ -2,7 +2,6 @@
   background-image: url(https://web-jp-assets.mercdn.net/_next/static/images/top-banner-camp-4f3fd88c685e8932d7dde2ad3a8336ba.jpg);
   height: 390px;
 }
-
 .top-category{
   padding: 50px 0px 36px;
   background: white;
@@ -12,6 +11,7 @@
     text-align: center;
     margin-bottom: 16px;
   }
+
 
   &__kind{
     text-align: center;
@@ -27,8 +27,10 @@
   }
 }
 
+
 .top-products{
   padding: 42px 12vw 100px;
+
 
   &__title{
     display: inline-block;
@@ -54,8 +56,10 @@
       height: 19vw;
       width: 14vw;
       background: white;
-      margin: 8px;
+      margin: 7px;
       filter: drop-shadow(3px 3px 3px rgb(204,204,204));
+      transition: 0.1s;
+      border: 1px solid rgb(245, 245, 245);
 
       &__sold__image{
         width: 0;
@@ -100,9 +104,15 @@
         height: 3vw;
         width: 12vw;
         overflow: hidden;
-        font-size: 14px;
-        padding: 0 1vw;
+        font-size: 15px;
+        padding: 1vh 1vw;
+        color: black;
       }
+    }
+  
+    &__item:hover{
+      border: 1px solid #0095EE;
+      margin: 7px;
     }
   }
 }

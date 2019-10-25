@@ -32,8 +32,10 @@
       height: 17vw;
       width: 12vw;
       background: white;
-      margin: 8px;
+      margin: 7px;
       filter: drop-shadow(3px 3px 3px rgb(204,204,204));
+      transition: 0.1s;
+      border: 1px solid rgb(245, 245, 245);
 
       img{
         height: 13vw;
@@ -55,8 +57,13 @@
         width: 12vw;
         overflow: hidden;
         font-size: 14px;
-        padding: 0 1vw;
+        padding: 1vh 1vw;
+        color: black;
       }
+    }
+    &__item:hover{
+      border: 1px solid #0095EE;
+      margin: 7px;
     }
   }
 }

@@ -28,18 +28,24 @@
     width: 15vw;
     padding: 17px;
     margin-bottom: 1px;
+    color: #333333;
   i{
     color: gray;
     float: right;
     padding-top: 5px;
   } 
   }
+  &__top:hover{
+    background: #eee;
+  }
+
   &__title{
     font-weight: 700;
     margin-top: 35px;
     margin-bottom: 7px;
   }
 }
+
 
 .right-mypage-contents{
   background-image: url(https://sandermechanical.com/wp-content/uploads/2014/05/009-Blue-Sky-with-Clouds.jpg);
@@ -94,6 +100,7 @@
     line-height: 72px;
     text-align: center;
     margin-left: 25vw;
+    color: #333333;
     }
   }
 
@@ -181,6 +188,7 @@
     text-align: center;
     width: 25vw;
     float: right;
+    color: #333333;
   }
   &__not-found-transation{
     background: white;
@@ -212,6 +220,7 @@
     text-align: center;
     width: 25vw;
     position: absolute;
+    color: #333333;
     }
   &__todo-2{
     background: white;
@@ -222,6 +231,7 @@
     width: 25vw;
     position: absolute;
     margin-left: 360px;
+    color: #333333;
     }
   }
 
@@ -230,6 +240,7 @@
   float: right;
   margin-right: 15vw;
   margin-top: 72px;
+  color: #333333;
   &__body{
     background: white;
     height: 240px;
@@ -252,6 +263,8 @@
   float: right;
   margin-top: 40px;
   margin-right: 15vw;
+  color: #333333;
+  
   &__text{
     font-size: 16px;
     line-height: 72px;
@@ -265,6 +278,7 @@
     text-align: center;
     width: 25vw;
     float: left;
+    color: #333333;
   }
   &__after-transation-2{
     background: white;
@@ -275,5 +289,6 @@
     text-align: center;
     width: 25vw;
     float: right;
+    color: #333333;
   }
 }
