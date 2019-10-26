@@ -1,10 +1,4 @@
 .registration
-  .registration__header
-    = link_to "/" do
-      .registration__header__icon
-        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", size: "185x49", alt: "mercari"
-    .progress
-      = image_tag "registration.png"
   .registration__main
     = form_for @user, url: "/signup/step3", method: "get", html: {class: "registration__main__main"} do |f|
       .registration__main__main__member
