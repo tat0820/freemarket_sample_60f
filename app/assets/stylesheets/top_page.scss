@@ -12,7 +12,6 @@
     margin-bottom: 16px;
   }
 
-
   &__kind{
     text-align: center;
 
@@ -58,7 +57,6 @@
   }
 }
 
-
 .top-products{
   padding: 42px 12vw 100px;
 
@@ -98,6 +96,9 @@
     margin-top: 14px;
     margin-right: 10px;
     font-size: 14px;
+    &:hover{
+      transform: translate(5px,0);
+    }
   }
 
   &__items{
@@ -176,6 +177,16 @@
 .top-icon-link{
   text-decoration: none;
   color: white;
+
+  &:hover{
+    .top-icon{
+      animation: key1 .3s ease infinite alternate;
+    }
+    @keyframes key1{
+      0% {transform: translateY(0px);}
+      100% {transform: translateY(-15px);}
+    }
+  }
 }
 
 .top-icon{
