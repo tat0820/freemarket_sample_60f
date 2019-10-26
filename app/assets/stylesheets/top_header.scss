@@ -159,6 +159,10 @@
         display: block;
       }
     }
+    &__category:hover{
+      color: #0095EE;
+    }
+  
 
     &__brand{
       display:inline-block;
@@ -179,7 +183,8 @@
         top: 50px;
         font-size: 13px;
         z-index: 1000;
-
+        color:  #333333;
+        
         &__li{
           padding: 12px 14px;
 
@@ -194,6 +199,10 @@
         display: block;
       }  
     }
+    &__brand:hover{
+      color: #0095EE;
+    }
+   
     
     &__signup{
       display:inline-block;
@@ -230,6 +239,11 @@
       float: right;
       padding: 4px 6px;
       margin-top: 11px;
+      color:#333333;
+    }
+
+    &__mypage:hover{
+      color: #0095EE;
     }
 
     &__right-box{
@@ -243,6 +257,9 @@
         color: rgb(204,204,204);
         font-size: 20px;
       }
+    }
+    &__right-box:hover{
+      color:  #0095EE;
     }
   }
 }
