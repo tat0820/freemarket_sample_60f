@@ -11,13 +11,10 @@
     display: inline-block;
     font-size: 22px;
     font-weight: 400;
-
-    
     }
   &__num{
     font-size: 14px;
     margin-top: 10px;
-
   }
   &__new{
     font-size: 22px;
@@ -43,11 +40,12 @@
 
       &__price{
         position: absolute;
-        top: 21vh;
+        top: 18vh;
+        font-size: 12px;
         color: white;
         padding: 1vh 1vw;
         background: rgba(0,0,0,.4);
-        border-radius: 0 14px 14px 0;
+        border-radius: 0 20px 20px 0;
       }
 
       &__name{

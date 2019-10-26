@@ -12,7 +12,6 @@ $(function(){
   //   }
 
 
-
     // reader.readAsDataURL(file);
     // images.push(img);
 

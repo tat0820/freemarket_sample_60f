@@ -3,8 +3,31 @@ class ProductsController < ApplicationController
 
   def index
     @product = Product.new
-    @products = Product.all.order("id DESC")
     @category_parent = Category.where(ancestry: nil)
+
+    @rady_products = []
+    rady_category = Detail.where(large_category: "レディース").limit(10)
+    rady_category.each do |category|
+      @rady_products << Product.find(category.product_id)
+    end
+
+    @men_products = []
+    men_category = Detail.where(large_category: "メンズ").limit(10)
+    men_category.each do |category|
+      @men_products << Product.find(category.product_id)
+    end
+
+    @machine_products = []
+    machine_category = Detail.where(large_category: "家電・スマホ・カメラ").limit(10)
+    machine_category.each do |category|
+      @machine_products << Product.find(category.product_id)
+    end
+
+    @hoby_products = []
+    hoby_category = Detail.where(large_category: "おもちゃ・ホビー・グッズ").limit(10)
+    hoby_category.each do |category|
+      @hoby_products << Product.find(category.product_id)
+    end
   end
 
   def new
@@ -19,7 +42,42 @@ class ProductsController < ApplicationController
 
   def get_category_grandchildren
     @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
+  end
 
+  def category_search_parent
+    @category_parent = Category.where(ancestry: nil)
+    @large_category = Category.find(params[:parent_id])
+    
+    large_categorys = Detail.where(large_category: @large_category.name).limit(120)
+    @large_category_products = []
+    large_categorys.each do |category|
+      @large_category_products << Product.find(category.product_id)
+    end
+  end
+
+  def category_search_child
+    @category_parent = Category.where(ancestry: nil)
+    @large_category = Category.find(params[:parent_id])
+    @medium_category = Category.find(params[:child_id])
+    
+    medium_categorys = Detail.where(large_category: @large_category.name, medium_category: @medium_category.name).limit(120)
+    @medium_category_products = []
+    medium_categorys.each do |category|
+      @medium_category_products << Product.find(category.product_id)
+    end
+  end
+
+  def category_search_grandchild
+    @category_parent = Category.where(ancestry: nil)
+    @large_category = Category.find(params[:parent_id])
+    @medium_category = Category.find(params[:child_id])
+    @small_category = Category.find(params[:grandchild_id])
+    
+    small_categorys = Detail.where(large_category: @large_category.name, medium_category: @medium_category.name, small_category: @small_category.name).limit(120)
+    @small_category_products = []
+    small_categorys.each do |category|
+      @small_category_products << Product.find(category.product_id)
+    end
   end
   
   def create
@@ -74,15 +132,6 @@ class ProductsController < ApplicationController
     redirect_to "/"
   end
 
-  def search
-    @keyword = params[:keyword]
-    @products = Product.where('name LIKE(?)',"%#{@keyword}%").limit(15)
-    @all_products = Product.all
-  end
-
-  def user_buying
-  end
-
   def edit
     @product = Product.find(params[:id])
   end
@@ -91,6 +140,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to("/")
+  end
+
+  def search
+    @keyword = params[:keyword]
+    @products = Product.where('name LIKE(?)',"%#{@keyword}%").limit(120)
+    @all_products = Product.all
+  end
+
+  def user_buying
   end
     
   def pay

@@ -16,13 +16,44 @@
   &__kind{
     text-align: center;
 
-    &__name{
+    &__name-1{
       display: inline-block;
       padding: 8px 16px;
       background: #EFEFEF;
       border-radius: 30px;
       font-weight: 600;
       font-size: 14px;
+      cursor : pointer;
+    }
+
+    &__name-2{
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EFEFEF;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor : pointer;
+    }
+
+    &__name-3{
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EFEFEF;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor : pointer;
+    }
+
+    &__name-4{
+      display: inline-block;
+      padding: 8px 16px;
+      background: #EFEFEF;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor : pointer;
     }
   }
 }
@@ -30,7 +61,30 @@
 .top-products{
   padding: 42px 12vw 100px;
 
-  &__title{
+  &__ancestry{
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  &__title-1{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__title-2{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__title-3{
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__title-4{
     display: inline-block;
     font-size: 24px;
     font-weight: 600;
@@ -48,8 +102,12 @@
   &__items{
     display: flex;
     flex-wrap : wrap;
+    margin-bottom: 45px;
 
     &__item{
+      opacity: 0;
+      transform : translate(0, 5px);
+      transition : all 1200ms;
       position: relative;
       height: 19vw;
       width: 14vw;
@@ -79,7 +137,6 @@
         transform: rotate(-45deg);
       }
 
-
       img{
         height: 15vw;
         width: 14vw;
@@ -107,6 +164,11 @@
   }
 }
 
+.top-icon-link{
+  text-decoration: none;
+  color: white;
+}
+
 .top-icon{
   background: #EA352D;
   height: 160px;
@@ -117,10 +179,6 @@
   font-size: 60px;
   position: fixed;
   text-align: center;
-  a{
-    text-decoration: none;
-    color: white;
-  }
 
   &__margin{
     height: 24px;
@@ -131,4 +189,9 @@
     height: 25px;
     line-height: 25px;
   }
+}
+
+.scrollin{
+  opacity: 1;
+  transform: translate(0, 0);
 }

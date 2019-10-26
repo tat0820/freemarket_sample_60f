@@ -12,6 +12,9 @@ Rails.application.routes.draw do
       get '/:id/user_buying' => 'products#user_buying'
       get '/get_category_children' => 'products#get_category_children', defaults: { format: 'json' }
       get '/get_category_grandchildren' => 'products#get_category_grandchildren', defaults: { format: 'json' }
+      get '/:parent_id/category_search_parent' => 'products#category_search_parent'
+      get '/:parent_id/:child_id/category_search_child' => 'products#category_search_child'
+      get '/:parent_id/:child_id/:grandchild_id/category_search_grandchild' => 'products#category_search_grandchild'
     end
   end
 
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
       get '/:id/appear_after_transation' => 'users#appear_after_transation'    
     end
   end
- 
+
   resources :signup, only: [:create] do
     collection do
       get 'step1'
