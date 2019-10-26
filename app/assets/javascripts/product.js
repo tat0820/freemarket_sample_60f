@@ -1,11 +1,10 @@
 $(function(){
     $(".chosen-dot").mouseover(function(){
-        var chosen_dot_child = $(this).children("div")
-        var chosen_dot_childchild = chosen_dot_child.children("img")
-        var ImgSrc = chosen_dot_childchild.attr("src");
+        var chosen_dot_child = $(this).children("img");
+        var ImgSrc = chosen_dot_child.attr("src");
         $("img#MainPhoto").attr({src:ImgSrc});
-        $("img#MainPhoto").hide();
-        $("img#MainPhoto").fadeIn("fast");
+        $("img#MainPhoto").css("display","0");
+        $("img#MainPhoto").css("opacity","1");
         return false;
     });
 

@@ -4,30 +4,17 @@
   %h1.product-name 
     = @product.name
   %p.product-wording 
-  -# #{@product.name}は、●●●回の取引実績を持つ●●●さんから出品されました。#{@product.detail.small_category}/#{@product.detail.large_category}の商品で、#{@product.origin_area}から2~3日で発送されます。
   .product-main-content.clearfix
     .product-photo
-      .chosen-carousel.chosen-loaded.chosen-drag
-        .chosen-stage-outer
-          .chosen-stage
-            .chosen-product.active
-              .chosen-product-inner
-                = image_tag @product.images[0].img.url, id:"MainPhoto"
-                - if @product.status !=  "出品中"
-                  .chosen-product-inner__sold__image
-                  .chosen-product-inner__sold__text SOLD
+      .chosen-carousel
+        = image_tag @product.images[0].img.url, id:"MainPhoto"
+        - if @product.status !=  "出品中"
+          .chosen-product-inner__sold__image
+          .chosen-product-inner__sold__text SOLD
         .chosen-dots
           - @product.images.each do |image|
             .chosen-dot
-              %span
-              .chosen-dot-inner
-                = image_tag image.img.url,class:"ChangePhoto"
-    .product-price-box.text-center.visible-sp
-      %span.product-yen ¥
-      %span.product-price.bold
-        = @product.price
-      %span.product-tax (税込)
-      %span.product-shipping-fee 送料込み
+              = image_tag image.img.url,class:"ChangePhoto"
     %section.visible-sp
     %table.product-detail-table
       %tbody
@@ -37,30 +24,28 @@
             シンプソンズ
             .producty
               .product-user-ratings
-              .icon-good= fa_icon 'heart'
-              %span 3991
+              .icon-good= fa_icon 'smile-o'
+              .icon-number 0
               .product-user-ratings
-              .icon-normal= fa_icon 'heart'
-              %span 12
+              .icon-normal= fa_icon 'meh-o'
+              .icon-number 0
               .product-user-ratings
-              .icon-bad= fa_icon 'heart'
-              %span 3
+              .icon-bad= fa_icon 'frown-o'
+              .icon-number 0
         %tr
           %th カテゴリー
           %td
             %span.link
-              -# #{@product.detail.large_category}
+              =@product.detail.large_category
             %span.link
               .product-detail-table-sub-category
-                %strong ＞
-                -# #{@product.detail.medium_category}
+                %strong ＞ #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
-                %strong ＞
-                -# #{@product.detail.small_category}
+                %strong ＞ #{@product.detail.small_category}
         %tr
           %th ブランド
-          -# %td #{@product.detail.brand}
+          %td #{@product.detail.brand}
         %tr
           %th 商品の状態
           %td #{@product.condition}
@@ -114,15 +99,7 @@
       この商品を削除する
 .product-detail-message
   .message-container
-%ul.nav-product-link-prev-next.clearfix
-  %li.nav-product-link-prev
-    %span.link
-      %strong> ＜
-      ピンクチェック マキシワンピース
-  %li.nav-product-link-next
-    %span.link
-      [ジャンク]マザーボード LGA1155  2枚 ピン折れ i5 3450 割れ
-      %strong ＞
+
 .product-social-media-box
   %ul.social-media-box
     %li
@@ -143,158 +120,44 @@
 .products-in-user-profile
   %section.products-box-container.clearfix.related-product-column.products-in-user-profile
     %h2.products-box-head
-      %span.link RPM☆プロフィールを必ずご覧ください☆さんのその他の出品
+      %span.link #{@product.user.nickname}さんのその他の出品
     .products-box-content.clearfix
+    - @user_products.each do |product|
       %section.products-box
         %figure.products-box-photo
           .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m21603038327_1.jpg?1570811271",alt: "chichi69様 専用"
-          %figcaption
-            .product-sold-out-badge
-              %div SOLD
+          = link_to product_path(product.id) do
+            = image_tag product.images[0].img.url
         .products-box-body
-          %h3.products-box-name.font-2 chichi69様 専用
+          %h3.products-box-name.font-2
+          = product.name
           .products-box-num
-            .products-box-price.font-5 ¥6,330
+            .products-box-price.font-5
+            ¥#{product.price}
             .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m56531144532_1.jpg?1570794818",alt: "No.5328 UDF チャーリーブラウン ＆ スヌーピー フィギュア"
-        .products-box-body
-          %h3.products-box-name.font-2 No.5328 UDF チャーリーブラウン ＆ スヌーピー フィギュア
-          .products-box-num
-            .products-box-price.font-5 ¥2,230
-            .font-2
-              = fa_icon 'heart'
-              %span 15
-      %section.products-box
-        %figure.products-box-photo
-          .is-higher-height.lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m46105054916_1.jpg?1570789052",alt: "No.5327 UDF スヌーピー マーブルズ フィギュア"
-        .products-box-body
-          %h3.products-box-name.font-2 No.5327 UDF スヌーピー マーブルズ フィギュア
-          .products-box-num
-            .products-box-price.font-5 ¥1,580
-            .font-2
-              = fa_icon 'heart'
-              %span 3
-      %section.products-box
-        %figure.products-box-photo
-          .is-higher-height.lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m36393335892_1.jpg?1570787461",alt: "No.5326 UDF スヌーピー マーブルズ フィギュア"
-          %figcaption
-            .product-sold-out-badge
-              %div SOLD
-        .products-box-body
-          %h3.products-box-name.font-2 No.5326 UDF スヌーピー マーブルズ フィギュア
-          .products-box-num
-            .products-box-price.font-5 ¥1,580
-            .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          .is-higher-height.lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m80136863751_1.jpg?1570787348",alt: "No.5325 UDF アストロノーツ スヌーピー フィギュア"
-        .products-box-body
-          %h3.products-box-name.font-2 No.5325 UDF アストロノーツ スヌーピー フィギュア
-          .products-box-num
-            .products-box-price.font-5 ¥1,870
-            .font-2
-              = fa_icon 'heart'
-              %span 4
-      %section.products-box
-        %figure.products-box-photo
-          .is-higher-height.lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m61533757520_1.jpg?1570787174",alt: "No.5324 UDF アストロノーツ チャーリーブラウン フィギュア"
-        .products-box-body
-          %h3.products-box-name.font-2 No.5324 UDF アストロノーツ チャーリーブラウン フィギュア
-          .products-box-num
-            .products-box-price.font-5 ¥1,870
-            .font-2
-              = fa_icon 'heart'
-              %span 5
-
-
-
+              = fa_icon 'heart-o'
+              %span 0
 
   %section.products-box-container.clearfix.related-product-column
     %h2.products-box-head
       %span.link
-        ぬいぐるみ （おもちゃ・ホビー・グッズ） その他の商品
+        #{@product.detail.large_category} その他の商品
     .products-box-content.clearfix
+    - @category_products.each do |product|
       %section.products-box
         %figure.products-box-photo
           .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m77014304984_1.jpg?1560075458",alt: "American Dream ベアー／ブラウン"
+          = link_to product_path(product.id) do
+            = image_tag product.images[0].img.url
         .products-box-body
-          %h3.products-box-name.font-2 American Dream ベアー／ブラウン
+          %h3.products-box-name.font-2
+          = product.name
           .products-box-num
-            .products-box-price.font-5 ¥4,200
+            .products-box-price.font-5
+            ¥#{product.price}
             .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          .lazyloaded.is-higher-height
-            = image_tag "https://static.mercdn.net/thumb/photos/m86991400068_1.jpg?1570893503",alt: "ふんわり ころころきつね ぬいぐるみ 全4種類 ③"
-        .products-box-body
-          %h3.products-box-name.font-2 ふんわり ころころきつね ぬいぐるみ 全4種類 ③
-          .products-box-num
-            .products-box-price.font-5 ¥2,800
-            .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          %img.lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m65201690947_1.jpg?1569053576",alt: "ユニコーンのコニー オーロラリボン ぬいぐるみ"
-        .products-box-body
-          %h3.products-box-name.font-2 ユニコーンのコニー オーロラリボン ぬいぐるみ
-          .products-box-num
-            .products-box-price.font-5 ¥2,380
-            .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m46851662345_1.jpg?1570893468", alt: "ふわふわバニーぬいぐるみ"
-        .products-box-body
-          %h3.products-box-name.font-2 ふわふわバニーぬいぐるみ
-          .products-box-num
-            .products-box-price.font-5 ¥2,400
-            .font-2
-              = fa_icon 'heart'
-              %span 1
-      %section.products-box
-        %figure.products-box-photo
-          .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m26839815332_1.jpg?1556536963",alt: "クレヨンしんちゃん めちゃでかぬいぐるみ 〜おすわりシロ〜"
-        .products-box-body
-          %h3.products-box-name.font-2 クレヨンしんちゃん めちゃでかぬいぐるみ 〜おすわりシロ〜
-          .products-box-num
-            .products-box-price.font-5 ¥1,700
-            .font-2
-              = fa_icon 'heart'
-              %span 3
-      %section.products-box
-        %figure.products-box-photo
-          .lazyloaded
-            = image_tag "https://static.mercdn.net/thumb/photos/m81687621385_1.jpg?1569053942",alt: "ぽてうさろっぴー ビビッド ぬいぐるみ"
-        .products-box-body
-          %h3.products-box-name.font-2 ぽてうさろっぴー ビビッド ぬいぐるみ
-          .products-box-num
-            .products-box-price.font-5 ¥1,980
-            .font-2
-              = fa_icon 'heart'
-              %span 1
-
-
-
+              = fa_icon 'heart-o'
+              %span 0
 
               
 %aside.modal{'data-close': "modal", 'data-modal': "report-product"}
@@ -308,9 +171,10 @@
 %nav.bread-crumbs.pos-bottom
   %ul
     %li{productscope: "", producttype: "http://data-vocabulary.org/Breadcrumb"}
-      %span{productprop: "title"} メルカリ
-      %strong ＞
+      = link_to "/" do
+        %span{productprop: "title"} メルカリ
+        %strong ＞
     %li{productscope: "", producttype: "http://data-vocabulary.org/Breadcrumb"}
-      %span{productprop: "title"} No.5038 My Pet Monster トーキングプラッシュドール UK
+      %span{productprop: "title"} #{@product.name}
 
 =render "shared/top_footer"
