@@ -57,6 +57,15 @@ class ProductsController < ApplicationController
 
   def show
     @category_parent = Category.where(ancestry: nil)
+    @user_products = Product.where(user_id: @product.user_id).limit(6)
+
+    product_large_categorys = Detail.where(large_category: @product.detail.large_category).limit(6)
+
+    @category_products = []
+    product_large_categorys.each do |category|
+      @category_products << Product.find(category.product_id)
+    end
+
   end
 
   def update
