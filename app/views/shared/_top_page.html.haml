@@ -6,22 +6,80 @@
   .top-category__title
     人気のカテゴリー
   .top-category__kind
-    .top-category__kind__name
+    .top-category__kind__name-1
       レディース
-    .top-category__kind__name
+    .top-category__kind__name-2
       メンズ
-    .top-category__kind__name
+    .top-category__kind__name-3
       家電・スマホ・カメラ
-    .top-category__kind__name
+    .top-category__kind__name-4
       おもちゃ・ホビー・グッズ
 
 .top-products
-  .top-products__title
-    全てのアイテム
+  .top-products__title-1
+    レディース 新着アイテム
   .top-products__show
-    もっと見る＞
+    = link_to "/products/レディース/category_search_parent" do
+      もっと見る＞
   .top-products__items
-    - @products.each do |product|
+    - @rady_products.each do |product|
+      = link_to product_path(product.id) do
+        .top-products__items__item
+          = image_tag product.images[0].img.url
+          - if product.status !=  "出品中"
+            .top-products__items__item__sold__image
+            .top-products__items__item__sold__text SOLD
+          .top-products__items__item__price
+            ¥
+            = product.price
+          .top-products__items__item__name
+            = product.name
+
+  .top-products__title-2
+    メンズ 新着アイテム
+  .top-products__show
+    = link_to "/products/メンズ/category_search_parent" do
+      もっと見る＞
+  .top-products__items
+    - @men_products.each do |product|
+      = link_to product_path(product.id) do
+        .top-products__items__item
+          = image_tag product.images[0].img.url
+          - if product.status !=  "出品中"
+            .top-products__items__item__sold__image
+            .top-products__items__item__sold__text SOLD
+          .top-products__items__item__price
+            ¥
+            = product.price
+          .top-products__items__item__name
+            = product.name
+
+  .top-products__title-3
+    家電・スマホ・カメラ 新着アイテム
+  .top-products__show
+    = link_to "/products/家電・スマホ・カメラ/category_search_parent" do
+      もっと見る＞
+  .top-products__items
+    - @machine_products.each do |product|
+      = link_to product_path(product.id) do
+        .top-products__items__item
+          = image_tag product.images[0].img.url
+          - if product.status !=  "出品中"
+            .top-products__items__item__sold__image
+            .top-products__items__item__sold__text SOLD
+          .top-products__items__item__price
+            ¥
+            = product.price
+          .top-products__items__item__name
+            = product.name
+
+  .top-products__title-4
+    おもちゃ・ホビー・グッズ 新着アイテム
+  .top-products__show
+    = link_to "/products/おもちゃ・ホビー・グッズ/category_search_parent" do
+      もっと見る＞
+  .top-products__items
+    - @hoby_products.each do |product|
       = link_to product_path(product.id) do
         .top-products__items__item
           = image_tag product.images[0].img.url

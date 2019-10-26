@@ -1,7 +1,8 @@
 .top-header{
   background: white;
   padding: 10px 14vw 0;
-  filter: drop-shadow(0 3px 3px rgb(204,204,204));
+  margin-bottom: 2px;
+
   a{
     text-decoration: none;
   }
@@ -34,8 +35,7 @@
       right: 10px;
       top: 10px;
       color: gray;
-      height: 50px; 
-      
+      height: 50px;
     }
 
     &__hidden{
@@ -44,6 +44,8 @@
       top: 10px;
       color: gray; 
       opacity: 0;
+      cursor : pointer;
+      width: 28px;
     }
   }
 
@@ -69,14 +71,26 @@
         width: 230px;
         top: 50px;
         font-size: 13px;
+        z-index: 1000;
+
+        a{
+          color: #333333;
+        }
 
         @for $a from 0 through 12{
           &__li#{$a}{
-            padding: 12px 14px;
+            padding: 13px 14px;
 
             &:hover{
               background: #EA352D;
-              color: #FFFFFF;
+
+              .link_a{
+                color: white;
+              }
+
+              .top-header__list__category__list__li#{$a}__ul#{$a}{
+                height: 598px;
+              }
             }
 
             @for $b from 0 through 18{
@@ -97,10 +111,14 @@
               @for $b from 0 through 18{
                 &__li#{$b}{
                   display: none;
-                  padding: 7px 14px;
+                  padding: 2px 14px;
 
                   &:hover{
                     background: rgb(240,240,240);
+
+                    .top-header__list__category__list__li#{$a}__ul#{$a}__li#{$b}__ul#{$b}{
+                      height: 598px;
+                    }
                   }
 
                   @for $c from 0 through 28{
@@ -122,7 +140,7 @@
                     @for $c from 0 through 28{
                       &__li#{$c}{
                         display: none;
-                        padding: 7px 14px;
+                        padding: 2px 14px;
 
                         &:hover{
                           background: rgb(240,240,240);
@@ -164,7 +182,9 @@
         width: 230px;
         top: 50px;
         font-size: 13px;
+        z-index: 1000;
         color:  #333333;
+        
         &__li{
           padding: 12px 14px;
 
