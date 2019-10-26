@@ -103,7 +103,8 @@ class ProductsController < ApplicationController
   end
     
   def pay
-    Payjp.api_key = ENV['PAYJPSK']
+    Payjp.api_key = Rails.application.credentials.PAYJPSK
+    binding.pry
     charge = Payjp::Charge.create(
     :amount => @product.price,
     :card => params['payjp-token'],
