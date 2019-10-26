@@ -23,7 +23,6 @@
         .buy-box-btn
           = form_tag(action: :pay, method: :post) do  
             %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,'data-text': "購入する" ,'data-key': Rails.application.credentials.PAYJPPK}
-            
       .buy-user-info
         .buy-user-info__post
           配送先
