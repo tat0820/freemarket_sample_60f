@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show,:user_buying, :pay]
+  before_action :set_product, only: [:show,:user_buying, :update, :edit, :destroy, :pay,]
 
   def index
     @product = Product.new
@@ -134,7 +134,6 @@ class ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:id])
     if @product.user_id == current_user.id
       @product.update(product_params)
     end
@@ -142,13 +141,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    
+    unless @product.user.id == current_user.id
+      redirect_to "/"
+    end
   end
 
   def destroy
-    @product = Product.find(params[:id])
-    @product.destroy
-    redirect_to("/")
+    if @product.user.id == current_user.id
+       @product.destroy
+    else
+    redirect_to "/"
+    end
   end
 
   def search
