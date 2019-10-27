@@ -14,10 +14,10 @@
   .login-main__box
     .login-main__box__facebook
       = image_tag "https://ja.facebookbrand.com/wp-content/uploads/2019/04/f_logo_RGB-Hex-Blue_512.png", class: "facebook"
-      = link_to "Facebookでログイン",user_facebook_omniauth_authorize_path, method: :post
+      = link_to "Facebookでログイン",user_facebook_omniauth_authorize_path, method: :post ,class:"whiteman"
     .login-main__box__google
       = image_tag "https://developers.google.com/identity/images/g-logo.png?hl=ja", class: "google"
-      = link_to "Googleでログイン",user_google_oauth2_omniauth_authorize_path, method: :post
+      = link_to "Googleでログイン",user_google_oauth2_omniauth_authorize_path, method: :post ,class:"yesman"
     
     = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
       = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "メールアドレス", class: "field"
