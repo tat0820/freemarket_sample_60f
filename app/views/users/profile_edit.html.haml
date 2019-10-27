@@ -11,10 +11,9 @@
       .profile-icon
         = image_tag '//static.mercdn.net/images/member_photo_noimage_thumb.png'
       .profile-name
-        mercariくん
+        =current_user.nickname
     .profile-contents
-      .profile-contents__box
-        例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪
+      %input.input-profile{name: "profile-text", placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！", type: "text"}/
     .profile__contents__btn
       変更する
 

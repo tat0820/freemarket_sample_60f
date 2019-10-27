@@ -28,10 +28,11 @@
       font-weight: bold;
     }
     .profile-background-image{
-      width: auto;
+      // width: auto;
       height: 170px;
-      background-image: url(http://www.hdnicewallpapers.com/Walls/Big/Monsoon/Water_Drops_and_Light_Reflection_in_Rain_HD_Images.jpg);
-      margin: 0 auto;
+      background-image: url(https://wallpaperaccess.com/full/175987.jpg);
+      background-size:cover;
+      // margin: 0 auto;
       display: flex;
       justify-content: center;
 
@@ -59,12 +60,12 @@
       background-color: #fff;
       width: 700px;
       padding: 40px 16px 10px 16px;
-      &__box{
+      .input-profile{
         background: #fff;
         width: 670px;
         border: 1px solid #ccc;
         font-size: 16px;
-        line-height: 2;
+        line-height: 7;
         padding: 14px;
       }
     }
