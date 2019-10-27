@@ -1,7 +1,11 @@
 @import "reset";
-@import "user_mypage";
+@import "slick-theme";
+@import "slick";
 @import "font-awesome";
 @import "mixin";
+
+@import "top-image";
+@import "user_mypage";
 @import "modules/register-top-footer";
 @import "modules/signup";
 @import "modules/registration";
@@ -12,6 +16,8 @@
 @import "modules/done";
 @import "modules/add-credit";
 @import "modules/add-credit-information";
+
+
 
 @import "user_check";
 @import "user_logout";
