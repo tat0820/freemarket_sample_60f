@@ -21,7 +21,7 @@
         %tr
           %th 出品者
           %td 
-            =current_user.nickname
+            = @product.user.nickname
             .producty
               .product-user-ratings
               .icon-good= fa_icon 'smile-o'
