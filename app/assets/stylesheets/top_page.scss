@@ -23,6 +23,13 @@
       font-weight: 600;
       font-size: 14px;
       cursor : pointer;
+      &:hover{
+        animation: key1 .3s ease infinite alternate;
+      }
+      @keyframes key1{
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-8px);}
+      }
     }
 
     &__name-2{
@@ -33,6 +40,13 @@
       font-weight: 600;
       font-size: 14px;
       cursor : pointer;
+      &:hover{
+        animation: key1 .3s ease infinite alternate;
+      }
+      @keyframes key1{
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-8px);}
+      }
     }
 
     &__name-3{
@@ -43,6 +57,13 @@
       font-weight: 600;
       font-size: 14px;
       cursor : pointer;
+      &:hover{
+        animation: key1 .3s ease infinite alternate;
+      }
+      @keyframes key1{
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-8px);}
+      }
     }
 
     &__name-4{
@@ -53,6 +74,13 @@
       font-weight: 600;
       font-size: 14px;
       cursor : pointer;
+      &:hover{
+        animation: key1 .3s ease infinite alternate;
+      }
+      @keyframes key1{
+        0% {transform: translateY(0px);}
+        100% {transform: translateY(-8px);}
+      }
     }
   }
 }
@@ -97,7 +125,11 @@
     margin-right: 10px;
     font-size: 14px;
     &:hover{
-      transform: translate(5px,0);
+      animation: key1 .3s ease infinite alternate;
+    }
+    @keyframes key1{
+      0% {transform: translateY(0px);}
+      100% {transform: translateY(-8px);}
     }
   }
 
@@ -108,16 +140,20 @@
 
     &__item{
       opacity: 0;
-      transform : translate(0, 5px);
+      transform : translate(0,5px);
       transition : all 1200ms;
       position: relative;
       height: 19vw;
       width: 14vw;
       background: white;
       margin: 7px;
-      filter: drop-shadow(3px 3px 3px rgb(204,204,204));
       transition: 0.1s;
-      border: 1px solid rgb(245, 245, 245);
+      border: 1px solid transparent;
+      filter: drop-shadow(3px 3px 3px rgb(204,204,204));
+
+      &:hover{
+        border: 1px solid #0095EE;
+      }
 
       &__sold__image{
         width: 0;
@@ -166,11 +202,6 @@
         color: black;
       }
     }
-  
-    &__item:hover{
-      border: 1px solid #0095EE;
-      margin: 7px;
-    }
   }
 }
 
@@ -180,9 +211,9 @@
 
   &:hover{
     .top-icon{
-      animation: key1 .3s ease infinite alternate;
+      animation: key2 .3s ease infinite alternate;
     }
-    @keyframes key1{
+    @keyframes key2{
       0% {transform: translateY(0px);}
       100% {transform: translateY(-15px);}
     }

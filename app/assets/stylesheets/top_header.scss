@@ -72,6 +72,7 @@
         top: 50px;
         font-size: 13px;
         z-index: 1000;
+        filter: drop-shadow(3px 3px 3px rgb(200,200,200));
 
         a{
           color: #333333;
@@ -103,10 +104,11 @@
             &__ul#{$a}{
               position: absolute;
               top: 0;
-              left: 231px;
+              left: 230px;
               background: #FFFFFF;
               width: 230px;
               font-size: 13px;
+              filter: drop-shadow(3px 3px 3px rgb(200,200,200));
 
               @for $b from 0 through 18{
                 &__li#{$b}{
@@ -132,10 +134,11 @@
                   &__ul#{$b}{
                     position: absolute;
                     top: 0;
-                    left: 231px;
+                    left: 230px;
                     background: #FFFFFF;
                     width: 280px;
                     font-size: 13px;
+                    filter: drop-shadow(3px 3px 3px rgb(200,200,200));
 
                     @for $c from 0 through 28{
                       &__li#{$c}{
@@ -184,6 +187,7 @@
         font-size: 13px;
         z-index: 1000;
         color:  #333333;
+        filter: drop-shadow(3px 3px 3px rgb(200,200,200));
         
         &__li{
           padding: 12px 14px;
@@ -202,7 +206,6 @@
     &__brand:hover{
       color: #0095EE;
     }
-   
     
     &__signup{
       display:inline-block;
