@@ -74,6 +74,9 @@
         = link_to product_path(product.id) do
           .top-search-products__items__item
             = image_tag product.images[0].img.url
+            - if product.status !=  "出品中"
+              .top-products__items__item__sold__image
+              .top-products__items__item__sold__text SOLD
             .top-search-products__items__item__price
               ¥
               = product.price
@@ -95,6 +98,9 @@
         = link_to product_path(product.id) do
           .top-search-products__items__item
             = image_tag product.images[0].img.url
+            - if product.status !=  "出品中"
+              .top-products__items__item__sold__image
+              .top-products__items__item__sold__text SOLD
             .top-search-products__items__item__price
               ¥
               = product.price
@@ -115,6 +121,9 @@
         = link_to product_path(product.id) do
           .top-search-products__items__item
             = image_tag product.images[0].img.url
+            - if product.status !=  "出品中"
+              .top-products__items__item__sold__image
+              .top-products__items__item__sold__text SOLD
             .top-search-products__items__item__price
               ¥
               = product.price

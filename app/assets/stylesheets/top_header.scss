@@ -1,7 +1,9 @@
 .top-header{
   background: white;
   padding: 10px 14vw 0;
-  filter: drop-shadow(0 3px 3px rgb(204,204,204));
+  margin-bottom: 2px;
+
+
   a{
     text-decoration: none;
   }
@@ -11,6 +13,7 @@
     img{
       height: 36px;
       width: 134px;
+      margin-bottom: 20px;
     }
   }
 
@@ -18,9 +21,10 @@
     position: relative;
     display:inline-block;
 
+
     &__form{
       width: 54vw;
-      height: 34px;
+      height: 40px;
       float: right;
       padding: 0 50px 0 10px;
       border-radius: 5px;
@@ -34,8 +38,7 @@
       right: 10px;
       top: 10px;
       color: gray;
-      height: 50px; 
-      
+      height: 10px;
     }
 
     &__hidden{
@@ -44,6 +47,8 @@
       top: 10px;
       color: gray; 
       opacity: 0;
+      cursor : pointer;
+      width: 28px;
     }
   }
 
@@ -69,14 +74,27 @@
         width: 230px;
         top: 50px;
         font-size: 13px;
+        z-index: 1000;
+        filter: drop-shadow(3px 3px 3px rgb(200,200,200));
+
+        a{
+          color: #333333;
+        }
 
         @for $a from 0 through 12{
           &__li#{$a}{
-            padding: 12px 14px;
+            padding: 13px 14px;
 
             &:hover{
               background: #EA352D;
-              color: #FFFFFF;
+
+              .link_a{
+                color: white;
+              }
+
+              .top-header__list__category__list__li#{$a}__ul#{$a}{
+                height: 598px;
+              }
             }
 
             @for $b from 0 through 18{
@@ -89,18 +107,23 @@
             &__ul#{$a}{
               position: absolute;
               top: 0;
-              left: 231px;
+              left: 230px;
               background: #FFFFFF;
               width: 230px;
               font-size: 13px;
+              filter: drop-shadow(3px 3px 3px rgb(200,200,200));
 
               @for $b from 0 through 18{
                 &__li#{$b}{
                   display: none;
-                  padding: 7px 14px;
+                  padding: 2px 14px;
 
                   &:hover{
                     background: rgb(240,240,240);
+
+                    .top-header__list__category__list__li#{$a}__ul#{$a}__li#{$b}__ul#{$b}{
+                      height: 598px;
+                    }
                   }
 
                   @for $c from 0 through 28{
@@ -114,15 +137,16 @@
                   &__ul#{$b}{
                     position: absolute;
                     top: 0;
-                    left: 231px;
+                    left: 230px;
                     background: #FFFFFF;
                     width: 280px;
                     font-size: 13px;
+                    filter: drop-shadow(3px 3px 3px rgb(200,200,200));
 
                     @for $c from 0 through 28{
                       &__li#{$c}{
                         display: none;
-                        padding: 7px 14px;
+                        padding: 2px 14px;
 
                         &:hover{
                           background: rgb(240,240,240);
@@ -164,7 +188,10 @@
         width: 230px;
         top: 50px;
         font-size: 13px;
+        z-index: 1000;
         color:  #333333;
+        filter: drop-shadow(3px 3px 3px rgb(200,200,200));
+        
         &__li{
           padding: 12px 14px;
 
@@ -182,7 +209,6 @@
     &__brand:hover{
       color: #0095EE;
     }
-   
     
     &__signup{
       display:inline-block;

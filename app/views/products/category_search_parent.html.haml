@@ -1,0 +1,31 @@
+= render "shared/top_header"
+.header-mypage-ribon
+  = link_to "/" do
+    メルカリ
+  &nbsp;＞&nbsp;
+  = @large_category.name
+
+.top-products
+  .top-products__ancestry
+    - @large_category.children.each do |child|
+      = link_to "/products/#{@large_category.id}/#{child.id}/category_search_child" do
+        = child.name
+      &nbsp;
+  .top-products__title-1
+    = @large_category.name
+    の商品一覧
+  .top-products__items
+    - @large_category_products.each do |product|
+      = link_to product_path(product.id) do
+        .top-products__items__item
+          = image_tag product.images[0].img.url
+          - if product.status !=  "出品中"
+            .top-products__items__item__sold__image
+            .top-products__items__item__sold__text SOLD
+          .top-products__items__item__price
+            ¥
+            = product.price
+          .top-products__items__item__name
+            = product.name
+
+= render "shared/top_footer"

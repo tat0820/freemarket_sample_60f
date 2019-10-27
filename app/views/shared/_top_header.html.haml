@@ -3,7 +3,7 @@
     .top-header__logo
       = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"
   .top-header__search
-    = form_tag("/products/search", method: :get) do 
+    = form_tag("/products/search", method: :get) do
       = text_field_tag :keyword, "", class: "top-header__search__form", placeholder:"何かお探しですか？"
 
       = label :keyword, class: 'top-header__search__button' do
@@ -18,17 +18,20 @@
       %ul.top-header__list__category__list
         - @category_parent.each_with_index do |parent, a|
           %li{class: "top-header__list__category__list__li#{a}"}
-            = parent.name
+            = link_to "/products/#{parent.id}/category_search_parent", class: "link_a"do
+              = parent.name
 
             %ul{class: "top-header__list__category__list__li#{a}__ul#{a}"}
               - parent.children.each_with_index do |child, b|
                 %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}"}
-                  = child.name
+                  = link_to "/products/#{parent.id}/#{child.id}/category_search_child" do
+                    = child.name
 
                   %ul{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}"}
                     - child.children.each_with_index do |grandchild, c|
                       %li{class: "top-header__list__category__list__li#{a}__ul#{a}__li#{b}__ul#{b}__li#{c}"}
-                        = grandchild.name
+                        = link_to "/products/#{parent.id}/#{child.id}/#{grandchild.id}/category_search_grandchild" do
+                          = grandchild.name
 
     .top-header__list__brand
       = fa_icon "tags"
@@ -45,8 +48,6 @@
           シュプリーム
         %li.top-header__list__brand__list__li
           アディダス
-        %li.top-header__list__brand__list__li
-          ブランド一覧
 
     - if user_signed_in?
       = link_to "/users/#{current_user.id}" do
@@ -76,16 +77,17 @@
         .top-header__list__signup
           新規会員登録
 
-.top-icon
-  - if user_signed_in?
-    = link_to "/products/new" do
+- if user_signed_in?
+  = link_to "/products/new", class: "top-icon-link" do
+    .top-icon
       .top-icon__margin
       .top-icon__text
         出品
       = fa_icon "camera"
 
-  - else
-    = link_to new_user_session_path do
+- else
+  = link_to new_user_session_path, class: "top-icon-link" do
+    .top-icon
       .top-icon__margin
       .top-icon__text
         出品
