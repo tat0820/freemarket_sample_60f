@@ -68,9 +68,10 @@
       = @product.price
     %span.product-tax (税込)
     %span.product-shipping-fee 送料込み
-    = link_to "/products/#{@product.id}/user_buying" do
-      .product-buy-btn
-        購入画面に進む
+    - unless @product.user.id == current_user&.id
+      = link_to "/products/#{@product.id}/user_buying" do
+        .product-buy-btn
+          購入画面に進む
   .product-description.f14
     %p.product-description-inner
       = @product.discription
@@ -86,7 +87,7 @@
     .product-button-right
       %span.link
         あんしん・あんぜんへの取り組み
-- if @product.user.id == current_user.id        
+- if @product.user.id == current_user&.id
   .listing-product-change-box
     = link_to(edit_product_path(@product.id))do
       .listing-product-change-box__edit

@@ -141,7 +141,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    
     unless @product.user.id == current_user.id
       redirect_to "/"
     end
@@ -150,9 +149,8 @@ class ProductsController < ApplicationController
   def destroy
     if @product.user.id == current_user.id
        @product.destroy
-    else
-    redirect_to "/"
     end
+    redirect_to "/"
   end
 
   def search
@@ -162,6 +160,9 @@ class ProductsController < ApplicationController
   end
 
   def user_buying
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
   end
     
   def pay
