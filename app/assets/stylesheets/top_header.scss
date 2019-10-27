@@ -3,6 +3,7 @@
   padding: 10px 14vw 0;
   margin-bottom: 2px;
 
+
   a{
     text-decoration: none;
   }
@@ -12,6 +13,7 @@
     img{
       height: 36px;
       width: 134px;
+      margin-bottom: 20px;
     }
   }
 
@@ -19,9 +21,10 @@
     position: relative;
     display:inline-block;
 
+
     &__form{
       width: 54vw;
-      height: 34px;
+      height: 40px;
       float: right;
       padding: 0 50px 0 10px;
       border-radius: 5px;
@@ -35,7 +38,7 @@
       right: 10px;
       top: 10px;
       color: gray;
-      height: 50px;
+      height: 10px;
     }
 
     &__hidden{
