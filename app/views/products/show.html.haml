@@ -36,13 +36,16 @@
           %th カテゴリー
           %td
             %span.link
-              =@product.detail.large_category
+              = link_to "/" do
+                = @product.detail.large_category
             %span.link
               .product-detail-table-sub-category
-                %strong ＞ #{@product.detail.medium_category}
+                = link_to "/" do
+                  %strong ＞ #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
-                %strong ＞ #{@product.detail.small_category}
+                = link_to "/" do
+                  %strong ＞ #{@product.detail.small_category}
         %tr
           %th ブランド
           %td #{@product.detail.brand}
@@ -80,7 +83,7 @@
       .product-button.product-button-like
         = fa_icon 'heart'
         %span いいね!
-        %span{'data-num': "like"} 22
+        %span{'data-num': "like"} 0
       .product-button.product-button-report.clearfix
         = fa_icon 'flag'
         %span 不適切な商品の報告

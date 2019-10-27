@@ -681,6 +681,7 @@ ul, ol {
   font-size: 16px;
   font-weight: 400;
   color: #333;
+  padding-left:100px;
 }
 
 .products-box-name:after {
@@ -696,15 +697,12 @@ ul, ol {
 }
 
 .products-box-num {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-products: center;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
-  justify-content: space-between;
   margin: 8px 0 0;
 }
 
@@ -1140,3 +1138,4 @@ h2 {
     line-height: 50px;
   }
 }
+
