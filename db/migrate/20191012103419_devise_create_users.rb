@@ -11,14 +11,14 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name, null: false
       t.string :last_name_kana, null: false
       t.string :first_name_kana, null: false
-      t.integer :birthday_year, null: false
-      t.integer :birthday_month, null: false
-      t.integer :birthday_day, null: false
+      t.string :birthday_year, null: false
+      t.string :birthday_month, null: false
+      t.string :birthday_day, null: false
       t.string :phone_number
-      t.integer :card_number
-      t.integer :card_limit_month
-      t.integer :card_limit_year
-      t.integer :security_code
+      t.string :card_number
+      t.string :card_limit_month
+      t.string :card_limit_year
+      t.string :security_code
       t.integer :sales_money
       t.integer :point
 
