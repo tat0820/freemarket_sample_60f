@@ -131,7 +131,7 @@ class ProductsController < ApplicationController
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Category.find_by(name: "#{params[:child_name]}").children
+    @category_grandchildren = Category.find("#{params[:child_id]}").children
   end
 
   def category_search_parent
