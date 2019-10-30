@@ -670,41 +670,23 @@ ul, ol {
 
 .products-box-name {
   overflow: hidden;
-  position: relative;
-  font-weight: 400;
-  line-height: 1.5;
-  word-break: break-word;
-  white-space: normal;
+  height: 5vw;
+  width: 20vw;
+  font-size: 15px;
+  color: black;
 }
 
-.font-2 {
-  font-size: 16px;
-  font-weight: 400;
-  color: #333;
+.font-2{
+  display: inline-block;
+  float:right;
+}
+.products-box-price.font-5{
+  display: inline-block;
+  float:left;
 }
 
-.products-box-name:after {
-  display: block;
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50%;
-  height: 1.5em;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(255,255,255,0)), color-stop(72%, #fff));
-  background: linear-gradient(to right, rgba(255,255,255,0), #fff 72%);
-}
 
 .products-box-num {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-products: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   margin: 8px 0 0;
 }
 
