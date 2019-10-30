@@ -13,12 +13,19 @@
         必須
       .sale-page-box__upload-box__text
         最大10枚アップロードできます
-      .sale-page-box__upload-box__item
-        ドラッグアンドドロップ
-        %br
-        またはクリックしてファイルをアップロード
-        = f.fields_for :images do |i|
-          = i.file_field :img
+      
+      .sale-page-box__upload-box__item1
+        .sale-page-box__upload-box__item1__preview1
+        .sale-page-box__upload-box__item1__dropzone1
+          %p クリックしてファイルをアップロード
+          = f.fields_for :images do |i|
+            = i.file_field :img, multiple: true, name: 'images[img][]', id: "upload-image", class: "upload-image", 'data-image': 0
+      = render partial: 'image_error_messages', locals: {images: @product.images, column: "img"}
+
+      .sale-page-box__upload-box__item2
+        .sale-page-box__upload-box__item2__preview2
+        .sale-page-box__upload-box__item2__dropzone2
+          %p クリックしてファイルをアップロード
 
     .sale-page-box__product
       = f.label :商品名, class: "sale-page-box__product__title"
@@ -44,7 +51,8 @@
           必須
         .sale-page-box__pul__right__category
           = f.fields_for :detail do |i|
-            -# = i.select :large_category, @category_parent_array, {prompt:'--'}, class: "sale-page-box__pul__right__category__parent"
+            = i.collection_select :large_category, Category.where(ancestry: nil), :name, :name, {prompt:'--'}, class: "sale-page-box__pul__right__category__parent"
+            = render partial: 'detail_error_messages', locals: {detail: @product.detail, column: "large_category"}
 
         = f.label :商品の状態, class:"sale-page-box__pul__right__title"
         .sale-page-box__pul__right__must
@@ -85,7 +93,7 @@
         .sale-page-box__price__right__en
           ¥
         = f.text_field :price, class: "sale-page-box__price__right__value", placeholder: "例）300"
-        = render partial: 'product_error_messages', locals: {product: @product, column: "pri"}
+        = render partial: 'product_error_messages', locals: {product: @product, column: "price"}
 
         .sale-page-box__price__right__fee
           販売手数料(10%)
@@ -98,9 +106,14 @@
 
     .sale-page-box__btn-box
       .sale-page-box__btn-box__text
-        = f.submit "変更する", class: "sale-page-box__btn-box__red-btn"
+        禁止されている出品、行為を必ずご確認ください。
+        %br
+        またブランド品でシリアルナンバー等がある場合はご記載ください。偽ブランドの販売は犯罪であり処罰される可能性があります。
+        %br
+        また、出品をもちまして加盟店規約に同意したことになります。
+      = f.submit "変更する", class: "sale-page-box__btn-box__red-btn"
       .sale-page-box__btn-box__gray-btn
-        キャンセル
+        もどる
 
 .sale-page-footer
   %ul.sale-page-footer__box
