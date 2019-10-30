@@ -1,6 +1,6 @@
 .top-header{
   background: white;
-  padding: 10px 14vw 0;
+  padding: 0 14vw;
   margin-bottom: 2px;
 
   a{
@@ -9,6 +9,7 @@
 
   &__logo{
     display:inline-block;
+    margin-bottom: 10px;
     img{
       height: 36px;
       width: 134px;
@@ -18,7 +19,7 @@
   &__search{
     position: relative;
     display:inline-block;
-
+    top: 16px;
 
     &__form{
       width: 54vw;
@@ -33,8 +34,8 @@
 
     &__button{
       position: absolute;
-      right: 10px;
-      top: 10px;
+      right: 12px;
+      top: 12px;
       color: gray;
       height: 10px;
     }
