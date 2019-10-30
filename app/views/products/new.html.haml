@@ -13,11 +13,19 @@
         必須
       .sale-page-box__upload-box__text
         最大10枚アップロードできます
-      .sale-page-box__upload-box__item
-        クリックしてファイルをアップロード<br>
-        = f.fields_for :images do |i|
-          = i.file_field :img, class: "sasle-page-box__upload-box__item__img"
-        = render partial: 'image_error_messages', locals: {images: @product.images, column: "img"}
+      
+      .sale-page-box__upload-box__item1
+        .sale-page-box__upload-box__item1__preview1
+        .sale-page-box__upload-box__item1__dropzone1
+          %p クリックしてファイルをアップロード
+          = f.fields_for :images do |i|
+            = i.file_field :img, multiple: true, name: 'images[img][]', id: "upload-image", class: "upload-image", 'data-image': 0
+      = render partial: 'image_error_messages', locals: {images: @product.images, column: "img"}
+
+      .sale-page-box__upload-box__item2
+        .sale-page-box__upload-box__item2__preview2
+        .sale-page-box__upload-box__item2__dropzone2
+          %p クリックしてファイルをアップロード
 
     .sale-page-box__product
       = f.label :商品名, class: "sale-page-box__product__title"
