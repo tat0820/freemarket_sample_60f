@@ -1,7 +1,8 @@
 .user-buying
   %header.user-buying__header
     %h1.user-buyinng__header__mercari-box
-      = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class: "user-buying__header__mercari-box__icon"
+      = link_to "/" do
+        = image_tag "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308", class: "user-buying__header__mercari-box__icon"
   .user-buying__main
     .user-buying__main__box
       %h2.user-buying__main__box__head
@@ -35,13 +36,14 @@
           = current_user.address.street
 
         .buy-user-info__name
-          mercariくん
+          = current_user.nickname
         .buy-user-info__fix
           変更する >
         .buy-user-info__pay-method
           支払い方法
         .buy-user-info__pay-method-text
-          クレジットカード情報
+          クレジットカード情報<br>
+          = current_user.card_number
         .buy-user-info__fix
           変更する >
 

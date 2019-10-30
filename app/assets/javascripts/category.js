@@ -8,7 +8,7 @@ $(function(){
   function appendChidrenBox(insertHTML){
     let childSelectHtml = '';
     childSelectHtml = `<select class="sale-page-box__pul__right__category__child" name="product[detail_attributes][medium_category]">
-                          <option value="">--</option>
+                          <option value="" data-category="">--</option>
                           ${insertHTML}
                         </select>`;
     $('.sale-page-box__pul__right__category').append(childSelectHtml);
@@ -57,13 +57,13 @@ $(function(){
 
   $(document).on('change', ".sale-page-box__pul__right__category__child", function(){
 
-    let childCategory = $(this).val();
+    let childId = $('.sale-page-box__pul__right__category__child option:selected').data("category");
 
-    if (childCategory != ""){
+    if (childId != ""){
       $.ajax({
         url: '/products/get_category_grandchildren',
         type: 'get',
-        data: { child_name: childCategory },
+        data: { child_id: childId },
         dataType: 'json'
       })
 
