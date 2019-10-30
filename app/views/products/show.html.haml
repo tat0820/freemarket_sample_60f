@@ -3,7 +3,10 @@
 %section.product-box-container.first-container
   %h1.product-name 
     = @product.name
-  %p.product-wording 
+  .product-wording
+    『#{@product.name}』は、0回の取引実績を持つ#{@product.user.nickname}さんから出品されました。
+    （#{@product.detail.small_category}/#{@product.detail.medium_category}/#{@product.detail.large_category}）の商品で、
+    #{@product.origin_area}から#{@product.days_left_send}で発送されます。
   .product-main-content.clearfix
     .product-photo
       .chosen-carousel
@@ -36,16 +39,18 @@
           %th カテゴリー
           %td
             %span.link
-              = link_to "/" do
+              = link_to "/products/#{@product_parent.id}/category_search_parent" do
                 = @product.detail.large_category
             %span.link
               .product-detail-table-sub-category
-                = link_to "/" do
-                  %strong ＞ #{@product.detail.medium_category}
+                - if @product.detail.medium_category.present?
+                  = link_to "/products/#{@product_parent.id}/#{@product_child.id}/category_search_child" do
+                    %strong ＞ #{@product.detail.medium_category}
             %span.link
               .product-detail-table-sub-sub-category
-                = link_to "/" do
-                  %strong ＞ #{@product.detail.small_category}
+                - if @product.detail.small_category.present?
+                  = link_to "/products/#{@product_parent.id}/#{@product_child.id}/#{@product_grandchild.id}/category_search_grandchild" do
+                    %strong ＞ #{@product.detail.small_category}
         %tr
           %th ブランド
           %td #{@product.detail.brand}
@@ -64,14 +69,15 @@
             %span.link #{@product.origin_area}
         %tr
           %th 発送日の目安
-          %td 2~3日で発送
+          %td #{@product.days_left_send}
   .product-price-box.text-center
     %span.product-yen.bold ¥
     %span.product-price.bold
       = @product.price
     %span.product-tax (税込)
-    %span.product-shipping-fee 送料込み
-    - unless @product.user.id == current_user&.id
+    %span.product-shipping-fee
+      = @product.delivery_charge
+    - if (@product.user.id != current_user&.id) && (@product.status == "出品中")
       = link_to "/products/#{@product.id}/user_buying" do
         .product-buy-btn
           購入画面に進む
@@ -81,16 +87,16 @@
   .product-button-container.clearfix
     .product-button-left
       .product-button.product-button-like
-        = fa_icon 'heart'
+        = fa_icon 'heart-o'
         %span いいね!
         %span{'data-num': "like"} 0
       .product-button.product-button-report.clearfix
-        = fa_icon 'flag'
+        = fa_icon 'flag-o'
         %span 不適切な商品の報告
     .product-button-right
       %span.link
         あんしん・あんぜんへの取り組み
-- if @product.user.id == current_user&.id
+- if (@product.user.id == current_user&.id) && (@product.status == "出品中")
   .listing-product-change-box
     = link_to(edit_product_path(@product.id))do
       .listing-product-change-box__edit
@@ -119,8 +125,6 @@
     %li
       .share-btn
         .icon-pinterest= fa_icon 'pinterest'
-
-
 
 .products-in-user-profile
   %section.products-box-container.clearfix.related-product-column.products-in-user-profile
