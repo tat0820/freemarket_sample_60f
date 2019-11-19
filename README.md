@@ -2,6 +2,8 @@
 
 # メルカリのクローンアプリ
 
+![view](mercari.gif)
+
 ## 制作背景
 学校（TECH::EXPERT）の製作課題
 
